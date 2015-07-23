@@ -23,6 +23,27 @@ Saguaro Data Model provides...
 
 ## How to use
 
+### SADocumentIdentifier
+
+The struct SADocumentIdentifier is used to encapsolate id, date created, last updated, and version attributes.  Using this standard identifier makes it easy to send and recieve data from non-SQL databases like redis.  Here is a standard use:
+
+```
+let doi = SADocumentIdentifier()
+
+print( doi.id ) // 84ef623b5d2c4fd69b5f6722a54cd22e <- a GUID like unique id
+print( doi.dateCreated ) // an NSDate
+print( doi.lastUpdated ) // another NSDate
+print( doi.version ) // an int == 0
+
+assert( doi.dateCreated == doi.lastUpdated )
+
+assert( SADocumentIdentifier() != doi ) // compare against another doi
+
+doi.updateVersion()
+assert( doi.version == 1 )
+assert( doi.dateCreated < doi.lastUpdated )
+```
+
 ## License: MIT
 
 Use as you wish.  Please fork and help out if you can.

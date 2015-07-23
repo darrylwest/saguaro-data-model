@@ -22,6 +22,9 @@ class SADocumentIdentifierTests: XCTestCase {
         XCTAssertNotNil(doi.dateCreated, "doi should not be nil")
         XCTAssertNotNil(doi.lastUpdated, "doi should not be nil")
         XCTAssertNotNil(doi.version, "doi should not be nil")
+
+        XCTAssertEqual(doi.dateCreated, doi.lastUpdated, "dates should match")
+        XCTAssertEqual(doi.version, 0, "version is zero")
     }
 
     func testInstanceWithInputs() {

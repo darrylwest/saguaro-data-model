@@ -88,6 +88,7 @@ public struct SAMutableDateRange: SADateRangeModel {
 }
 
 public extension SADateRangeModel {
+    /// convert this date range to a map<String,AnyObject> of startDate, endDate and days
     func toMap() -> [String:AnyObject] {
         let map = [
             "startDate": self.startDate,
@@ -98,6 +99,7 @@ public extension SADateRangeModel {
         return map
     }
 
+    /// convert this map to a date range or return nil
     static func fromMap(map: [String:AnyObject]) -> SADateRange? {
         guard let startDate = map[ "startDate" ] as? NSDate,
             let endDate = map[ "endDate" ] as? NSDate,
