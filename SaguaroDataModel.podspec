@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
   s.ios.deployment_target = "8.0"
   s.source      = { :git => "https://github.com/darrylwest/saguaro-data-model.git", :tag => s.version }
-  s.source_files = "SaguaroLogger/*.swift"
+  s.source_files = "SaguaroDataModel/*.swift"
 end

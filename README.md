@@ -5,7 +5,7 @@
 _A swift 2.0 set of data modeling tools for iOS/OSX applications_
 
 <a href="https://developer.apple.com/swift/"><img src="http://raincitysoftware.com/swift2-badge.png" alt="" width="65" height="20" border="0" /></a>
-[![Build Status](https://travis-ci.org/darrylwest/saguaro-data.svg?branch=master)](https://travis-ci.org/darrylwest/saguaro-data)
+[![Build Status](https://travis-ci.org/darrylwest/saguaro-data-model.svg?branch=master)](https://travis-ci.org/darrylwest/saguaro-data-model)
 
 ## Features
 
