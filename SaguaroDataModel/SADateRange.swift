@@ -91,7 +91,8 @@ public extension SADateRangeModel {
     func toMap() -> [String:AnyObject] {
         let map = [
             "startDate": self.startDate,
-            "endDate": self.endDate
+            "endDate": self.endDate,
+            "days":self.days
         ]
 
         return map
@@ -99,10 +100,11 @@ public extension SADateRangeModel {
 
     static func fromMap(map: [String:AnyObject]) -> SADateRange? {
         guard let startDate = map[ "startDate" ] as? NSDate,
-            let endDate = map[ "endDate" ] as? NSDate else {
+            let endDate = map[ "endDate" ] as? NSDate,
+            let days = map[ "days" ] as? Int else {
                 return nil
         }
 
-        return SADateRange(startDate: startDate, endDate: endDate)
+        return SADateRange(startDate: startDate, endDate: endDate, days: days)
     }
 }

@@ -116,11 +116,23 @@ class SADateRangeTests: XCTestCase {
 
         XCTAssertEqual(dateRange.startDate, map["startDate"] as! NSDate, "start match")
         XCTAssertEqual(dateRange.endDate, map["endDate"] as! NSDate, "end match")
-        XCTAssertEqual(dateRange.days, 10, "day count match")
+        XCTAssertEqual(dateRange.days, map["days"] as! Int, "day count match")
     }
 
     func testFromMap() {
+        var range = SAMutableDateRange(dateTimeCalculator:calculator)
+        range.days = 25
 
+        let map = [ "startDate": range.startDate, "endDate": range.endDate, "days":range.days ]
+
+        guard let dateRange = SADateRange.fromMap( map ) else {
+            XCTFail("should create the date range from map: \( map )")
+            return
+        }
+
+        XCTAssertEqual(dateRange.startDate, range.startDate, "start match")
+        XCTAssertEqual(dateRange.endDate, range.endDate, "end match")
+        XCTAssertEqual(dateRange.days, range.days, "day count match")
     }
 
     
