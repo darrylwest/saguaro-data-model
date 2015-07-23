@@ -18,7 +18,7 @@ Saguaro Data Model provides...
 
 ## Installation
 
-* cocoapods: pod 'SaguaroDataModel', :git => 'https://github.com/darrylwest/saguaro-data-model.git'
+* pod 'SaguaroDataModel', :git => 'https://github.com/darrylwest/saguaro-data-model.git'
 * git subproject/framework (from repo)
 
 ## How to use
