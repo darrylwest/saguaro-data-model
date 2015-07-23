@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SaguaroDataModel
+import SaguaroDataModel
 
 class SADocumentIdentifierTests: XCTestCase {
 

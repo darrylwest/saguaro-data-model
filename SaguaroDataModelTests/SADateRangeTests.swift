@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SaguaroDataModel
+import SaguaroDataModel
 
 class SADateRangeTests: XCTestCase {
     let calculator = SADateTimeCalculator()

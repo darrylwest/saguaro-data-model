@@ -39,7 +39,7 @@ public struct SADocumentIdentifier: CustomStringConvertible {
     }
 
     // invoke this to bump the last updated and version values
-    mutating func updateVersion() {
+    public mutating func updateVersion() {
         lastUpdated = NSDate()
         ++version
     }
