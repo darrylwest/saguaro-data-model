@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA7E779B1B616966003159D1 /* SADocumentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */; };
+		BA7E779D1B616AEA003159D1 /* SAUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E779C1B616AEA003159D1 /* SAUnique.swift */; };
+		BA7E779F1B616DB1003159D1 /* SADocumentIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */; };
+		BA7E77A11B616F79003159D1 /* SAUniqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */; };
 		BAF6CC251B61628100173FB5 /* SaguaroDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAF6CC2C1B61628100173FB5 /* SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF6CC211B61628100173FB5 /* SaguaroDataModel.framework */; };
-		BAF6CC311B61628100173FB5 /* SaguaroDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6CC301B61628100173FB5 /* SaguaroDataModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,11 +26,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADocumentIdentifier.swift; sourceTree = "<group>"; };
+		BA7E779C1B616AEA003159D1 /* SAUnique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUnique.swift; sourceTree = "<group>"; };
+		BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADocumentIdentifierTests.swift; sourceTree = "<group>"; };
+		BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUniqueTests.swift; sourceTree = "<group>"; };
 		BAF6CC211B61628100173FB5 /* SaguaroDataModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SaguaroDataModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaguaroDataModel.h; sourceTree = "<group>"; };
 		BAF6CC261B61628100173FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAF6CC2B1B61628100173FB5 /* SaguaroDataModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaguaroDataModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAF6CC301B61628100173FB5 /* SaguaroDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaguaroDataModelTests.swift; sourceTree = "<group>"; };
 		BAF6CC321B61628100173FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +79,8 @@
 			children = (
 				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
 				BAF6CC261B61628100173FB5 /* Info.plist */,
+				BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */,
+				BA7E779C1B616AEA003159D1 /* SAUnique.swift */,
 			);
 			path = SaguaroDataModel;
 			sourceTree = "<group>";
@@ -80,8 +88,9 @@
 		BAF6CC2F1B61628100173FB5 /* SaguaroDataModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				BAF6CC301B61628100173FB5 /* SaguaroDataModelTests.swift */,
 				BAF6CC321B61628100173FB5 /* Info.plist */,
+				BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */,
+				BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";
@@ -142,6 +151,7 @@
 		BAF6CC181B61628100173FB5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "darryl west";
 				TargetAttributes = {
@@ -193,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7E779D1B616AEA003159D1 /* SAUnique.swift in Sources */,
+				BA7E779B1B616966003159D1 /* SADocumentIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAF6CC311B61628100173FB5 /* SaguaroDataModelTests.swift in Sources */,
+				BA7E77A11B616F79003159D1 /* SAUniqueTests.swift in Sources */,
+				BA7E779F1B616DB1003159D1 /* SADocumentIdentifierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +320,7 @@
 		BAF6CC361B61628100173FB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -317,12 +331,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.raincitysoftware.SaguaroDataModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		BAF6CC371B61628100173FB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -375,6 +391,7 @@
 				BAF6CC371B61628100173FB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAF6CC381B61628100173FB5 /* Build configuration list for PBXNativeTarget "SaguaroDataModelTests" */ = {
 			isa = XCConfigurationList;
@@ -383,6 +400,7 @@
 				BAF6CC3A1B61628100173FB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
