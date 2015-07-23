@@ -11,6 +11,10 @@
 		BA7E779D1B616AEA003159D1 /* SAUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E779C1B616AEA003159D1 /* SAUnique.swift */; };
 		BA7E779F1B616DB1003159D1 /* SADocumentIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */; };
 		BA7E77A11B616F79003159D1 /* SAUniqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */; };
+		BA7E77A31B6172A5003159D1 /* SADateRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A21B6172A5003159D1 /* SADateRangeTests.swift */; };
+		BA7E77A51B617309003159D1 /* SADateTimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A41B617309003159D1 /* SADateTimeCalculator.swift */; };
+		BA7E77A71B6174FA003159D1 /* SADateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A61B6174FA003159D1 /* SADateRange.swift */; };
+		BA7E77A91B617A8F003159D1 /* SADateTimeCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */; };
 		BAF6CC251B61628100173FB5 /* SaguaroDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAF6CC2C1B61628100173FB5 /* SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF6CC211B61628100173FB5 /* SaguaroDataModel.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +34,10 @@
 		BA7E779C1B616AEA003159D1 /* SAUnique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUnique.swift; sourceTree = "<group>"; };
 		BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADocumentIdentifierTests.swift; sourceTree = "<group>"; };
 		BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUniqueTests.swift; sourceTree = "<group>"; };
+		BA7E77A21B6172A5003159D1 /* SADateRangeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateRangeTests.swift; sourceTree = "<group>"; };
+		BA7E77A41B617309003159D1 /* SADateTimeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateTimeCalculator.swift; sourceTree = "<group>"; };
+		BA7E77A61B6174FA003159D1 /* SADateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateRange.swift; sourceTree = "<group>"; };
+		BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateTimeCalculatorTests.swift; sourceTree = "<group>"; };
 		BAF6CC211B61628100173FB5 /* SaguaroDataModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SaguaroDataModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaguaroDataModel.h; sourceTree = "<group>"; };
 		BAF6CC261B61628100173FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,10 +85,12 @@
 		BAF6CC231B61628100173FB5 /* SaguaroDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
-				BAF6CC261B61628100173FB5 /* Info.plist */,
+				BA7E77A61B6174FA003159D1 /* SADateRange.swift */,
+				BA7E77A41B617309003159D1 /* SADateTimeCalculator.swift */,
 				BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */,
 				BA7E779C1B616AEA003159D1 /* SAUnique.swift */,
+				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
+				BAF6CC261B61628100173FB5 /* Info.plist */,
 			);
 			path = SaguaroDataModel;
 			sourceTree = "<group>";
@@ -89,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				BAF6CC321B61628100173FB5 /* Info.plist */,
+				BA7E77A21B6172A5003159D1 /* SADateRangeTests.swift */,
 				BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */,
 				BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */,
+				BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";
@@ -204,7 +216,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA7E779D1B616AEA003159D1 /* SAUnique.swift in Sources */,
+				BA7E77A51B617309003159D1 /* SADateTimeCalculator.swift in Sources */,
 				BA7E779B1B616966003159D1 /* SADocumentIdentifier.swift in Sources */,
+				BA7E77A71B6174FA003159D1 /* SADateRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7E77A91B617A8F003159D1 /* SADateTimeCalculatorTests.swift in Sources */,
 				BA7E77A11B616F79003159D1 /* SAUniqueTests.swift in Sources */,
+				BA7E77A31B6172A5003159D1 /* SADateRangeTests.swift in Sources */,
 				BA7E779F1B616DB1003159D1 /* SADocumentIdentifierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
