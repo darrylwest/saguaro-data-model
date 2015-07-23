@@ -16,7 +16,21 @@ public protocol SADataModelListType {
     var list:[SADataModelType] { get }
 }
 
-public struct SADocumentIdentifier: CustomStringConvertible {
+public protocol SADocumentIdentifierType: Equatable {
+    var id:String { get }
+    var dateCreated:NSDate { get }
+    var lastUpdated:NSDate { get }
+    var version:Int { get }
+}
+
+public func == (lhs:SADocumentIdentifier, rhs:SADocumentIdentifier) -> Bool {
+    return lhs.id == rhs.id &&
+        lhs.dateCreated == rhs.dateCreated &&
+        lhs.lastUpdated == rhs.lastUpdated &&
+        lhs.version == rhs.version
+}
+
+public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConvertible {
     public let id:String
     public let dateCreated:NSDate
     public private(set) var lastUpdated:NSDate
@@ -55,10 +69,16 @@ public struct SADocumentIdentifier: CustomStringConvertible {
 
 }
 
-extension SADocumentIdentifier: Equatable { }
-public func == (lhs:SADocumentIdentifier, rhs:SADocumentIdentifier) -> Bool {
-    return lhs.id == rhs.id &&
-        lhs.dateCreated == rhs.dateCreated &&
-        lhs.lastUpdated == rhs.lastUpdated &&
-        lhs.version == rhs.version
+public extension SADocumentIdentifierType {
+    func toMap() -> [String:AnyObject] {
+        let map = [
+            "id": self.id,
+            "dateCreated": self.dateCreated,
+            "lastUpdated": self.lastUpdated,
+            "version": self.version
+        ]
+
+        return map
+    }
 }
+

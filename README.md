@@ -35,11 +35,11 @@ print( doi.dateCreated ) // an NSDate
 print( doi.lastUpdated ) // another NSDate
 print( doi.version ) // an int == 0
 
-assert( doi.dateCreated == doi.lastUpdated )
+assert( doi.dateCreated == doi.lastUpdated )  
 
 assert( SADocumentIdentifier() != doi ) // compare against another doi
 
-doi.updateVersion()
+doi.updateVersion() // update version and lastUpdated
 assert( doi.version == 1 )
 assert( doi.dateCreated < doi.lastUpdated )
 ```
