@@ -49,4 +49,4 @@ assert( doi.dateCreated < doi.lastUpdated )
 Use as you wish.  Please fork and help out if you can.
 
 - - -
-darryl.west@raincitysoftware.com | Version 00.90.10
+darryl.west@raincitysoftware.com | Version 00.90.11

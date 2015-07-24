@@ -79,7 +79,7 @@ public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConver
 }
 
 public extension SADocumentIdentifierType {
-    func toMap() -> [String:AnyObject] {
+    public func toMap() -> [String:AnyObject] {
         let map = [
             "id": self.id,
             "dateCreated": self.dateCreated,
