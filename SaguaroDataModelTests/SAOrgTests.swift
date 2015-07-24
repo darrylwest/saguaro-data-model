@@ -7,12 +7,13 @@
 //
 
 import XCTest
+import SaguaroDataModel
 
 class SAOrgTests: XCTestCase {
     
 
     func testInstance() {
-        
+        XCTAssertEqual(1, 1, "ones")
     }
     
 }

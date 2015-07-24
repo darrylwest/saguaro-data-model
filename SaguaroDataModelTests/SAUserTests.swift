@@ -12,7 +12,7 @@ class SAUserTests: XCTestCase {
     
 
     func testInstance() {
-        
+        XCTAssertEqual(1, 1, "ones")
     }
     
 }
