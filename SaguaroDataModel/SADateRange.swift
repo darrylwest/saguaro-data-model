@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SADateRangeModel {
+public protocol SADateRangeModel: SAMappable {
     var startDate:NSDate { get }
     var endDate:NSDate { get }
     var days: Int { get }

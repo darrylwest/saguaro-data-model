@@ -8,21 +8,30 @@
 
 import Foundation
 
+/// define a mappable to enable preparing for JSON stringify
+public protocol SAMappable {
+    func toMap() -> [String:AnyObject]
+}
+
+/// all sa data models should contain a doi
 public protocol SADataModelType {
     var doi:SADocumentIdentifier { get }
 }
 
+/// a list of data models
 public protocol SADataModelListType {
     var list:[SADataModelType] { get }
 }
 
-public protocol SADocumentIdentifierType: Equatable {
+/// define the identifier type
+public protocol SADocumentIdentifierType: Equatable, SAMappable {
     var id:String { get }
     var dateCreated:NSDate { get }
     var lastUpdated:NSDate { get }
     var version:Int { get }
 }
 
+/// equals operator
 public func == (lhs:SADocumentIdentifier, rhs:SADocumentIdentifier) -> Bool {
     return lhs.id == rhs.id &&
         lhs.dateCreated == rhs.dateCreated &&
@@ -30,13 +39,14 @@ public func == (lhs:SADocumentIdentifier, rhs:SADocumentIdentifier) -> Bool {
         lhs.version == rhs.version
 }
 
+/// concrete implementation of document identifier
 public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConvertible {
     public let id:String
     public let dateCreated:NSDate
     public private(set) var lastUpdated:NSDate
     public private(set) var version:Int
 
-    // initializer used for new documents
+    /// initializer used for new documents
     public init() {
         id = SADocumentIdentifier.createModelId()
         dateCreated = NSDate()
@@ -44,7 +54,7 @@ public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConver
         version = 0
     }
 
-    // initializer for documents that currently exist
+    /// initializer for documents that currently exist
     public init(id:String, dateCreated:NSDate, lastUpdated:NSDate, version:Int) {
         self.id = id
         self.dateCreated = dateCreated
@@ -52,7 +62,7 @@ public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConver
         self.version = version
     }
 
-    // invoke this to bump the last updated and version values
+    /// invoke this to bump the last updated and version values
     public mutating func updateVersion() {
         lastUpdated = NSDate()
         ++version
@@ -62,11 +72,10 @@ public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConver
         return "id:\( id ), created:\( dateCreated ), updated:\( lastUpdated ), version: \( version )"
     }
 
-    // convenience func for creating standard 32 character id's
+    /// convenience func for creating standard 32 character id's
     public static func createModelId() -> String {
         return SAUnique.createModelId()
     }
-
 }
 
 public extension SADocumentIdentifierType {
@@ -81,4 +90,3 @@ public extension SADocumentIdentifierType {
         return map
     }
 }
-
