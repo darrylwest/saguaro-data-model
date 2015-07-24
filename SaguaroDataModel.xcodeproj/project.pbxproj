@@ -105,16 +105,16 @@
 		BAF6CC231B61628100173FB5 /* SaguaroDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				BAF6CC261B61628100173FB5 /* Info.plist */,
+				BAC756BE1B61F448003C3906 /* SAContactInfo.swift */,
 				BA7E77A61B6174FA003159D1 /* SADateRange.swift */,
 				BA7E77A41B617309003159D1 /* SADateTimeCalculator.swift */,
 				BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */,
+				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
+				BAC756BC1B61F03E003C3906 /* SAOrg.swift */,
 				BA7E779C1B616AEA003159D1 /* SAUnique.swift */,
 				BAC756B61B61E6B8003C3906 /* SAUser.swift */,
 				BA7E77AC1B61863F003159D1 /* SAValidationDelegate.swift */,
-				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
-				BAF6CC261B61628100173FB5 /* Info.plist */,
-				BAC756BC1B61F03E003C3906 /* SAOrg.swift */,
-				BAC756BE1B61F448003C3906 /* SAContactInfo.swift */,
 			);
 			path = SaguaroDataModel;
 			sourceTree = "<group>";
@@ -123,16 +123,16 @@
 			isa = PBXGroup;
 			children = (
 				BAF6CC321B61628100173FB5 /* Info.plist */,
+				BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */,
+				BAC756C01B62784B003C3906 /* SAContactInfoTests.swift */,
 				BA7E77A21B6172A5003159D1 /* SADateRangeTests.swift */,
 				BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */,
 				BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */,
+				BAC756BA1B61EFEC003C3906 /* SAOrgTests.swift */,
 				BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */,
 				BAC756B81B61ECDC003C3906 /* SAUserTests.swift */,
 				BA7E77AA1B6184F1003159D1 /* SAValidationDelegateTests.swift */,
-				BAC756BA1B61EFEC003C3906 /* SAOrgTests.swift */,
-				BAC756C01B62784B003C3906 /* SAContactInfoTests.swift */,
 				BAC756C21B6279A8003C3906 /* TestDataset.swift */,
-				BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";

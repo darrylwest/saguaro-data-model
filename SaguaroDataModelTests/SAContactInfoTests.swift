@@ -77,10 +77,18 @@ class SAContactInfoTests: XCTestCase {
         let info = dataset.createComplexContactInfo()
 
         let map = info.toMap()
-
-        print(map)
         
         XCTAssertEqual(map["id"] as! String, info.doi.id, "id match")
         XCTAssertEqual(map["version"] as! Int, 0, "version check")
+
+        XCTAssertEqual(map["givenName"] as! String, info.givenName, "name check")
+
+        let emails = map[ "emails" ] as! [[String:String]]
+        let phones = map[ "phones" ] as! [[String:String]]
+
+        XCTAssertEqual(emails.count, 3, "email count")
+        XCTAssertEqual(phones.count, 3, "phone count")
+
+        XCTAssertEqual(map[ "status" ] as! String, SADataModelStatus.Active.rawValue, "test status")
     }
 }
