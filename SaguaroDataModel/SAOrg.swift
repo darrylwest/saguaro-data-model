@@ -20,3 +20,15 @@ public protocol SAOrgModel: SADataModelType {
     // var contactInfo:SAContactInfo
     var status:SADataModelStatus { get }
 }
+
+public struct SAOrg: SAOrgModel {
+    public let doi:SADocumentIdentifier
+    public let name:String
+    public let status:SADataModelStatus
+
+    public init(doi:SADocumentIdentifier, name:String, status:SADataModelStatus? = .Active) {
+        self.doi = doi
+        self.name = name
+        self.status = status!
+    }
+}
