@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 public enum SAInfoType: String {
     case Home = "home"
@@ -68,7 +67,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     public private(set) var emails = [ SALabeledValue ]()
     public private(set) var phones = [ SALabeledValue ]()
     public private(set) var mailing = [ SALabeledValue ]()
-    public private(set) var locations = [ CLLocation ]()
+    public private(set) var locations = [ String ]()
 
     public var status:SADataModelStatus
 
@@ -113,7 +112,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         mailing.append( mail )
     }
 
-    public mutating func addLocation(location:CLLocation) {
+    public mutating func addLocation(location:String) {
         locations.append( location )
     }
 
