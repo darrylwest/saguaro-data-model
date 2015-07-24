@@ -32,6 +32,10 @@ class TestDataset {
             info.addPhone( SALabeledValue( keyValue: [ type.rawValue : randomData.phone ] )! )
         }
 
+        info.addMailing( SALabeledValue( label: .Primary, value: "123 State Street, Winston, MA, 00433"))
+
+        // info.addLocation("")
+
         return info
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 public enum SAInfoType: String {
     case Home = "home"
@@ -47,7 +48,7 @@ public struct SALabeledValue: SAMappable {
 }
 
 extension SALabeledValue: Equatable { }
-public func == (lhs:SALabeledValue, rhs:SALabeledValue) -> Bool {
+public func ==(lhs:SALabeledValue, rhs:SALabeledValue) -> Bool {
     return lhs.label == rhs.label && lhs.value == rhs.value
 }
 
@@ -67,8 +68,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     public private(set) var emails = [ SALabeledValue ]()
     public private(set) var phones = [ SALabeledValue ]()
     public private(set) var mailing = [ SALabeledValue ]()
-
-    public private(set) var locations = [ String ]()
+    public private(set) var locations = [ CLLocation ]()
 
     public var status:SADataModelStatus
 
@@ -107,6 +107,14 @@ public struct SAContactInfo: SADataModelType, SAMappable {
 
     public mutating func addPhone(phone:SALabeledValue) {
         phones.append( phone )
+    }
+
+    public mutating func addMailing(mail:SALabeledValue) {
+        mailing.append( mail )
+    }
+
+    public mutating func addLocation(location:CLLocation) {
+        locations.append( location )
     }
 
     public func toMap() -> [String:AnyObject] {
