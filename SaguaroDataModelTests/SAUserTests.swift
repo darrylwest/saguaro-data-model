@@ -7,12 +7,21 @@
 //
 
 import XCTest
+import SaguaroDataModel
 
 class SAUserTests: XCTestCase {
-    
+    let randomData = RandomFixtureData()
 
     func testInstance() {
-        XCTAssertEqual(1, 1, "ones")
+        let doi = SADocumentIdentifier()
+        let username = randomData.username
+        let session = SAUnique.createUUID()
+        let user = SAUser(doi:doi, username: username, session: session)
+
+        XCTAssertEqual(user.doi, doi, "doi match")
+        XCTAssertEqual(user.username, username, "username match")
+        XCTAssertEqual(user.session, session, "session match")
+        XCTAssertEqual(user.status, .Active, "active")
     }
     
 }

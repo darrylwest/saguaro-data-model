@@ -51,6 +51,43 @@ public func ==(lhs:SALabeledValue, rhs:SALabeledValue) -> Bool {
     return lhs.label == rhs.label && lhs.value == rhs.value
 }
 
+// MARK location
+
+public typealias SALocationDegrees = Double
+public protocol SALocationModel: SAMappable {
+    var latitude:SALocationDegrees { get }
+    var longitude:SALocationDegrees { get }
+}
+
+public struct SALocation {
+    public let latitude:SALocationDegrees
+    public let longitude:SALocationDegrees
+
+    public init(latitude:SALocationDegrees, longitude:SALocationDegrees) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+
+    public func toMap() -> [String:AnyObject] {
+        let map = [
+            "latitude":self.latitude,
+            "longitude":self.longitude
+        ]
+
+        return map
+    }
+
+    public static func fromMap(map:[String:AnyObject]) -> SALocation? {
+        guard let latitude = map["latitude"] as? SALocationDegrees,
+            let longitude = map["longitude"] as? SALocationDegrees else {
+                
+                return nil
+        }
+
+        return SALocation(latitude: latitude, longitude: longitude)
+    }
+}
+
 public struct SAContactInfo: SADataModelType, SAMappable {
     public let doi:SADocumentIdentifier
     public var givenName:String
@@ -67,7 +104,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     public private(set) var emails = [ SALabeledValue ]()
     public private(set) var phones = [ SALabeledValue ]()
     public private(set) var mailing = [ SALabeledValue ]()
-    public private(set) var locations = [ String ]()
+    public private(set) var locations = [ SALocationModel ]()
 
     public var status:SADataModelStatus
 
@@ -112,7 +149,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         mailing.append( mail )
     }
 
-    public mutating func addLocation(location:String) {
+    public mutating func addLocation(location:SALocationModel) {
         locations.append( location )
     }
 
@@ -127,7 +164,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         map[ "emails" ] = self.emails.map { [ $0.label.rawValue : $0.value ] }
         map[ "phones" ] = self.phones.map { [ $0.label.rawValue : $0.value ] }
         map[ "mailing"] = self.mailing.map { [ $0.label.rawValue : $0.value ] }
-        map[ "locations" ] = self.locations.map { $0 }
+        map[ "locations" ] = self.locations.map { "\( $0.latitude ),\( $0.longitude )" }
 
         map[ "status" ] = self.status.rawValue
         

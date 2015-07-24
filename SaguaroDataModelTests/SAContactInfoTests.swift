@@ -91,8 +91,8 @@ class SAContactInfoTests: XCTestCase {
         // verify three emails and phones
         XCTAssertEqual(emails.count, info.emails.count, "email count")
         XCTAssertEqual(phones.count, info.phones.count, "phone count")
-        XCTAssertEqual(mailing.count, info.mailing.count, "zero mailing addresses")
-        XCTAssertEqual(locations.count, info.locations.count, "zero locations")
+        XCTAssertEqual(mailing.count, info.mailing.count, "one mailing addresses")
+        XCTAssertEqual(locations.count, info.locations.count, "one locations")
 
         // find each type and confirm the count
         for type in dataset.createInfoTypes() {
