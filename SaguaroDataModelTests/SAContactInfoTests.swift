@@ -85,9 +85,20 @@ class SAContactInfoTests: XCTestCase {
 
         let emails = map[ "emails" ] as! [[String:String]]
         let phones = map[ "phones" ] as! [[String:String]]
+        let mailing = map[ "mailing" ] as! [[String:String]]
+        let locations = map[ "locations" ] as! [String]
 
-        XCTAssertEqual(emails.count, 3, "email count")
-        XCTAssertEqual(phones.count, 3, "phone count")
+        // verify three emails and phones
+        XCTAssertEqual(emails.count, info.emails.count, "email count")
+        XCTAssertEqual(phones.count, info.phones.count, "phone count")
+        XCTAssertEqual(mailing.count, info.mailing.count, "zero mailing addresses")
+        XCTAssertEqual(locations.count, info.locations.count, "zero locations")
+
+        // find each type and confirm the count
+        for type in dataset.createInfoTypes() {
+            XCTAssertEqual( emails.filter { return $0[ type.rawValue ] != nil }.count, 1, "should find one \( type ) email")
+            XCTAssertEqual( phones.filter { return $0[ type.rawValue ] != nil }.count, 1, "should find one \( type ) phones")
+        }
 
         XCTAssertEqual(map[ "status" ] as! String, SADataModelStatus.Active.rawValue, "test status")
     }

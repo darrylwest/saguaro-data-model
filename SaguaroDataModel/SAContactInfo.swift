@@ -117,20 +117,11 @@ public struct SAContactInfo: SADataModelType, SAMappable {
             map[ "familyName" ] = familyName
         }
 
-        var emails = [ [ String: String ]]()
-        for labeledValue in self.emails {
-            let obj = [ labeledValue.label.rawValue : labeledValue.value ]
-            emails.append( obj )
-        }
-        map[ "emails" ] = emails
+        map[ "emails" ] = self.emails.map { [ $0.label.rawValue : $0.value ] }
+        map[ "phones" ] = self.phones.map { [ $0.label.rawValue : $0.value ] }
+        map[ "mailing"] = self.mailing.map { [ $0.label.rawValue : $0.value ] }
+        map[ "locations" ] = self.locations.map { $0 }
 
-        var phones = [ [ String:String ] ]()
-        for labeledValue in self.phones {
-            let obj = [ labeledValue.label.rawValue : labeledValue.value ]
-            phones.append( obj )
-        }
-        
-        map[ "phones" ] = phones
         map[ "status" ] = self.status.rawValue
         
         return map
