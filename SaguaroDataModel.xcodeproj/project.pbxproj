@@ -17,6 +17,14 @@
 		BA7E77A91B617A8F003159D1 /* SADateTimeCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */; };
 		BA7E77AB1B6184F1003159D1 /* SAValidationDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77AA1B6184F1003159D1 /* SAValidationDelegateTests.swift */; };
 		BA7E77AD1B61863F003159D1 /* SAValidationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E77AC1B61863F003159D1 /* SAValidationDelegate.swift */; };
+		BAC756B71B61E6B8003C3906 /* SAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756B61B61E6B8003C3906 /* SAUser.swift */; };
+		BAC756B91B61ECDC003C3906 /* SAUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756B81B61ECDC003C3906 /* SAUserTests.swift */; };
+		BAC756BB1B61EFEC003C3906 /* SAOrgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756BA1B61EFEC003C3906 /* SAOrgTests.swift */; };
+		BAC756BD1B61F03E003C3906 /* SAOrg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756BC1B61F03E003C3906 /* SAOrg.swift */; };
+		BAC756BF1B61F448003C3906 /* SAContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756BE1B61F448003C3906 /* SAContactInfo.swift */; };
+		BAC756C11B62784B003C3906 /* SAContactInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756C01B62784B003C3906 /* SAContactInfoTests.swift */; };
+		BAC756C31B6279A8003C3906 /* TestDataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756C21B6279A8003C3906 /* TestDataset.swift */; };
+		BAC756C51B627AF4003C3906 /* RandomFixtureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */; };
 		BAF6CC251B61628100173FB5 /* SaguaroDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAF6CC2C1B61628100173FB5 /* SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF6CC211B61628100173FB5 /* SaguaroDataModel.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +50,14 @@
 		BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateTimeCalculatorTests.swift; sourceTree = "<group>"; };
 		BA7E77AA1B6184F1003159D1 /* SAValidationDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAValidationDelegateTests.swift; sourceTree = "<group>"; };
 		BA7E77AC1B61863F003159D1 /* SAValidationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAValidationDelegate.swift; sourceTree = "<group>"; };
+		BAC756B61B61E6B8003C3906 /* SAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUser.swift; sourceTree = "<group>"; };
+		BAC756B81B61ECDC003C3906 /* SAUserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUserTests.swift; sourceTree = "<group>"; };
+		BAC756BA1B61EFEC003C3906 /* SAOrgTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAOrgTests.swift; sourceTree = "<group>"; };
+		BAC756BC1B61F03E003C3906 /* SAOrg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAOrg.swift; sourceTree = "<group>"; };
+		BAC756BE1B61F448003C3906 /* SAContactInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAContactInfo.swift; sourceTree = "<group>"; };
+		BAC756C01B62784B003C3906 /* SAContactInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAContactInfoTests.swift; sourceTree = "<group>"; };
+		BAC756C21B6279A8003C3906 /* TestDataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDataset.swift; sourceTree = "<group>"; };
+		BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomFixtureData.swift; sourceTree = "<group>"; };
 		BAF6CC211B61628100173FB5 /* SaguaroDataModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SaguaroDataModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaguaroDataModel.h; sourceTree = "<group>"; };
 		BAF6CC261B61628100173FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,9 +109,12 @@
 				BA7E77A41B617309003159D1 /* SADateTimeCalculator.swift */,
 				BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */,
 				BA7E779C1B616AEA003159D1 /* SAUnique.swift */,
+				BAC756B61B61E6B8003C3906 /* SAUser.swift */,
 				BA7E77AC1B61863F003159D1 /* SAValidationDelegate.swift */,
 				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
 				BAF6CC261B61628100173FB5 /* Info.plist */,
+				BAC756BC1B61F03E003C3906 /* SAOrg.swift */,
+				BAC756BE1B61F448003C3906 /* SAContactInfo.swift */,
 			);
 			path = SaguaroDataModel;
 			sourceTree = "<group>";
@@ -108,7 +127,12 @@
 				BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */,
 				BA7E779E1B616DB1003159D1 /* SADocumentIdentifierTests.swift */,
 				BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */,
+				BAC756B81B61ECDC003C3906 /* SAUserTests.swift */,
 				BA7E77AA1B6184F1003159D1 /* SAValidationDelegateTests.swift */,
+				BAC756BA1B61EFEC003C3906 /* SAOrgTests.swift */,
+				BAC756C01B62784B003C3906 /* SAContactInfoTests.swift */,
+				BAC756C21B6279A8003C3906 /* TestDataset.swift */,
+				BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";
@@ -221,10 +245,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC756BD1B61F03E003C3906 /* SAOrg.swift in Sources */,
 				BA7E779D1B616AEA003159D1 /* SAUnique.swift in Sources */,
+				BAC756BF1B61F448003C3906 /* SAContactInfo.swift in Sources */,
 				BA7E77A51B617309003159D1 /* SADateTimeCalculator.swift in Sources */,
 				BA7E77AD1B61863F003159D1 /* SAValidationDelegate.swift in Sources */,
 				BA7E779B1B616966003159D1 /* SADocumentIdentifier.swift in Sources */,
+				BAC756B71B61E6B8003C3906 /* SAUser.swift in Sources */,
 				BA7E77A71B6174FA003159D1 /* SADateRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,10 +260,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC756BB1B61EFEC003C3906 /* SAOrgTests.swift in Sources */,
 				BA7E77A91B617A8F003159D1 /* SADateTimeCalculatorTests.swift in Sources */,
+				BAC756C31B6279A8003C3906 /* TestDataset.swift in Sources */,
+				BAC756C11B62784B003C3906 /* SAContactInfoTests.swift in Sources */,
 				BA7E77A11B616F79003159D1 /* SAUniqueTests.swift in Sources */,
+				BAC756B91B61ECDC003C3906 /* SAUserTests.swift in Sources */,
 				BA7E77A31B6172A5003159D1 /* SADateRangeTests.swift in Sources */,
 				BA7E779F1B616DB1003159D1 /* SADocumentIdentifierTests.swift in Sources */,
+				BAC756C51B627AF4003C3906 /* RandomFixtureData.swift in Sources */,
 				BA7E77AB1B6184F1003159D1 /* SAValidationDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
