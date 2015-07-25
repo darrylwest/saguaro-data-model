@@ -84,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAE3DE521B6404F300B46B25 /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				BAC756C21B6279A8003C3906 /* TestDataset.swift */,
+				BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */,
+			);
+			name = fixtures;
+			sourceTree = "<group>";
+		};
 		BAF6CC171B61628100173FB5 = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +131,8 @@
 		BAF6CC2F1B61628100173FB5 /* SaguaroDataModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				BAE3DE521B6404F300B46B25 /* fixtures */,
 				BAF6CC321B61628100173FB5 /* Info.plist */,
-				BAC756C41B627AF4003C3906 /* RandomFixtureData.swift */,
 				BAC756C01B62784B003C3906 /* SAContactInfoTests.swift */,
 				BA7E77A21B6172A5003159D1 /* SADateRangeTests.swift */,
 				BA7E77A81B617A8F003159D1 /* SADateTimeCalculatorTests.swift */,
@@ -132,7 +141,6 @@
 				BA7E77A01B616F79003159D1 /* SAUniqueTests.swift */,
 				BAC756B81B61ECDC003C3906 /* SAUserTests.swift */,
 				BA7E77AA1B6184F1003159D1 /* SAValidationDelegateTests.swift */,
-				BAC756C21B6279A8003C3906 /* TestDataset.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";
