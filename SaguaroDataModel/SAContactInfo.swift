@@ -59,7 +59,7 @@ public protocol SALocationModel: SAMappable {
     var longitude:SALocationDegrees { get }
 }
 
-public struct SALocation {
+public struct SALocation: SALocationModel {
     public let latitude:SALocationDegrees
     public let longitude:SALocationDegrees
 

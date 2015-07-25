@@ -106,11 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				BAF6CC261B61628100173FB5 /* Info.plist */,
+				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
 				BAC756BE1B61F448003C3906 /* SAContactInfo.swift */,
 				BA7E77A61B6174FA003159D1 /* SADateRange.swift */,
 				BA7E77A41B617309003159D1 /* SADateTimeCalculator.swift */,
 				BA7E779A1B616966003159D1 /* SADocumentIdentifier.swift */,
-				BAF6CC241B61628100173FB5 /* SaguaroDataModel.h */,
 				BAC756BC1B61F03E003C3906 /* SAOrg.swift */,
 				BA7E779C1B616AEA003159D1 /* SAUnique.swift */,
 				BAC756B61B61E6B8003C3906 /* SAUser.swift */,

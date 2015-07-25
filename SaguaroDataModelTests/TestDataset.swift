@@ -23,6 +23,11 @@ class TestDataset {
         return [ SAInfoType.Work, SAInfoType.Home, SAInfoType.Other ]
     }
 
+    func createOrg() -> SAOrg {
+        let info = createComplexContactInfo()
+        return SAOrg(doi: SADocumentIdentifier(), name: randomData.companyName, url: randomData.url, assets: "myassets", contactInfo: info)
+    }
+
     func createComplexContactInfo() -> SAContactInfo {
         var info = self.createSimpleContactInfo( randomData.firstName )
         let types = createInfoTypes()
@@ -34,7 +39,7 @@ class TestDataset {
 
         info.addMailing( SALabeledValue( label: .Primary, value: "123 State Street, Winston, MA, 00433"))
 
-        // info.addLocation("")
+        info.addLocation(SALocation(latitude: 37.2909813, longitude: -121.890413599 ))
 
         return info
     }

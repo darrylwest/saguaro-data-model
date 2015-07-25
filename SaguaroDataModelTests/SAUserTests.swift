@@ -11,12 +11,16 @@ import SaguaroDataModel
 
 class SAUserTests: XCTestCase {
     let randomData = RandomFixtureData()
+    let dataset = TestDataset()
 
     func testInstance() {
+        let org = dataset.createOrg()
+
         let doi = SADocumentIdentifier()
         let username = randomData.username
         let session = SAUnique.createUUID()
-        let user = SAUser(doi:doi, username: username, session: session)
+        let info = SAContactInfo(doi: SADocumentIdentifier(), givenName: randomData.firstName)
+        let user = SAUser(doi:doi, username: username, session: session, contactInfo: info, org: org)
 
         XCTAssertEqual(user.doi, doi, "doi match")
         XCTAssertEqual(user.username, username, "username match")

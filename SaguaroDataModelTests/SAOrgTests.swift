@@ -15,7 +15,10 @@ class SAOrgTests: XCTestCase {
     func testInstance() {
         let doi = SADocumentIdentifier()
         let name = randomData.companyName
-        let org = SAOrg(doi:doi, name: name)
+        let url = randomData.url
+        let assets = "myassets"
+        let info = SAContactInfo(doi: SADocumentIdentifier(), givenName: name)
+        let org = SAOrg(doi:doi, name: name, url: url, assets: assets, contactInfo: info)
 
         XCTAssertEqual(org.doi, doi, "doi match")
         XCTAssertEqual(org.name, name, "name match")
