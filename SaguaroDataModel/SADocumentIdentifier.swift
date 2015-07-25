@@ -90,3 +90,21 @@ public extension SADocumentIdentifierType {
         return map
     }
 }
+
+public extension SADocumentIdentifierType {
+    static func fromMap(map: [String:AnyObject]) -> SADocumentIdentifier? {
+        let parser = JSONParser.parser
+        guard let id = map[ "id" ] as? String,
+            let dateCreated = parser.parseDate( map[ "dateCreated" ] ),
+            let lastUpdated = parser.parseDate( map[ "lastUpdated" ] ),
+            let version = map[ "version" ] as? Int else {
+
+                return nil
+        }
+
+        let doi = SADocumentIdentifier(id: id, dateCreated: dateCreated, lastUpdated: lastUpdated, version: version)
+
+        return doi
+    }
+}
+

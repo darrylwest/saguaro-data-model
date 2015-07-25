@@ -7,9 +7,11 @@
 //
 
 import XCTest
+import SaguaroJSON
 import SaguaroDataModel
 
 class SADocumentIdentifierTests: XCTestCase {
+    let jnparser = JNParser()
 
     func createModelId() -> String {
         return NSUUID().UUIDString.lowercaseString.stringByReplacingOccurrencesOfString("-", withString:"")
@@ -65,6 +67,26 @@ class SADocumentIdentifierTests: XCTestCase {
 
         XCTAssertNotNil(id, "id should not be nil")
         XCTAssertEqual(id.characters.count, 32, "should be 32 chars")
+    }
+
+    func testToMap() {
+
+        let dtCreated = "2015-01-01T00:00:00.000Z"
+        let lastUp = "2015-02-20T00:00:00.000Z"
+
+        let id = SAUnique.createModelId()
+        let created = jnparser.dateFromString( dtCreated )!
+        let updated = jnparser.dateFromString( lastUp )!
+        let version = 99
+
+        let doi = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
+        
+        let map = doi.toMap()
+
+        XCTAssertEqual(map["id"] as! String, id, "id match")
+        XCTAssertEqual(map["dateCreated"] as! NSDate, created, "created")
+        XCTAssertEqual(map["lastUpdated"] as! NSDate, updated, "updated")
+        XCTAssertEqual(map["version"] as! Int, version, "version")
     }
     
 }
