@@ -70,13 +70,9 @@ class SADocumentIdentifierTests: XCTestCase {
     }
 
     func testToMap() {
-
-        let dtCreated = "2015-01-01T00:00:00.000Z"
-        let lastUp = "2015-02-20T00:00:00.000Z"
-
         let id = SAUnique.createModelId()
-        let created = jnparser.dateFromString( dtCreated )!
-        let updated = jnparser.dateFromString( lastUp )!
+        let created = jnparser.dateFromString( "2015-01-01T00:00:00.000Z" )!
+        let updated = jnparser.dateFromString( "2015-02-20T00:00:00.000Z" )!
         let version = 99
 
         let doi = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
@@ -87,6 +83,25 @@ class SADocumentIdentifierTests: XCTestCase {
         XCTAssertEqual(map["dateCreated"] as! NSDate, created, "created")
         XCTAssertEqual(map["lastUpdated"] as! NSDate, updated, "updated")
         XCTAssertEqual(map["version"] as! Int, version, "version")
+    }
+
+    func testFromMap() {
+        let map = [
+            "id":SAUnique.createModelId(),
+            "dateCreated":NSDate().dateByAddingTimeInterval( -10.5 ),
+            "lastUpdated":NSDate().dateByAddingTimeInterval( -6.0 ),
+            "version":2
+        ]
+
+        guard let doi = SADocumentIdentifier.fromMap( map ) else {
+            XCTFail("could not create doi from map: \( map )")
+            return
+        }
+
+        XCTAssertEqual(doi.id, map["id"] as! String, "id")
+        XCTAssertEqual(doi.dateCreated, map["dateCreated"] as! NSDate, "created")
+        XCTAssertEqual(doi.lastUpdated, map["lastUpdated"] as! NSDate, "updated")
+        XCTAssertEqual(doi.version, map["version"] as! Int, "version")
     }
     
 }
