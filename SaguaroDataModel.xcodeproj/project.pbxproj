@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		BA491FA31B64333000239C36 /* SaguaroDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BA491FA21B64333000239C36 /* SaguaroDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA491FAA1B64333000239C36 /* SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA491F9F1B64333000239C36 /* SaguaroDataModel.framework */; };
-		BA491FC31B6433D100239C36 /* JNParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FB91B6433D100239C36 /* JNParser.swift */; };
 		BA491FC41B6433D100239C36 /* SAContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBA1B6433D100239C36 /* SAContactInfo.swift */; };
-		BA491FC51B6433D100239C36 /* SADataModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBB1B6433D100239C36 /* SADataModelParser.swift */; };
 		BA491FC61B6433D100239C36 /* SADateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBC1B6433D100239C36 /* SADateRange.swift */; };
 		BA491FC71B6433D100239C36 /* SADateTimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */; };
 		BA491FC81B6433D100239C36 /* SADocumentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */; };
@@ -47,9 +45,7 @@
 		BA491FA41B64333000239C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA491FA91B64333000239C36 /* SaguaroDataModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaguaroDataModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA491FB01B64333000239C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA491FB91B6433D100239C36 /* JNParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JNParser.swift; sourceTree = "<group>"; };
 		BA491FBA1B6433D100239C36 /* SAContactInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAContactInfo.swift; sourceTree = "<group>"; };
-		BA491FBB1B6433D100239C36 /* SADataModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADataModelParser.swift; sourceTree = "<group>"; };
 		BA491FBC1B6433D100239C36 /* SADateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateRange.swift; sourceTree = "<group>"; };
 		BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateTimeCalculator.swift; sourceTree = "<group>"; };
 		BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADocumentIdentifier.swift; sourceTree = "<group>"; };
@@ -110,9 +106,7 @@
 		BA491FA11B64333000239C36 /* SaguaroDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				BA491FB91B6433D100239C36 /* JNParser.swift */,
 				BA491FBA1B6433D100239C36 /* SAContactInfo.swift */,
-				BA491FBB1B6433D100239C36 /* SADataModelParser.swift */,
 				BA491FBC1B6433D100239C36 /* SADateRange.swift */,
 				BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */,
 				BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */,
@@ -258,8 +252,6 @@
 				BA491FC81B6433D100239C36 /* SADocumentIdentifier.swift in Sources */,
 				BA491FC71B6433D100239C36 /* SADateTimeCalculator.swift in Sources */,
 				BA491FCA1B6433D100239C36 /* SAUnique.swift in Sources */,
-				BA491FC31B6433D100239C36 /* JNParser.swift in Sources */,
-				BA491FC51B6433D100239C36 /* SADataModelParser.swift in Sources */,
 				BA491FCC1B6433D100239C36 /* SAValidationDelegate.swift in Sources */,
 				BA491FCB1B6433D100239C36 /* SAUser.swift in Sources */,
 				BA491FC61B6433D100239C36 /* SADateRange.swift in Sources */,

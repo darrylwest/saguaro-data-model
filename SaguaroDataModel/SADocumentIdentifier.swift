@@ -91,6 +91,7 @@ public extension SADocumentIdentifierType {
     }
 }
 
+/*
 public extension SADocumentIdentifierType {
     static func fromMap(map: [String:AnyObject]) -> SADocumentIdentifier? {
         let parser = JSONParser.parser
@@ -107,4 +108,5 @@ public extension SADocumentIdentifierType {
         return doi
     }
 }
+*/
 
