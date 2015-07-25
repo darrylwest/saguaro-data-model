@@ -6,14 +6,14 @@ all:
 	@make test
 
 clean:
-	xcodebuild -workspace $(PROJECT).xcworkspace -scheme "$(PROJECT)" clean
+	xcodebuild -project $(PROJECT).xcodeproj -scheme "$(PROJECT)" clean
 
 test:
-	xcodebuild -workspace $(PROJECT).xcworkspace -scheme "$(PROJECT)" -sdk iphonesimulator -destination $(PLATFORM) test | xcpretty -c
+	xcodebuild -project $(PROJECT).xcodeproj -scheme "$(PROJECT)" -sdk iphonesimulator -destination $(PLATFORM) test | xcpretty -c
 	@( pod lib lint --quick )
 
 build:
-	xcodebuild -workspace $(PROJECT).xcworkspace -scheme "$(PROJECT)" -sdk iphonesimulator -destination $(PLATFORM) build
+	xcodebuild -project $(PROJECT).xcodeproj "$(PROJECT)" -sdk iphonesimulator -destination $(PLATFORM) build
 
 watch:
 	@( ./watcher.js )
