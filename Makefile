@@ -13,7 +13,7 @@ test:
 	@( pod lib lint --quick )
 
 build:
-	xcodebuild -project $(PROJECT).xcodeproj "$(PROJECT)" -sdk iphonesimulator -destination $(PLATFORM) build
+	xcodebuild -project $(PROJECT).xcodeproj -scheme "$(PROJECT)" -sdk iphonesimulator -destination $(PLATFORM) build
 
 watch:
 	@( ./watcher.js )
