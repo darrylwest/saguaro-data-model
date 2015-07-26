@@ -102,4 +102,19 @@ class SAContactInfoTests: XCTestCase {
 
         XCTAssertEqual(map[ "status" ] as! String, SADataModelStatus.Active.rawValue, "test status")
     }
+
+    func testFromMap() {
+        let map = dataset.createContactInfoMap()
+
+        guard let info = SAContactInfo.fromMap( map ) else {
+            XCTFail("could not create map")
+            return
+        }
+
+        XCTAssertEqual(info.doi.id, map["id"] as! String, "id match")
+        XCTAssertEqual(info.doi.version, map["version"] as! Int, "version")
+        XCTAssertEqual(info.givenName, map["givenName"] as! String, "given name")
+        XCTAssertEqual(info.familyName!, map["familyName"] as! String, "family name")
+        XCTAssertEqual(info.status.rawValue, map["status"] as! String, "status")
+    }
 }

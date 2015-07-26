@@ -27,6 +27,8 @@ class TestDataset {
 
     func createComplexContactInfo() -> SAContactInfo {
         var info = self.createSimpleContactInfo( randomData.firstName )
+        info.familyName = randomData.lastName
+        
         let types = createInfoTypes()
 
         for type in types {
@@ -39,6 +41,11 @@ class TestDataset {
         info.addLocation(SALocation(latitude: 37.2909813, longitude: -121.890413599 ))
 
         return info
+    }
+
+    func createContactInfoMap() -> [String:AnyObject] {
+        let info = createComplexContactInfo()
+        return info.toMap()
     }
 
     func createOrg() -> SAOrg {

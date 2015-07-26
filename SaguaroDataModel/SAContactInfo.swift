@@ -170,5 +170,22 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         
         return map
     }
+
+    public static func fromMap(map:[String:AnyObject]) -> SAContactInfo? {
+        guard let doi = SADocumentIdentifier.fromMap( map ),
+            givenName = map["givenName"] as? String,
+            rawStatus = map["status"] as? String else {
+
+            return nil
+        }
+
+        var info = SAContactInfo(doi:doi, givenName:givenName, status: SADataModelStatus(rawValue: rawStatus))
+
+        if let familyName = map["familyName"] as? String {
+            info.familyName = familyName
+        }
+
+        return info
+    }
 }
 
