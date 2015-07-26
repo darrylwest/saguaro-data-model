@@ -54,7 +54,7 @@ public func ==(lhs:SALabeledValue, rhs:SALabeledValue) -> Bool {
 // MARK location
 
 public typealias SALocationDegrees = Double
-public protocol SALocationModel: SAMappable {
+public protocol SALocationModel: SAMappable, Equatable {
     var latitude:SALocationDegrees { get }
     var longitude:SALocationDegrees { get }
 }
@@ -88,6 +88,10 @@ public struct SALocation: SALocationModel {
     }
 }
 
+public func ==(lhs:SALocation, rhs:SALocation) -> Bool {
+    return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+}
+
 public struct SAContactInfo: SADataModelType, SAMappable {
     public let doi:SADocumentIdentifier
     public var givenName:String
@@ -104,7 +108,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     public private(set) var emails = [ SALabeledValue ]()
     public private(set) var phones = [ SALabeledValue ]()
     public private(set) var mailing = [ SALabeledValue ]()
-    public private(set) var locations = [ SALocationModel ]()
+    public private(set) var locations = [ SALocation ]()
 
     public var status:SADataModelStatus
 
@@ -142,14 +146,18 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     }
 
     public mutating func addPhone(phone:SALabeledValue) {
-        phones.append( phone )
+        if phones.contains( phone ) == false {
+            phones.append( phone )
+        }
     }
 
     public mutating func addMailing(mail:SALabeledValue) {
-        mailing.append( mail )
+        if mailing.contains( mail ) == false {
+            mailing.append( mail )
+        }
     }
 
-    public mutating func addLocation(location:SALocationModel) {
+    public mutating func addLocation(location:SALocation) {
         locations.append( location )
     }
 

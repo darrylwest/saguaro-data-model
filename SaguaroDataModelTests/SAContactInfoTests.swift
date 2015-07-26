@@ -104,22 +104,48 @@ class SAContactInfoTests: XCTestCase {
     }
 
     func testAddDuplicatePhone() {
-        XCTAssert( true )
+        var info = dataset.createSimpleContactInfo()
+        let phones = [
+            SALabeledValue( label: .Home, value: randomData.phone ),
+            SALabeledValue( label: .Primary, value: randomData.phone ),
+            SALabeledValue( label: .Work, value: randomData.phone )
+        ]
+
+        for phone in phones {
+            info.addPhone( phone )
+        }
+
+        XCTAssertEqual(info.phones.count, phones.count, "count match")
+        info.addPhone( phones[ 1 ] )
+        XCTAssertEqual(info.phones.count, phones.count, "count match")
     }
 
     func testAddMailing() {
-        // var info = dataset.createSimpleContactInfo()
-        XCTAssert( true )
+        let mail = SALabeledValue( label: .Primary, value:"443 Woolsey Street, Berkeley, CA 94705" )
+        var info = dataset.createSimpleContactInfo()
+
+        info.addMailing( mail )
+
+        XCTAssertEqual(info.mailing.count, 1, "mail count")
     }
 
     func testAddDuplicateMailing() {
-        // var info = dataset.createSimpleContactInfo()
-        XCTAssert( true )
+        let mail = SALabeledValue( label: .Primary, value:"443 Woolsey Street, Berkeley, CA 94705" )
+        var info = dataset.createSimpleContactInfo()
+
+        info.addMailing( mail )
+
+        XCTAssertEqual(info.mailing.count, 1, "mail count")
+        info.addMailing( mail )
+        XCTAssertEqual(info.mailing.count, 1, "mail count")
     }
 
     func testAddLocation() {
-        // var info = dataset.createSimpleContactInfo()
-        XCTAssert( true )
+        let location = SALocation( latitude: 47.33, longitude: -121.55 )
+        var info = dataset.createSimpleContactInfo()
+        info.addLocation( location )
+
+        XCTAssertEqual(info.locations.count, 1, "location count")
     }
 
     // TODO : implement and test removes...
