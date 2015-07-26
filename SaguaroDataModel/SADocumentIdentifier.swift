@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SaguaroJSON
 
 /// define a mappable to enable preparing for JSON stringify
 public protocol SAMappable {
@@ -91,10 +92,9 @@ public extension SADocumentIdentifierType {
     }
 }
 
-/*
 public extension SADocumentIdentifierType {
     static func fromMap(map: [String:AnyObject]) -> SADocumentIdentifier? {
-        let parser = JSONParser.parser
+        let parser = JNParser()
         guard let id = map[ "id" ] as? String,
             let dateCreated = parser.parseDate( map[ "dateCreated" ] ),
             let lastUpdated = parser.parseDate( map[ "lastUpdated" ] ),
@@ -108,5 +108,5 @@ public extension SADocumentIdentifierType {
         return doi
     }
 }
-*/
+
 

@@ -84,7 +84,6 @@ class SADocumentIdentifierTests: XCTestCase {
         XCTAssertEqual(map["version"] as! Int, version, "version")
     }
 
-    /*
     func testFromMap() {
         let map = [
             "id":SAUnique.createModelId(),
@@ -103,6 +102,5 @@ class SADocumentIdentifierTests: XCTestCase {
         XCTAssertEqual(doi.lastUpdated, map["lastUpdated"] as! NSDate, "updated")
         XCTAssertEqual(doi.version, map["version"] as! Int, "version")
     }
-*/
     
 }

@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import SaguaroJSON
 import SaguaroDataModel
 
 class TestDataset {
     let randomData = RandomFixtureData()
+    let jnparser = JNParser()
 
     func createSimpleContactInfo(name:String) -> SAContactInfo {
         let doi = SADocumentIdentifier()
