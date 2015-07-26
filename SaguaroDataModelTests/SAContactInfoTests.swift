@@ -116,5 +116,8 @@ class SAContactInfoTests: XCTestCase {
         XCTAssertEqual(info.givenName, map["givenName"] as! String, "given name")
         XCTAssertEqual(info.familyName!, map["familyName"] as! String, "family name")
         XCTAssertEqual(info.status.rawValue, map["status"] as! String, "status")
+
+        XCTAssertEqual(info.emails.count, 3, "email count")
+        XCTAssertEqual(info.phones.count, 3, "email count")
     }
 }

@@ -185,6 +185,26 @@ public struct SAContactInfo: SADataModelType, SAMappable {
             info.familyName = familyName
         }
 
+        if let emails = map[ "emails" ] as? [ [ String:String ] ] {
+            for obj in emails {
+                if let labeledValue = SALabeledValue( keyValue: obj ) {
+                    info.addEmail( labeledValue )
+                } else {
+                    // log.warn("failed to parse the email object: \( obj )")
+                }
+            }
+        }
+
+        if let phones = map[ "phones" ] as? [ [ String:String ] ] {
+            for obj in phones {
+                if let labeledValue = SALabeledValue( keyValue: obj ) {
+                    info.addPhone( labeledValue )
+                } else {
+                    // log.warn("failed to parse the phone object: \( obj )")
+                }
+            }
+        }
+
         return info
     }
 }
