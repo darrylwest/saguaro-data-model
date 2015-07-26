@@ -115,9 +115,9 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     }
 
     public mutating func addEmail(email:SALabeledValue) {
-        // validate?
-
-        emails.append( email )
+        if emails.contains( email ) == false {
+            emails.append( email )
+        }
     }
 
     public mutating func removeEmail(email:SALabeledValue) -> SALabeledValue? {

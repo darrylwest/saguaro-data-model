@@ -29,10 +29,7 @@ class SAContactInfoTests: XCTestCase {
     }
 
     func testAddEmail() {
-        let doi = SADocumentIdentifier()
-        let givenName = randomData.firstName
-
-        var info = SAContactInfo(doi: doi, givenName: givenName)
+        var info = dataset.createSimpleContactInfo()
 
         let emails = [
             SALabeledValue( label: .Home, value: randomData.email ),
@@ -48,11 +45,29 @@ class SAContactInfoTests: XCTestCase {
         XCTAssertEqual(info.emails.count, 2, "count should match")
     }
 
-    func testRemoveEmail() {
-        let doi = SADocumentIdentifier()
-        let givenName = randomData.firstName
+    func testAddDuplicateEmail() {
+        var info = dataset.createSimpleContactInfo()
 
-        var info = SAContactInfo(doi: doi, givenName: givenName)
+        let emails = [
+            SALabeledValue( label: .Home, value: randomData.email ),
+            SALabeledValue( label: .Work, value: randomData.email )
+        ]
+
+        for email in emails {
+            info.addEmail( email )
+        }
+
+        XCTAssertEqual(info.emails.count, 2, "count should match")
+
+        // add a dup
+        info.addEmail( emails[ 0 ])
+
+        // should still only have 2
+        XCTAssertEqual(info.emails.count, 2, "count should match")
+    }
+
+    func testRemoveEmail() {
+        var info = dataset.createSimpleContactInfo()
 
         let emails = [
             SALabeledValue( label: .Home, value: randomData.email ),
@@ -73,6 +88,42 @@ class SAContactInfoTests: XCTestCase {
         }
     }
 
+    func testAddPhone() {
+        var info = dataset.createSimpleContactInfo()
+        let phones = [
+            SALabeledValue( label: .Home, value: randomData.phone ),
+            SALabeledValue( label: .Primary, value: randomData.phone ),
+            SALabeledValue( label: .Work, value: randomData.phone )
+        ]
+
+        for phone in phones {
+            info.addPhone( phone )
+        }
+
+        XCTAssertEqual(info.phones.count, phones.count, "count match")
+    }
+
+    func testAddDuplicatePhone() {
+        XCTAssert( true )
+    }
+
+    func testAddMailing() {
+        // var info = dataset.createSimpleContactInfo()
+        XCTAssert( true )
+    }
+
+    func testAddDuplicateMailing() {
+        // var info = dataset.createSimpleContactInfo()
+        XCTAssert( true )
+    }
+
+    func testAddLocation() {
+        // var info = dataset.createSimpleContactInfo()
+        XCTAssert( true )
+    }
+
+    // TODO : implement and test removes...
+
     func testToMap() {
         let info = dataset.createComplexContactInfo()
 
@@ -86,7 +137,7 @@ class SAContactInfoTests: XCTestCase {
         let emails = map[ "emails" ] as! [[String:String]]
         let phones = map[ "phones" ] as! [[String:String]]
         let mailing = map[ "mailing" ] as! [[String:String]]
-        let locations = map[ "locations" ] as! [String]
+        let locations = map[ "locations" ] as! [[String:AnyObject]]
 
         // verify three emails and phones
         XCTAssertEqual(emails.count, info.emails.count, "email count")
