@@ -118,6 +118,8 @@ class SAContactInfoTests: XCTestCase {
         XCTAssertEqual(info.status.rawValue, map["status"] as! String, "status")
 
         XCTAssertEqual(info.emails.count, 3, "email count")
-        XCTAssertEqual(info.phones.count, 3, "email count")
+        XCTAssertEqual(info.phones.count, 3, "phone count")
+        XCTAssertEqual(info.mailing.count, 1, "mailing count")
+        XCTAssertEqual(info.locations.count, 1, "locations count")
     }
 }

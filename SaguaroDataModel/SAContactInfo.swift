@@ -164,7 +164,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         map[ "emails" ] = self.emails.map { [ $0.label.rawValue : $0.value ] }
         map[ "phones" ] = self.phones.map { [ $0.label.rawValue : $0.value ] }
         map[ "mailing"] = self.mailing.map { [ $0.label.rawValue : $0.value ] }
-        map[ "locations" ] = self.locations.map { "\( $0.latitude ),\( $0.longitude )" }
+        map[ "locations" ] = self.locations.map { $0.toMap() }
 
         map[ "status" ] = self.status.rawValue
         
@@ -201,6 +201,26 @@ public struct SAContactInfo: SADataModelType, SAMappable {
                     info.addPhone( labeledValue )
                 } else {
                     // log.warn("failed to parse the phone object: \( obj )")
+                }
+            }
+        }
+
+        if let mailing = map["mailing"] as? [ [ String:String ] ] {
+            for obj in mailing {
+                if let labeledValue = SALabeledValue( keyValue: obj ) {
+                    info.addMailing( labeledValue )
+                } else {
+                    // log.warn...
+                }
+            }
+        }
+
+        if let locations = map["locations"] as? [ [ String:AnyObject ] ] {
+            for obj in locations {
+                if let location = SALocation.fromMap( obj ) {
+                    info.addLocation( location )
+                } else {
+                    // print("failed to create location from \( obj )")
                 }
             }
         }
