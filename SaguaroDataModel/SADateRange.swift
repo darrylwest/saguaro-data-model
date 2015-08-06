@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SaguaroJSON
 
 public protocol SADateRangeModel: SAMappable {
     var startDate:NSDate { get }
@@ -101,8 +102,9 @@ public extension SADateRangeModel {
 
     /// convert this map to a date range or return nil
     static func fromMap(map: [String:AnyObject]) -> SADateRange? {
-        guard let startDate = map[ "startDate" ] as? NSDate,
-            let endDate = map[ "endDate" ] as? NSDate,
+        let parser = JNParser()
+        guard let startDate = parser.parseDate( map[ "startDate" ] ),
+            let endDate = parser.parseDate( map[ "endDate" ] ),
             let days = map[ "days" ] as? Int else {
                 return nil
         }
