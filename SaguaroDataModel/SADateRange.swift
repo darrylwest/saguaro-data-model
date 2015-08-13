@@ -19,6 +19,12 @@ public struct SADateRange: SADateRangeModel {
     public let startDate: NSDate
     public let endDate: NSDate
     public let days: Int
+    
+    public init(days:Int) {
+        self.startDate = NSDate()
+        self.endDate = self.startDate.dateByAddingTimeInterval( NSTimeInterval( 60 * 60 * 24 * days ))
+        self.days = days
+    }
 
     public init(startDate:NSDate, endDate:NSDate, days:Int = 0) {
         self.startDate = startDate

@@ -14,6 +14,8 @@ public enum SAInfoType: String {
     case Primary = "primary"
     case Secondary = "secondary"
     case Mobile = "mobile"
+    case Billing = "billing"
+    case Shipping = "shipping"
     case Other = "other"
 }
 
