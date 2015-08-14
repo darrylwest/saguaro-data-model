@@ -20,6 +20,7 @@ public protocol SADateTimeCalculatorType {
     func calcDaysFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func createMutableDateRange() -> SAMutableDateRange
+    func createFirstDayOfNextMonth(fromDate:NSDate?) -> NSDate
 }
 
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
@@ -82,6 +83,22 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     /// create a mutable date range with calculator
     public func createMutableDateRange() -> SAMutableDateRange {
         return SAMutableDateRange( dateTimeCalculator: self )
+    }
+    
+    public func createFirstDayOfNextMonth(fromDate:NSDate? = NSDate()) -> NSDate {
+        var date = fromDate!
+        
+        let comps = calendar.components([ .Year, .Month, .Day ], fromDate: date )
+        comps.day = 1
+        
+        date = calendar.dateFromComponents( comps )!
+        
+        // reset to enable adding...
+        comps.day = 0
+        comps.year = 0
+        comps.month = 1
+        
+        return calendar.dateByAddingComponents(comps, toDate: date, options: [ ])!
     }
 
     public init() {
