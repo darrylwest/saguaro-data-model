@@ -19,6 +19,12 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertNotNil(dtc.calendar, "calendar should not be nil")
         XCTAssertNotNil(dtc.isoFormatter)
     }
+    
+    func testSharedInstance() {
+        let shared = SADateTimeCalculator.sharedInstance
+        
+        XCTAssertNotNil( shared.ISO8601DateTimeFormat, "not nil")
+    }
 
     func testToday() {
         let calendar = calculator.calendar
@@ -147,6 +153,17 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(comps.year, 2014, "year")
         XCTAssertEqual(comps.month, 12, "month")
         XCTAssertEqual(comps.day, 25, "day calc")
+    }
+    
+    func testCreateMutableDateRange() {
+        var range = calculator.createMutableDateRange()
+        
+        XCTAssertNotNil(range.startDate, "should not be nil")
+        XCTAssertNotNil(range.endDate, "should not be nil")
+        XCTAssertEqual(range.days, 0, "should be zero")
+        
+        range.days = 180
+        XCTAssertEqual(range.days, 180, "should be zero")
     }
     
 }

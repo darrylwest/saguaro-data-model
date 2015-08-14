@@ -18,6 +18,8 @@ public protocol SADateTimeCalculatorType {
     func datePlusDays(date:NSDate, days:Int) -> NSDate
     func datePlusMonths(date:NSDate, months:Int) -> NSDate
     func calcDaysFromDates(fromDate:NSDate, toDate:NSDate) -> Int
+    func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int
+    func createMutableDateRange() -> SAMutableDateRange
 }
 
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
@@ -70,10 +72,23 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
 
         return comps.day
     }
+    
+    public func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int {
+        let comps = calendar.components([ NSCalendarUnit.Minute ], fromDate: fromDate, toDate: toDate, options: [ ])
+        
+        return comps.minute
+    }
+    
+    /// create a mutable date range with calculator
+    public func createMutableDateRange() -> SAMutableDateRange {
+        return SAMutableDateRange( dateTimeCalculator: self )
+    }
 
     public init() {
         isoFormatter.dateFormat = ISO8601DateTimeFormat
         isoFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
     }
+    
+    public static let sharedInstance:SADateTimeCalculator = SADateTimeCalculator()
 }

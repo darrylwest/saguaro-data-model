@@ -134,6 +134,4 @@ class SADateRangeTests: XCTestCase {
         XCTAssertEqual(dateRange.endDate, range.endDate, "end match")
         XCTAssertEqual(dateRange.days, range.days, "day count match")
     }
-
-    
 }
