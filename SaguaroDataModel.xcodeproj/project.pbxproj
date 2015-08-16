@@ -31,6 +31,8 @@
 		BA491FE11B6433EC00239C36 /* TestDataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD71B6433EC00239C36 /* TestDataset.swift */; };
 		BAF6C6E51B810AF500C1B4BE /* SAStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E41B810AF500C1B4BE /* SAStack.swift */; };
 		BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */; };
+		BAF6C6E91B81195E00C1B4BE /* SAUndoRedoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */; };
+		BAF6C6EB1B8119C700C1B4BE /* SAUndoRedo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		BA491FD71B6433EC00239C36 /* TestDataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDataset.swift; sourceTree = "<group>"; };
 		BAF6C6E41B810AF500C1B4BE /* SAStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAStack.swift; sourceTree = "<group>"; };
 		BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAStackTests.swift; sourceTree = "<group>"; };
+		BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUndoRedoTests.swift; sourceTree = "<group>"; };
+		BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUndoRedo.swift; sourceTree = "<group>"; };
 		E2A171EA6E64CA872A0A5CCC /* Pods-SaguaroDataModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.debug.xcconfig"; sourceTree = "<group>"; };
 		FE7AEF8938F3509ED6F4C7FD /* Pods-SaguaroDataModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +157,7 @@
 				BA491FC21B6433D100239C36 /* SAValidationDelegate.swift */,
 				BA491FA21B64333000239C36 /* SaguaroDataModel.h */,
 				BA491FA41B64333000239C36 /* Info.plist */,
+				BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */,
 			);
 			path = SaguaroDataModel;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				BA491FD71B6433EC00239C36 /* TestDataset.swift */,
 				BA491FB01B64333000239C36 /* Info.plist */,
 				BA491FCD1B6433EB00239C36 /* SaguaroDataModelTests-Bridging-Header.h */,
+				BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA491FC91B6433D100239C36 /* SAOrg.swift in Sources */,
+				BAF6C6EB1B8119C700C1B4BE /* SAUndoRedo.swift in Sources */,
 				BA491FC41B6433D100239C36 /* SAContactInfo.swift in Sources */,
 				BA491FC81B6433D100239C36 /* SADocumentIdentifier.swift in Sources */,
 				BA491FC71B6433D100239C36 /* SADateTimeCalculator.swift in Sources */,
@@ -395,6 +402,7 @@
 				BA491FDE1B6433EC00239C36 /* SAUniqueTests.swift in Sources */,
 				BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */,
 				BA491FD81B6433EC00239C36 /* RandomFixtureData.swift in Sources */,
+				BAF6C6E91B81195E00C1B4BE /* SAUndoRedoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
