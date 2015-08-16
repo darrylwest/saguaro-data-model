@@ -179,4 +179,22 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(comps.month, 9, "month check")
     }
     
+    func testComponentsFromDate() {
+        let refDate = calculator.dateFromISO8601String("2015-08-14T13:45:33.987Z")!
+        let comps = calculator.componentsFromDate( refDate )
+        
+        print( comps )
+        XCTAssertEqual(comps.era, 1, "era")
+        XCTAssertEqual(comps.year, 2015, "year")
+        XCTAssertEqual(comps.month, 8, "month")
+        XCTAssertEqual(comps.day, 14, "day")
+        XCTAssertEqual(comps.hour, 13, "hour")
+        XCTAssertEqual(comps.minute, 45, "minute")
+        XCTAssertEqual(comps.second, 33, "second")
+        XCTAssertEqual(comps.weekOfMonth, 3, "week of month")
+        XCTAssertEqual(comps.weekOfYear, 33, "week of year")
+        XCTAssertEqual(comps.weekday, 6, "friday")
+        XCTAssertEqual(comps.weekdayOrdinal, 2, "second friday of the month")
+    }
+    
 }

@@ -29,23 +29,28 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     public let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     public let isoFormatter = NSDateFormatter()
 
+    /// the current date with time stripped
     public var today:NSDate {
         return stripTime(NSDate())
     }
 
+    /// strip the time from the given date
     public func stripTime(date:NSDate) -> NSDate {
         let comps = calendar.components([ .Year, .Month, .Day ], fromDate: date)
         return calendar.dateFromComponents( comps )!
     }
 
+    /// format the date to an ISO8601 date/time string
     public func formatISO8601Date(date:NSDate) -> String {
         return isoFormatter.stringFromDate( date )
     }
 
+    /// parse the ISO8601 date/time string and return a date or nil if the parse fails
     public func dateFromISO8601String(dateString:String) -> NSDate? {
         return isoFormatter.dateFromString( dateString )
     }
 
+    /// calculate and return the new date by adding the days
     public func datePlusDays(date:NSDate, days:Int) -> NSDate {
         if days == 0 {
             return date
@@ -57,6 +62,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         return calendar.dateByAddingComponents(comps, toDate: date, options: [ ])!
     }
 
+    /// calculate and return the new date by adding the number of months
     public func datePlusMonths(date:NSDate, months: Int) -> NSDate {
         if months == 0 {
             return date
@@ -68,12 +74,14 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         return calendar.dateByAddingComponents(comps, toDate: date, options: [ ])!
     }
 
+    /// calculate and return the number of days between the two dates
     public func calcDaysFromDates(fromDate:NSDate, toDate:NSDate) -> Int {
         let comps = calendar.components([ NSCalendarUnit.Day ], fromDate: fromDate, toDate: toDate, options: [ ])
 
         return comps.day
     }
     
+    /// calculate and return the number of minutes between the two dates
     public func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int {
         let comps = calendar.components([ NSCalendarUnit.Minute ], fromDate: fromDate, toDate: toDate, options: [ ])
         
@@ -85,6 +93,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         return SAMutableDateRange( dateTimeCalculator: self )
     }
     
+    /// calculate and return the date of the first day of the month
     public func createFirstDayOfNextMonth(fromDate:NSDate? = NSDate()) -> NSDate {
         var date = fromDate!
         
@@ -100,6 +109,11 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         
         return calendar.dateByAddingComponents(comps, toDate: date, options: [ ])!
     }
+    
+    /// return all components from the date
+    public func componentsFromDate(date:NSDate) -> NSDateComponents {
+        return calendar.components( NSCalendarUnit(rawValue: UInt.max), fromDate: date)
+    }
 
     public init() {
         isoFormatter.dateFormat = ISO8601DateTimeFormat
@@ -107,5 +121,6 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
     }
     
+    /// return a shared instance; in most cases it's more efficient to use the shared instance
     public static let sharedInstance:SADateTimeCalculator = SADateTimeCalculator()
 }
