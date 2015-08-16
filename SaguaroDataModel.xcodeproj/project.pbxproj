@@ -29,6 +29,8 @@
 		BA491FDF1B6433EC00239C36 /* SAUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD51B6433EC00239C36 /* SAUserTests.swift */; };
 		BA491FE01B6433EC00239C36 /* SAValidationDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */; };
 		BA491FE11B6433EC00239C36 /* TestDataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD71B6433EC00239C36 /* TestDataset.swift */; };
+		BAF6C6E51B810AF500C1B4BE /* SAStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E41B810AF500C1B4BE /* SAStack.swift */; };
+		BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		BA491FD51B6433EC00239C36 /* SAUserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUserTests.swift; sourceTree = "<group>"; };
 		BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAValidationDelegateTests.swift; sourceTree = "<group>"; };
 		BA491FD71B6433EC00239C36 /* TestDataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDataset.swift; sourceTree = "<group>"; };
+		BAF6C6E41B810AF500C1B4BE /* SAStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAStack.swift; sourceTree = "<group>"; };
+		BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAStackTests.swift; sourceTree = "<group>"; };
 		E2A171EA6E64CA872A0A5CCC /* Pods-SaguaroDataModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.debug.xcconfig"; sourceTree = "<group>"; };
 		FE7AEF8938F3509ED6F4C7FD /* Pods-SaguaroDataModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +147,7 @@
 				BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */,
 				BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */,
 				BA491FBF1B6433D100239C36 /* SAOrg.swift */,
+				BAF6C6E41B810AF500C1B4BE /* SAStack.swift */,
 				BA491FC01B6433D100239C36 /* SAUnique.swift */,
 				BA491FC11B6433D100239C36 /* SAUser.swift */,
 				BA491FC21B6433D100239C36 /* SAValidationDelegate.swift */,
@@ -161,6 +166,7 @@
 				BA491FD11B6433EC00239C36 /* SADateTimeCalculatorTests.swift */,
 				BA491FD21B6433EC00239C36 /* SADocumentIdentifierTests.swift */,
 				BA491FD31B6433EC00239C36 /* SAOrgTests.swift */,
+				BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */,
 				BA491FD41B6433EC00239C36 /* SAUniqueTests.swift */,
 				BA491FD51B6433EC00239C36 /* SAUserTests.swift */,
 				BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */,
@@ -369,6 +375,7 @@
 				BA491FCA1B6433D100239C36 /* SAUnique.swift in Sources */,
 				BA491FCC1B6433D100239C36 /* SAValidationDelegate.swift in Sources */,
 				BA491FCB1B6433D100239C36 /* SAUser.swift in Sources */,
+				BAF6C6E51B810AF500C1B4BE /* SAStack.swift in Sources */,
 				BA491FC61B6433D100239C36 /* SADateRange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +393,7 @@
 				BA491FDA1B6433EC00239C36 /* SADateRangeTests.swift in Sources */,
 				BA491FDC1B6433EC00239C36 /* SADocumentIdentifierTests.swift in Sources */,
 				BA491FDE1B6433EC00239C36 /* SAUniqueTests.swift in Sources */,
+				BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */,
 				BA491FD81B6433EC00239C36 /* RandomFixtureData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
