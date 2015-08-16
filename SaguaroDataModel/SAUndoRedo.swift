@@ -11,19 +11,47 @@ import Foundation
 public struct SAUndoRedo<T> {
     public let maxSize:Int
 
-    private var undoStack:SAStack<T>
-    private var redoStack:SAStack<T>
+    var undoStack:SAStack<T>
+    var redoStack:SAStack<T>
 
-    public init(maxSize:Int? = 20) {
+    public init(maxSize:Int? = 50) {
         self.maxSize = maxSize!
         self.undoStack = SAStack<T>()
         self.redoStack = SAStack<T>()
     }
 
+    /// to total number of available undo's
+    public var undoCount:Int {
+        return undoStack.count
+    }
+
+    /// the total number of redo's available
+    public var redoCount:Int {
+        return redoStack.count
+    }
+
     /// push a value change to enable undo'ing
-    public mutating func pushChange(value:T) -> T {
+    public mutating func save(value:T) -> T {
         return undoStack.push( value )
     }
 
+    /// pull the last save/change; if non-nil, save to the redo stack; return a peek at the top of stack
+    public mutating func undo() -> T? {
+        guard let value = undoStack.pop() else {
+            return nil
+        }
 
+        redoStack.push( value )
+
+        return undoStack.peek()
+    }
+
+    /// pull the last redo; if non-nil, save and return it
+    public mutating func redo() -> T? {
+        guard let value = redoStack.pop() else {
+            return nil
+        }
+
+        return save( value )
+    }
 }
