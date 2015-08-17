@@ -154,10 +154,10 @@
 				BAF6C6E41B810AF500C1B4BE /* SAStack.swift */,
 				BA491FC01B6433D100239C36 /* SAUnique.swift */,
 				BA491FC11B6433D100239C36 /* SAUser.swift */,
+				BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */,
 				BA491FC21B6433D100239C36 /* SAValidationDelegate.swift */,
 				BA491FA21B64333000239C36 /* SaguaroDataModel.h */,
 				BA491FA41B64333000239C36 /* Info.plist */,
-				BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */,
 			);
 			path = SaguaroDataModel;
 			sourceTree = "<group>";
@@ -172,13 +172,13 @@
 				BA491FD21B6433EC00239C36 /* SADocumentIdentifierTests.swift */,
 				BA491FD31B6433EC00239C36 /* SAOrgTests.swift */,
 				BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */,
+				BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */,
 				BA491FD41B6433EC00239C36 /* SAUniqueTests.swift */,
 				BA491FD51B6433EC00239C36 /* SAUserTests.swift */,
 				BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */,
 				BA491FD71B6433EC00239C36 /* TestDataset.swift */,
 				BA491FB01B64333000239C36 /* Info.plist */,
 				BA491FCD1B6433EB00239C36 /* SaguaroDataModelTests-Bridging-Header.h */,
-				BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */,
 			);
 			path = SaguaroDataModelTests;
 			sourceTree = "<group>";

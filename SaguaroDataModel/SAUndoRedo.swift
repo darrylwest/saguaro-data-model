@@ -16,8 +16,8 @@ public struct SAUndoRedo<T> {
 
     public init(maxSize:Int? = 50) {
         self.maxSize = maxSize!
-        self.undoStack = SAStack<T>()
-        self.redoStack = SAStack<T>()
+        self.undoStack = SAStack<T>( capLimit: maxSize )
+        self.redoStack = SAStack<T>( capLimit: maxSize )
     }
 
     /// to total number of available undo's

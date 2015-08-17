@@ -88,4 +88,14 @@ class SAStackTests: XCTestCase {
         }
 
     }
+
+    func testCappedStack() {
+        var stack = SAStack<Int>( capLimit: 3 )
+
+        for (var i = 0; i < 10; i++) {
+            stack.push( i )
+            XCTAssert( stack.count <= 3 )
+            XCTAssertEqual( stack.peek()!, i, "verify value")
+        }
+    }
 }

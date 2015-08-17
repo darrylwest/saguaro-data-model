@@ -9,11 +9,16 @@
 import Foundation
 
 public struct SAStack<T> {
+    public let capLimit:Int
     var items:[T]
 
     /// push a new item onto the stack; return the item to enable chaining
     public mutating func push(item: T) -> T {
         items.append(item)
+
+        if (capLimit > 0 && items.count > capLimit) {
+            items.removeAtIndex( 0 )
+        }
 
         return item
     }
@@ -47,7 +52,9 @@ public struct SAStack<T> {
     }
 
     /// create the items array
-    public init() {
+    public init(capLimit:Int? = 0) {
+        self.capLimit = capLimit!
         self.items = [T]()
     }
+
 }
