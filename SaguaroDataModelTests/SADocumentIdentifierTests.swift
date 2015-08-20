@@ -27,6 +27,22 @@ class SADocumentIdentifierTests: XCTestCase {
         // XCTAssert(doi.dateCreated == doi.lastUpdated, "dates should match")
         XCTAssertEqual(doi.version, 0, "version is zero")
     }
+    
+    func testInstanceWithOptionalInputs() {
+        let id = createModelId()
+        
+        let doi = SADocumentIdentifier( id: id )
+        
+        XCTAssertNotNil(doi.id, "doi should not be nil")
+        XCTAssertEqual(doi.id, id, "id match")
+        XCTAssertNotNil(doi.dateCreated, "doi should not be nil")
+        XCTAssertNotNil(doi.lastUpdated, "doi should not be nil")
+        XCTAssertNotNil(doi.version, "doi should not be nil")
+        
+        // XCTAssert(doi.dateCreated == doi.lastUpdated, "dates should match")
+        XCTAssertEqual(doi.version, 0, "version is zero")
+        
+    }
 
     func testInstanceWithInputs() {
         let id = createModelId()

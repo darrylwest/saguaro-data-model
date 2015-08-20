@@ -56,11 +56,11 @@ public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConver
     }
 
     /// initializer for documents that currently exist
-    public init(id:String, dateCreated:NSDate, lastUpdated:NSDate, version:Int) {
+    public init(id:String, dateCreated:NSDate? = NSDate(), lastUpdated:NSDate? = NSDate(), version:Int? = 0) {
         self.id = id
-        self.dateCreated = dateCreated
-        self.lastUpdated = lastUpdated
-        self.version = version
+        self.dateCreated = dateCreated!
+        self.lastUpdated = lastUpdated!
+        self.version = version!
     }
 
     /// invoke this to bump the last updated and version values

@@ -26,6 +26,9 @@ class SAContactInfoTests: XCTestCase {
         XCTAssertEqual(info.doi.dateCreated, doi.dateCreated, "id should match")
         XCTAssertEqual(info.givenName, givenName, "names should match")
         XCTAssertEqual(info.fullName, "\( givenName ) \( info.familyName! )", "full name")
+        
+        XCTAssertEqual(info.doi.version, doi.version, "version check")
+        // info.doi.updateVersion()
     }
 
     func testAddEmail() {
