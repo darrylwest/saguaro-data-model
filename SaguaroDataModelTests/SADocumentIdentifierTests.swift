@@ -65,9 +65,9 @@ class SADocumentIdentifierTests: XCTestCase {
         let updated = NSDate().dateByAddingTimeInterval( -60.0 )
         let version = 10
 
-        var doi = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
+        let ref = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
 
-        doi.updateVersion()
+        let doi = ref.updateVersion()
 
         XCTAssertEqual(doi.id, id, "doi should match")
         XCTAssertEqual(doi.dateCreated, created, "doi should match")

@@ -16,7 +16,7 @@ class SAUndoRedoTests: XCTestCase {
         let undo = SAUndoRedo<Int>()
 
         XCTAssertEqual(undo.maxSize, 50, "default max size")
-        XCTAssertEqual(undo.undoCount, 0, "zero undos'")
+        XCTAssertEqual(undo.undoCount, 0, "zero undo's")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
     }
 
@@ -26,13 +26,13 @@ class SAUndoRedoTests: XCTestCase {
 
         undo.save( org )
 
-        XCTAssertEqual(undo.undoCount, 1, "one undos'")
+        XCTAssertEqual(undo.undoCount, 1, "one undo's")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
 
         org = SAOrg(doi: org.doi, name:"My New Name", url:"http://new.org.com", assets:"new set of assets", contactInfo: org.contactInfo, contactList: org.contactList, status: org.status)
 
         undo.save( org )
-        XCTAssertEqual(undo.undoCount, 2, "twi undos'")
+        XCTAssertEqual(undo.undoCount, 2, "two undo's")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
 
     }

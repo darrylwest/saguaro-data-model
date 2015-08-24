@@ -44,8 +44,8 @@ public func == (lhs:SADocumentIdentifier, rhs:SADocumentIdentifier) -> Bool {
 public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConvertible {
     public let id:String
     public let dateCreated:NSDate
-    public private(set) var lastUpdated:NSDate
-    public private(set) var version:Int
+    public let lastUpdated:NSDate
+    public let version:Int
 
     /// initializer used for new documents
     public init() {
@@ -64,9 +64,11 @@ public struct SADocumentIdentifier: SADocumentIdentifierType, CustomStringConver
     }
 
     /// invoke this to bump the last updated and version values
-    public mutating func updateVersion() {
-        lastUpdated = NSDate()
-        ++version
+    public func updateVersion() -> SADocumentIdentifier {
+        let updated = NSDate()
+        let vers = self.version + 1
+        
+        return SADocumentIdentifier( id:self.id, dateCreated:self.dateCreated, lastUpdated: updated, version: vers )
     }
 
     public var description:String {
