@@ -21,6 +21,7 @@ public protocol SADateTimeCalculatorType {
     func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func createMutableDateRange() -> SAMutableDateRange
     func createFirstDayOfNextMonth(fromDate:NSDate?) -> NSDate
+    func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult?) -> Bool
 }
 
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
@@ -113,6 +114,11 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     /// return all components from the date
     public func componentsFromDate(date:NSDate) -> NSDateComponents {
         return calendar.components( NSCalendarUnit(rawValue: UInt.max), fromDate: date)
+    }
+    
+    /// return true if the reference is before compareTo date; 
+    public func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult? = NSComparisonResult.OrderedAscending) -> Bool {
+        return reference.compare( compareTo ) == order!
     }
 
     public init() {

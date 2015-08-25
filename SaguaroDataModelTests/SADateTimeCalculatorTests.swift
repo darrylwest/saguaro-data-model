@@ -197,4 +197,16 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(comps.weekdayOrdinal, 2, "second friday of the month")
     }
     
+    func testSortDates() {
+        let dt1 = calculator.dateFromISO8601String("2015-08-14T13:45:33.987Z")!
+        let dt2 = calculator.dateFromISO8601String("2015-08-15T13:45:33.987Z")!
+        let dt3 = calculator.dateFromISO8601String("2015-08-13T13:45:33.987Z")!
+        let dt4 = calculator.dateFromISO8601String("2015-08-14T13:45:34.987Z")!
+        
+        XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2 ), true, "dt1 < dt2")
+        XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt3 ), false, "dt1 > dt3")
+        XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt4 ), true, "dt1 > dt4")
+        XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2, order:NSComparisonResult.OrderedDescending ), false, "dt1 < dt2")
+    }
+    
 }
