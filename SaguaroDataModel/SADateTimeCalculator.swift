@@ -24,19 +24,29 @@ public protocol SADateTimeCalculatorType {
     func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult?) -> Bool
 }
 
-/// override date class to add functionality; more polite than extensions
-public class SADate: NSDate {
-    
+/// this makes nsdate not suck so much...
+public extension NSDate {
     public func isBeforeDate(date:NSDate) -> Bool {
-        return self.compare( date ) == NSComparisonResult.OrderedDescending
+        return self.timeIntervalSinceDate( date ) < 0
     }
     
     public func isAfterDate(date:NSDate) -> Bool {
-        return self.compare( date ) == NSComparisonResult.OrderedAscending
+        return self.timeIntervalSinceDate( date ) > 0
     }
     
-    public static func fromNSDate(date:NSDate) -> SADate {
-        return SADate( timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate )
+    public func plusDays(days:Int) -> NSDate {
+        let dayInterval = NSTimeInterval( days * 24 * 60 * 60 )
+        return NSDate(timeInterval: dayInterval, sinceDate: self)
+    }
+    
+    public func plusMinutes(minutes:Int) -> NSDate {
+        let minuteInterval = NSTimeInterval( minutes * 60 )
+        return NSDate( timeInterval: minuteInterval, sinceDate: self )
+    }
+    
+    public func plusHours(hours: Int) -> NSDate {
+        let hourInterval = NSTimeInterval( hours * 60 * 60 )
+        return NSDate( timeInterval: hourInterval, sinceDate: self )
     }
 }
 

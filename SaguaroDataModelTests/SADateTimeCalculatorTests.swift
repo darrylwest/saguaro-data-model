@@ -209,10 +209,37 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2, order:NSComparisonResult.OrderedDescending ), false, "dt1 < dt2")
     }
     
-    func testCreateSADate() {
-        let dt = SADate()
+    
+    // extensions
+    func testIsBeforeDate() {
+        let dt1 = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")!
+        let dt2 = calculator.dateFromISO8601String("2015-08-15T13:45:33.987Z")!
         
-        XCTAssertNotNil( dt, "should not be nil")
+        XCTAssertEqual( dt1.isBeforeDate( dt2 ), true, "dt1 < dt2")
+        XCTAssertEqual( dt2.isAfterDate( dt1 ), true, "dt2 > dt1")
     }
     
+    func testPlusDays() {
+        let dt1 = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")!
+        let dt2 = dt1.plusDays(1)
+        
+        XCTAssert( dt1.isBeforeDate( dt2 ))
+        XCTAssertEqual( calculator.datePlusDays(dt1, days: 1), dt2, "d1/d2")
+    }
+    
+    func testPlusMinutes() {
+        let dt1 = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")!
+        let dt2 = dt1.plusMinutes(10)
+        
+        XCTAssert(dt1.isBeforeDate( dt2 ))
+        XCTAssertEqual( dt2.timeIntervalSinceDate(dt1), 10 * 60, "10 minutes")
+    }
+    
+    func testPlusHours() {
+        let dt1 = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")!
+        let dt2 = dt1.plusHours( 5 )
+        
+        XCTAssert( dt1.isBeforeDate( dt2 ))
+        XCTAssertEqual(dt2.timeIntervalSinceDate( dt1 ), 5 * 60 * 60, "hours")
+    }
 }
