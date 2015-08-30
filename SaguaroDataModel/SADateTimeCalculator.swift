@@ -24,6 +24,23 @@ public protocol SADateTimeCalculatorType {
     func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult?) -> Bool
 }
 
+/// override date class to add functionality; more polite than extensions
+public class SADate: NSDate {
+    
+    public func isBeforeDate(date:NSDate) -> Bool {
+        return self.compare( date ) == NSComparisonResult.OrderedDescending
+    }
+    
+    public func isAfterDate(date:NSDate) -> Bool {
+        return self.compare( date ) == NSComparisonResult.OrderedAscending
+    }
+    
+    public static func fromNSDate(date:NSDate) -> SADate {
+        return SADate( timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate )
+    }
+}
+
+/// some date helper methods
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
     public let ISO8601DateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
@@ -32,13 +49,14 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
 
     /// the current date with time stripped
     public var today:NSDate {
-        return stripTime(NSDate())
+        return stripTime( NSDate() )
     }
 
     /// strip the time from the given date
     public func stripTime(date:NSDate) -> NSDate {
         let comps = calendar.components([ .Year, .Month, .Day ], fromDate: date)
         return calendar.dateFromComponents( comps )!
+        
     }
 
     /// format the date to an ISO8601 date/time string
@@ -130,3 +148,4 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     /// return a shared instance; in most cases it's more efficient to use the shared instance
     public static let sharedInstance:SADateTimeCalculator = SADateTimeCalculator()
 }
+

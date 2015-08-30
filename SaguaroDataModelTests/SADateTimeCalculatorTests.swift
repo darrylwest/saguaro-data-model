@@ -209,4 +209,10 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2, order:NSComparisonResult.OrderedDescending ), false, "dt1 < dt2")
     }
     
+    func testCreateSADate() {
+        let dt = SADate()
+        
+        XCTAssertNotNil( dt, "should not be nil")
+    }
+    
 }
