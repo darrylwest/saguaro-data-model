@@ -9,10 +9,16 @@
 import Foundation
 import SaguaroJSON
 
-public protocol SADateRangeModel: SAMappable {
+public protocol SADateRangeModel: SAMappable, CustomStringConvertible {
     var startDate:NSDate { get }
     var endDate:NSDate { get }
     var days: Int { get }
+}
+
+extension SADateRangeModel {
+    public var description: String {
+        return "\( self.startDate ) \( self.endDate ) \( self.days )"
+    }
 }
 
 public struct SADateRange: SADateRangeModel {
