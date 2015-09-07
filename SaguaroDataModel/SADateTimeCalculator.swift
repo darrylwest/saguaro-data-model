@@ -17,6 +17,7 @@ public protocol SADateTimeCalculatorType {
     func formatISO8601Date(date:NSDate) -> String
     func datePlusDays(date:NSDate, days:Int) -> NSDate
     func datePlusMonths(date:NSDate, months:Int) -> NSDate
+    func calcMonthsFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func calcDaysFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func createMutableDateRange() -> SAMutableDateRange
@@ -102,6 +103,13 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         comps.month = months
 
         return calendar.dateByAddingComponents(comps, toDate: date, options: [ ])!
+    }
+    
+    /// calculate the number of months between the two dates rounded
+    public func calcMonthsFromDates(fromDate:NSDate, toDate:NSDate) -> Int {
+        let comps = calendar.components([ NSCalendarUnit.Month ], fromDate: fromDate, toDate: toDate, options: [ ])
+        
+        return comps.month
     }
 
     /// calculate and return the number of days between the two dates

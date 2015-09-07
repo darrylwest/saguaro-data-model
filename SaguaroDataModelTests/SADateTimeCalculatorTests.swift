@@ -254,4 +254,20 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssert( dt1.isBeforeDate( dt2 ))
         XCTAssertEqual(dt2.timeIntervalSinceDate( dt1 ), 5 * 60 * 60, "hours")
     }
+    
+    func testCalcMonthsFromDates() {
+        let dt1 = calculator.dateFromISO8601String("2015-08-01T00:00:00.000Z")!
+        var dt2 = calculator.dateFromISO8601String("2016-08-31T00:00:00.000Z")!
+        
+        var months = calculator.calcMonthsFromDates(dt1, toDate:dt2)
+        XCTAssertEqual(months, 12, "should be 12")
+        
+        dt2 = calculator.dateFromISO8601String("2016-12-31T00:00:00.000Z")!
+        months = calculator.calcMonthsFromDates(dt1, toDate:dt2)
+        XCTAssertEqual(months, 16, "should be 16")
+        
+        dt2 = calculator.dateFromISO8601String("2017-01-01T00:00:00.000Z")!
+        months = calculator.calcMonthsFromDates(dt1, toDate:dt2)
+        XCTAssertEqual(months, 17, "should be 16")
+    }
 }
