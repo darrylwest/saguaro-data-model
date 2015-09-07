@@ -166,7 +166,19 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(range.days, 180, "should be zero")
     }
     
-    func testcreateFirstDayOfNextMonth() {
+    func testCreateFirstDayOfMonth() {
+        let refDate = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")
+        let calendar = calculator.calendar
+        let date = calculator.createFirstDayOfMonth( refDate )
+        
+        XCTAssertNotNil(date, "should not be nil")
+        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        XCTAssertEqual(comps.day, 1, "first day")
+        XCTAssertEqual(comps.year, 2015, "year")
+        XCTAssertEqual(comps.month, 8, "month check")
+    }
+    
+    func testCreateFirstDayOfNextMonth() {
         let refDate = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")
         let calendar = calculator.calendar
         let date = calculator.createFirstDayOfNextMonth( refDate )
