@@ -21,10 +21,11 @@ public protocol SADateTimeCalculatorType {
     func calcDaysFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func calcMinutesFromDates(fromDate:NSDate, toDate:NSDate) -> Int
     func createMutableDateRange() -> SAMutableDateRange
-    func createFirstDayOfMonth(fromDate:NSDate?) -> NSDate
-    func createFirstDayOfNextMonth(fromDate:NSDate?) -> NSDate
+    func firstDayOfMonth(fromDate:NSDate?) -> NSDate
+    func firstDayOfNextMonth(fromDate:NSDate?) -> NSDate
     func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult?) -> Bool
     func monthNamesBetweenDates(fromDate:NSDate, toDate:NSDate, dateFormat:String?) -> [String]
+    func monthNamesBetweenDates(dateRange:SADateRangeModel, dateFormat:String?) -> [String]
 }
 
 /// this makes nsdate not suck so much...
@@ -53,10 +54,10 @@ public extension NSDate {
     }
 }
 
-/// some date helper methods
+/// some date helper methods; all date format time zones are zulu
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
     public let ISO8601DateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    public let dateFormats = [ "MMMM", "MMM", "yyyy-MM-dd", "HH:mm:ss" ]
+    public let dateFormats = [ "MMMM", "MMM", "dd-MMM-yyyy", "yyyy-MM-dd", "HH:mm:ss" ]
 
     public let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     public let isoFormatter = NSDateFormatter()
@@ -136,7 +137,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     }
     
     /// calculate and return the first day of the supplied month
-    public func createFirstDayOfMonth(fromDate:NSDate? = NSDate()) -> NSDate {
+    public func firstDayOfMonth(fromDate:NSDate? = NSDate()) -> NSDate {
         let date = fromDate!
         
         let comps = calendar.components([ .Year, .Month, .Day ], fromDate: date )
@@ -146,7 +147,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     }
     
     /// calculate and return the date of the first day of the month
-    public func createFirstDayOfNextMonth(fromDate:NSDate? = NSDate()) -> NSDate {
+    public func firstDayOfNextMonth(fromDate:NSDate? = NSDate()) -> NSDate {
         var date = fromDate!
         
         let comps = calendar.components([ .Year, .Month, .Day ], fromDate: date )
@@ -178,13 +179,21 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         
         let formatter = getDateFormatter( dateFormat! )
         
-        var dt = fromDate
-        while dt.isBeforeDate( toDate ) {
+        var dt = self.firstDayOfMonth( fromDate )
+        let lastDate = self.firstDayOfMonth( toDate )
+        while dt.isBeforeDate( lastDate ) {
             names.append( formatter.stringFromDate( dt ))
             dt = datePlusMonths(dt, months: 1)
         }
+
+        names.append( formatter.stringFromDate( dt ))
         
         return names
+    }
+
+    /// return the month names
+    public func monthNamesBetweenDates(dateRange: SADateRangeModel, dateFormat:String? = "MMMM") -> [String] {
+        return monthNamesBetweenDates(dateRange.startDate, toDate: dateRange.endDate, dateFormat: dateFormat)
     }
     
     /// return the formatter from cache, or create new and return
@@ -207,6 +216,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
         for df in dateFormats {
             let fmt = NSDateFormatter()
             fmt.dateFormat = df
+            fmt.timeZone = NSTimeZone(forSecondsFromGMT: 0)
             
             formatters[ df ] = fmt
         }

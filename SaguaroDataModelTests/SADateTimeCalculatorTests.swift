@@ -166,10 +166,10 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(range.days, 180, "should be zero")
     }
     
-    func testCreateFirstDayOfMonth() {
+    func testFirstDayOfMonth() {
         let refDate = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")
         let calendar = calculator.calendar
-        let date = calculator.createFirstDayOfMonth( refDate )
+        let date = calculator.firstDayOfMonth( refDate )
         
         XCTAssertNotNil(date, "should not be nil")
         let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
@@ -178,10 +178,10 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(comps.month, 8, "month check")
     }
     
-    func testCreateFirstDayOfNextMonth() {
+    func testFirstDayOfNextMonth() {
         let refDate = calculator.dateFromISO8601String("2015-08-14T00:00:00.000Z")
         let calendar = calculator.calendar
-        let date = calculator.createFirstDayOfNextMonth( refDate )
+        let date = calculator.firstDayOfNextMonth( refDate )
         
         XCTAssertNotNil(date, "should not be nil")
         
@@ -272,30 +272,64 @@ class SADateTimeCalculatorTests: XCTestCase {
     }
     
     func testMonthNamesBetweenDates() {
-        var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October"]
-        let dt1 = calculator.dateFromISO8601String("2015-02-01T00:00:00.000Z")!
-        let dt2 = calculator.dateFromISO8601String("2015-12-01T00:00:00.000Z")!
+        var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        let dt1 = calculator.dateFromISO8601String("2015-01-01T00:00:00.000Z")!
+        let dt2 = calculator.dateFromISO8601String("2015-12-31T00:00:00.000Z")!
+
+        print( "dt1: \( dt1 ), dt2: \( dt2 )")
         
         var names = calculator.monthNamesBetweenDates(dt1, toDate: dt2)
         
         print( names )
         
         XCTAssertNotNil( names );
-        XCTAssertEqual(names.count, 10, "count")
+        XCTAssertEqual(names.count, 12, "count")
         
         for name in names {
-            XCTAssertEqual(name, months.removeAtIndex(0))
+            if months.isEmpty {
+                XCTFail("months are empty for \( name )")
+            } else {
+                XCTAssertEqual(name, months.removeAtIndex(0))
+            }
         }
         
-        months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]
+        months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
         names = calculator.monthNamesBetweenDates(dt1, toDate: dt2, dateFormat:"MMM")
         print( names )
         
         for name in names {
-            XCTAssertEqual(name, months.removeAtIndex(0))
+            if months.isEmpty {
+                XCTFail("months are empty for \( name )")
+            } else {
+                XCTAssertEqual(name, months.removeAtIndex(0))
+            }
         }
         
         names = calculator.monthNamesBetweenDates(dt1, toDate: calculator.datePlusMonths( dt2, months:10), dateFormat:"MMM-yyyy")
         print(names)
+    }
+
+    func testMonthNamesBetweenDateRange() {
+        var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        let dt1 = calculator.dateFromISO8601String("2015-01-01T00:00:00.000Z")!
+        let dt2 = calculator.dateFromISO8601String("2015-12-31T00:00:00.000Z")!
+        let range = SADateRange(startDate: dt1, endDate: dt2)
+
+        print("range: \( range )")
+
+        var names = calculator.monthNamesBetweenDates(range)
+
+        print( names )
+
+        XCTAssertNotNil( names );
+        XCTAssertEqual(names.count, 12, "count")
+
+        for name in names {
+            if months.isEmpty {
+                XCTFail("months are empty for \( name )")
+            } else {
+                XCTAssertEqual(name, months.removeAtIndex(0))
+            }
+        }
     }
 }
