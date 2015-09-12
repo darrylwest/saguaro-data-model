@@ -17,7 +17,7 @@ public protocol SADateRangeModel: SAMappable, CustomStringConvertible {
 
 extension SADateRangeModel {
     public var description: String {
-        return "\( self.startDate ) \( self.endDate ) \( self.days )"
+        return "start: \( self.startDate ) end: \( self.endDate ) days: \( self.days )"
     }
 }
 

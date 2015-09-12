@@ -58,6 +58,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
 
     public let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     public let isoFormatter = NSDateFormatter()
+    
 
     /// the current date with time stripped
     public var today:NSDate {
@@ -166,6 +167,22 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     /// return true if the reference is before compareTo date; 
     public func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult? = NSComparisonResult.OrderedAscending) -> Bool {
         return reference.compare( compareTo ) == order!
+    }
+    
+    public func monthNamesBetweenDates(fromDate:NSDate, toDate:NSDate, dateFormat:String? = "MMMM") -> [String] {
+        var names = [String]()
+        
+        // TODO pull the formatter from cached formatters...
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = dateFormat!
+        
+        var dt = fromDate
+        while dt.isBeforeDate( toDate ) {
+            names.append( formatter.stringFromDate( dt ))
+            dt = datePlusMonths(dt, months: 1)
+        }
+        
+        return names
     }
 
     public init() {

@@ -270,4 +270,15 @@ class SADateTimeCalculatorTests: XCTestCase {
         months = calculator.calcMonthsFromDates(dt1, toDate:dt2)
         XCTAssertEqual(months, 17, "should be 16")
     }
+    
+    func testMonthNamesBetweenDates() {
+        let dt1 = calculator.dateFromISO8601String("2015-02-01T00:00:00.000Z")!
+        let dt2 = calculator.dateFromISO8601String("2015-12-01T00:00:00.000Z")!
+        
+        let names = calculator.monthNamesBetweenDates(dt1, toDate: dt2)
+        
+        print( names )
+        XCTAssertNotNil( names );
+        XCTAssertEqual(names.count, 10, "count")
+    }
 }
