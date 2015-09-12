@@ -272,13 +272,30 @@ class SADateTimeCalculatorTests: XCTestCase {
     }
     
     func testMonthNamesBetweenDates() {
+        var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October"]
         let dt1 = calculator.dateFromISO8601String("2015-02-01T00:00:00.000Z")!
         let dt2 = calculator.dateFromISO8601String("2015-12-01T00:00:00.000Z")!
         
-        let names = calculator.monthNamesBetweenDates(dt1, toDate: dt2)
+        var names = calculator.monthNamesBetweenDates(dt1, toDate: dt2)
         
         print( names )
+        
         XCTAssertNotNil( names );
         XCTAssertEqual(names.count, 10, "count")
+        
+        for name in names {
+            XCTAssertEqual(name, months.removeAtIndex(0))
+        }
+        
+        months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]
+        names = calculator.monthNamesBetweenDates(dt1, toDate: dt2, dateFormat:"MMM")
+        print( names )
+        
+        for name in names {
+            XCTAssertEqual(name, months.removeAtIndex(0))
+        }
+        
+        names = calculator.monthNamesBetweenDates(dt1, toDate: calculator.datePlusMonths( dt2, months:10), dateFormat:"MMM-yyyy")
+        print(names)
     }
 }
