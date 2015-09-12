@@ -24,6 +24,7 @@ public protocol SADateTimeCalculatorType {
     func createFirstDayOfMonth(fromDate:NSDate?) -> NSDate
     func createFirstDayOfNextMonth(fromDate:NSDate?) -> NSDate
     func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult?) -> Bool
+    func monthNamesBetweenDates(fromDate:NSDate, toDate:NSDate, dateFormat:String?) -> [String]
 }
 
 /// this makes nsdate not suck so much...
@@ -55,10 +56,13 @@ public extension NSDate {
 /// some date helper methods
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
     public let ISO8601DateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    public let dateFormats = [ "MMMM", "MMM", "yyyy-MM-dd", "HH:mm:ss" ]
 
     public let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     public let isoFormatter = NSDateFormatter()
-
+    
+    public private(set) var formatters = [String:NSDateFormatter]()
+    
     /// the current date with time stripped
     public var today:NSDate {
         return stripTime( NSDate() )
@@ -167,11 +171,45 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     public func sortDates(reference:NSDate, compareTo:NSDate, order:NSComparisonResult? = NSComparisonResult.OrderedAscending) -> Bool {
         return reference.compare( compareTo ) == order!
     }
+    
+    /// return an array of month names optionally formatted as MMMM
+    public func monthNamesBetweenDates(fromDate:NSDate, toDate:NSDate, dateFormat:String? = "MMMM") -> [String] {
+        var names = [String]()
+        
+        let formatter = getDateFormatter( dateFormat! )
+        
+        var dt = fromDate
+        while dt.isBeforeDate( toDate ) {
+            names.append( formatter.stringFromDate( dt ))
+            dt = datePlusMonths(dt, months: 1)
+        }
+        
+        return names
+    }
+    
+    /// return the formatter from cache, or create new and return
+    func getDateFormatter(dateFormat:String) -> NSDateFormatter {
+        if let fmt = formatters[ dateFormat ] {
+            return fmt
+        } else {
+            let fmt = NSDateFormatter()
+            fmt.dateFormat = dateFormat
+            
+            return fmt
+        }
+    }
 
     public init() {
         isoFormatter.dateFormat = ISO8601DateTimeFormat
         isoFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         calendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        
+        for df in dateFormats {
+            let fmt = NSDateFormatter()
+            fmt.dateFormat = df
+            
+            formatters[ df ] = fmt
+        }
     }
     
     /// return a shared instance; in most cases it's more efficient to use the shared instance
