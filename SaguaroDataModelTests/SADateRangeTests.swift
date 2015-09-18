@@ -114,9 +114,9 @@ class SADateRangeTests: XCTestCase {
 
         let map = dateRange.toMap()
 
-        XCTAssertEqual(dateRange.startDate, map["startDate"] as! NSDate, "start match")
-        XCTAssertEqual(dateRange.endDate, map["endDate"] as! NSDate, "end match")
-        XCTAssertEqual(dateRange.days, map["days"] as! Int, "day count match")
+        XCTAssertEqual(dateRange.startDate, map["startDate"] as? NSDate, "start match")
+        XCTAssertEqual(dateRange.endDate, map["endDate"] as? NSDate, "end match")
+        XCTAssertEqual(dateRange.days, map["days"] as? Int, "day count match")
     }
 
     func testFromMap() {

@@ -317,7 +317,7 @@ class SADateTimeCalculatorTests: XCTestCase {
 
         print("range: \( range )")
 
-        var names = calculator.monthNamesBetweenDates(range)
+        let names = calculator.monthNamesBetweenDates(range)
 
         print( names )
 

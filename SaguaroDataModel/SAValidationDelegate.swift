@@ -30,11 +30,16 @@ public func =~ (value : String, pattern : String) -> SARegexMatchResult {
 
 public struct SARegexMatchCaptureGenerator : GeneratorType {
     public var items: ArraySlice<String>
+    
     public mutating func next() -> String? {
-        if items.isEmpty { return nil }
-        let ret = items[0]
-        items = items[1..<items.count]
-        return ret
+        if items.isEmpty {
+            return nil
+        } else {
+        
+            let ret = items.removeAtIndex( 0 )
+
+            return ret
+        }
     }
 }
 

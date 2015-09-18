@@ -158,10 +158,10 @@ class SAContactInfoTests: XCTestCase {
 
         let map = info.toMap()
         
-        XCTAssertEqual(map["id"] as! String, info.doi.id, "id match")
-        XCTAssertEqual(map["version"] as! Int, 0, "version check")
+        XCTAssertEqual(map["id"] as? String, info.doi.id, "id match")
+        XCTAssertEqual(map["version"] as? Int, 0, "version check")
 
-        XCTAssertEqual(map["givenName"] as! String, info.givenName, "name check")
+        XCTAssertEqual(map["givenName"] as? String, info.givenName, "name check")
 
         let emails = map[ "emails" ] as! [[String:String]]
         let phones = map[ "phones" ] as! [[String:String]]
@@ -180,7 +180,7 @@ class SAContactInfoTests: XCTestCase {
             XCTAssertEqual( phones.filter { return $0[ type.rawValue ] != nil }.count, 1, "should find one \( type ) phones")
         }
 
-        XCTAssertEqual(map[ "status" ] as! String, SADataModelStatus.Active.rawValue, "test status")
+        XCTAssertEqual(map[ "status" ] as? String, SADataModelStatus.Active.rawValue, "test status")
     }
 
     func testFromMap() {
@@ -191,11 +191,11 @@ class SAContactInfoTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(info.doi.id, map["id"] as! String, "id match")
-        XCTAssertEqual(info.doi.version, map["version"] as! Int, "version")
-        XCTAssertEqual(info.givenName, map["givenName"] as! String, "given name")
-        XCTAssertEqual(info.familyName!, map["familyName"] as! String, "family name")
-        XCTAssertEqual(info.status.rawValue, map["status"] as! String, "status")
+        XCTAssertEqual(info.doi.id, map["id"] as? String, "id match")
+        XCTAssertEqual(info.doi.version, map["version"] as? Int, "version")
+        XCTAssertEqual(info.givenName, map["givenName"] as? String, "given name")
+        XCTAssertEqual(info.familyName!, map["familyName"] as? String, "family name")
+        XCTAssertEqual(info.status.rawValue, map["status"] as? String, "status")
 
         XCTAssertEqual(info.emails.count, 3, "email count")
         XCTAssertEqual(info.phones.count, 3, "phone count")

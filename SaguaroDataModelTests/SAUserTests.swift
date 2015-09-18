@@ -25,7 +25,7 @@ class SAUserTests: XCTestCase {
         XCTAssertEqual(user.doi, doi, "doi match")
         XCTAssertEqual(user.username, username, "username match")
         XCTAssertEqual(user.session, session, "session match")
-        XCTAssertEqual(user.status, .Active, "active")
+        XCTAssertEqual(user.status, SAUserStatus.Active, "active")
     }
     
 }
