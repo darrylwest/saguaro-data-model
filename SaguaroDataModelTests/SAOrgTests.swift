@@ -22,7 +22,7 @@ class SAOrgTests: XCTestCase {
 
         XCTAssertEqual(org.doi, doi, "doi match")
         XCTAssertEqual(org.name, name, "name match")
-        XCTAssertEqual(org.status, .Active, "active")
+        XCTAssertEqual(org.status, SADataModelStatus.Active, "active")
     }
     
 }

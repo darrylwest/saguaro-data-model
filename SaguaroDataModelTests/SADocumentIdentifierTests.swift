@@ -94,10 +94,10 @@ class SADocumentIdentifierTests: XCTestCase {
         
         let map = doi.toMap()
 
-        XCTAssertEqual(map["id"] as! String, id, "id match")
-        XCTAssertEqual(map["dateCreated"] as! NSDate, created, "created")
-        XCTAssertEqual(map["lastUpdated"] as! NSDate, updated, "updated")
-        XCTAssertEqual(map["version"] as! Int, version, "version")
+        XCTAssertEqual(map["id"] as? String, id, "id match")
+        XCTAssertEqual(map["dateCreated"] as? NSDate, created, "created")
+        XCTAssertEqual(map["lastUpdated"] as? NSDate, updated, "updated")
+        XCTAssertEqual(map["version"] as? Int, version, "version")
     }
 
     func testFromMap() {
@@ -113,10 +113,10 @@ class SADocumentIdentifierTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(doi.id, map["id"] as! String, "id")
-        XCTAssertEqual(doi.dateCreated, map["dateCreated"] as! NSDate, "created")
-        XCTAssertEqual(doi.lastUpdated, map["lastUpdated"] as! NSDate, "updated")
-        XCTAssertEqual(doi.version, map["version"] as! Int, "version")
+        XCTAssertEqual(doi.id, map["id"] as? String, "id")
+        XCTAssertEqual(doi.dateCreated, map["dateCreated"] as? NSDate, "created")
+        XCTAssertEqual(doi.lastUpdated, map["lastUpdated"] as? NSDate, "updated")
+        XCTAssertEqual(doi.version, map["version"] as? Int, "version")
     }
     
 }
