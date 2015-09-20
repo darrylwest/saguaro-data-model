@@ -19,22 +19,23 @@ public protocol SAUserModel: SADataModelType, SAMappable {
     var doi:SADocumentIdentifier { get }
     var username:String { get }
     var session:String { get }
-    var org:SAOrg { get }
+    var org:SAOrgModel { get }
     var contactInfo:SAContactInfo { get set }
     var status:SAUserStatus { get }
 
     func toMap() -> [String:AnyObject]
+    func updateVersion() -> SAUserModel
 }
 
-public struct SAUser {
+public struct SAUser: SAUserModel {
     public let doi:SADocumentIdentifier
     public let username:String
     public let session:String
-    public let org:SAOrg
-    public let contactInfo:SAContactInfo
+    public let org:SAOrgModel
+    public var contactInfo:SAContactInfo
     public let status:SAUserStatus
 
-    public init(doi:SADocumentIdentifier, username:String, session:String, contactInfo:SAContactInfo, org:SAOrg, status:SAUserStatus? = .Active) {
+    public init(doi:SADocumentIdentifier, username:String, session:String, contactInfo:SAContactInfo, org:SAOrgModel, status:SAUserStatus? = .Active) {
         self.doi = doi
         self.username = username
         self.session = session
@@ -53,6 +54,17 @@ public struct SAUser {
         map["status"] = status.rawValue
 
         return map
+    }
+
+    public func updateVersion() -> SAUserModel {
+        return SAUser(
+            doi: self.doi.updateVersion(),
+            username: self.username,
+            session: self.session,
+            contactInfo: self.contactInfo,
+            org: self.org,
+            status: self.status
+        )
     }
 }
 

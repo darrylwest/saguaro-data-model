@@ -12,6 +12,12 @@ public struct SAStack<T> {
     public let capLimit:Int
     var items:[T]
 
+    /// create the items array
+    public init(capLimit:Int? = 0) {
+        self.capLimit = capLimit!
+        self.items = [T]()
+    }
+
     /// push a new item onto the stack; return the item to enable chaining
     public mutating func push(item: T) -> T {
         items.append(item)
@@ -50,11 +56,4 @@ public struct SAStack<T> {
     public var isEmpty:Bool {
         return items.count == 0
     }
-
-    /// create the items array
-    public init(capLimit:Int? = 0) {
-        self.capLimit = capLimit!
-        self.items = [T]()
-    }
-
 }
