@@ -16,12 +16,14 @@ public class SAUpdateQueue<T> {
     public private(set) var lastQueueTime:NSDate = NSDate()
     public let quietTimeout:NSTimeInterval
 
+    /// construct with an action and the amount of time to wait before invoking the action
     public init(updateAction:(T) -> (), quietTimeout:NSTimeInterval? = 3.0) {
         self.updateAction = updateAction
         self.updateQueue = [String:T]()
         self.quietTimeout = quietTimeout!
     }
 
+    /// invoking the action and each item as it's removed from the queue
     public func flushQueue() {
         // insure a new quiet time...
         lastQueueTime = NSDate(timeIntervalSinceNow: quietTimeout)
@@ -35,9 +37,16 @@ public class SAUpdateQueue<T> {
         }
     }
 
-    public func checkUpdateQueue() {
+    /// check for the update timeout and queue size; if flush is true, then call flush
+    public func checkUpdateQueue(flush:Bool? = true) -> Bool {
         if updateQueue.count > 0 && lastQueueTime.isBeforeDate( NSDate() ) {
-            flushQueue()
+            if flush == true {
+                flushQueue()
+            }
+
+            return true
+        } else {
+            return false
         }
     }
 
@@ -49,6 +58,7 @@ public class SAUpdateQueue<T> {
         lastQueueTime = NSDate(timeIntervalSinceNow: 3.0)
     }
 
+    /// return the count of items in the queue
     public var count:Int {
         return updateQueue.count
     }

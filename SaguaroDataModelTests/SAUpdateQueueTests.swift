@@ -32,6 +32,7 @@ class SAUpdateQueueTests: XCTestCase {
 
             XCTAssertEqual(queue.count, n, "should match iteration count")
             XCTAssert( NSDate().isBeforeDate( queue.lastQueueTime ), "should always bump up the last time")
+            XCTAssertEqual(queue.checkUpdateQueue(), false, "should not be ready for updates")
         }
 
         queue.flushQueue()
@@ -51,6 +52,7 @@ class SAUpdateQueueTests: XCTestCase {
 
             XCTAssertEqual(queue.count, 1, "should match iteration count")
             XCTAssert( NSDate().isBeforeDate( queue.lastQueueTime ), "should always bump up the last time")
+            XCTAssertEqual(queue.checkUpdateQueue(), false, "should not be ready for updates")
         }
 
         queue.flushQueue()
