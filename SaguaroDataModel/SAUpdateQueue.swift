@@ -8,7 +8,12 @@
 
 import Foundation
 
-public class SAUpdateQueue<T> {
+public protocol SAUpdateQueueable {
+    func flushQueue() -> Void
+    func checkUpdateQueue(flush:Bool?) -> Bool
+}
+
+public class SAUpdateQueue<T> : SAUpdateQueueable {
 
     let updateAction:(T) -> ()
     public private(set) var updateQueue:[String:T]
