@@ -52,4 +52,16 @@ class TestDataset {
         let info = createComplexContactInfo()
         return SAOrg(doi: SADocumentIdentifier(), name: randomData.companyName, url: randomData.url, assets: "myassets", contactInfo: info)
     }
+
+    func createUser() -> SAUserModel {
+        let org = createOrg()
+
+        let doi = SADocumentIdentifier()
+        let username = randomData.username
+        let session = SAUnique.createUUID()
+        let info = SAContactInfo(doi: SADocumentIdentifier(), givenName: randomData.firstName)
+        let user = SAUser(doi:doi, username: username, session: session, contactInfo: info, org: org)
+
+        return user
+    }
 }
