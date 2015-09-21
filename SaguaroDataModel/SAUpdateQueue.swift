@@ -30,8 +30,7 @@ public class SAUpdateQueue<T> {
 
         let keys = updateQueue.keys
         for key in keys {
-            if let value = updateQueue.removeValueForKey(key) {
-                // if the 
+            if let value = updateQueue.removeValueForKey( key ) {
                 updateAction( value )
             }
         }
@@ -55,12 +54,11 @@ public class SAUpdateQueue<T> {
         updateQueue[ id ] = item
 
         // set the timeout for n seconds
-        lastQueueTime = NSDate(timeIntervalSinceNow: 3.0)
+        lastQueueTime = NSDate(timeIntervalSinceNow: quietTimeout)
     }
 
     /// return the count of items in the queue
     public var count:Int {
         return updateQueue.count
     }
-
 }

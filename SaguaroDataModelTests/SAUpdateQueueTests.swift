@@ -41,7 +41,6 @@ class SAUpdateQueueTests: XCTestCase {
     }
 
     func testDupQueue() {
-
         let queue = SAUpdateQueue<SAUserModel>(updateAction: noopAction, quietTimeout: NSTimeInterval( 0.5 ))
 
         let user = dataset.createUser()
@@ -58,5 +57,4 @@ class SAUpdateQueueTests: XCTestCase {
         queue.flushQueue()
         XCTAssertEqual(queue.count, 0, "should be zero again")
     }
-    
 }
