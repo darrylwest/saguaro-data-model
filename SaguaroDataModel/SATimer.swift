@@ -25,7 +25,7 @@ public class SATimer {
     public let interval:NSTimeInterval
     public let oneShot:Bool
 
-    init(after interval: NSTimeInterval, action block: () -> Void) {
+    public init(after interval: NSTimeInterval, action block: () -> Void) {
         let actor = NSTimerActor( block )
 
         self.oneShot = true
@@ -33,7 +33,7 @@ public class SATimer {
         self.timer = NSTimer(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
     }
 
-    init(every interval: NSTimeInterval, action block: () -> Void) {
+    public init(every interval: NSTimeInterval, action block: () -> Void) {
         let actor = NSTimerActor( block )
 
         self.oneShot = false
