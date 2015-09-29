@@ -15,6 +15,7 @@ public protocol SADateTimeCalculatorType {
     var today:NSDate { get }
     func stripTime(date:NSDate) -> NSDate
     func formatISO8601Date(date:NSDate) -> String
+    func getDateFormatter(dateFormat:String) -> NSDateFormatter
     func datePlusDays(date:NSDate, days:Int) -> NSDate
     func datePlusMonths(date:NSDate, months:Int) -> NSDate
     func calcMonthsFromDates(fromDate:NSDate, toDate:NSDate) -> Int
@@ -197,7 +198,7 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     }
     
     /// return the formatter from cache, or create new and return
-    func getDateFormatter(dateFormat:String) -> NSDateFormatter {
+    public func getDateFormatter(dateFormat:String) -> NSDateFormatter {
         if let fmt = formatters[ dateFormat ] {
             return fmt
         } else {
