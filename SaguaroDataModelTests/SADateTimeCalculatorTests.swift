@@ -24,6 +24,8 @@ class SADateTimeCalculatorTests: XCTestCase {
         let shared = SADateTimeCalculator.sharedInstance
         
         XCTAssertNotNil( shared.ISO8601DateTimeFormat, "not nil")
+        let formatter = shared.getDateFormatter("dd-MMM-yyyy")
+        XCTAssertNotNil( formatter )
     }
 
     func testToday() {
