@@ -85,6 +85,10 @@ class SADateTimeCalculatorTests: XCTestCase {
         }
 
         let dtstr = calculator.formatISO8601Date( dt )
+        print("iso date format: \( dtstr )")
+        XCTAssertEqual(dtstr, "2015-05-06T09:30:59.999+0000", "string test")
+
+        // parse tests...
         let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dt)
 
         XCTAssertNotNil(dtstr, "date string should not be nil")
@@ -333,5 +337,21 @@ class SADateTimeCalculatorTests: XCTestCase {
                 XCTAssertEqual(name, months.removeAtIndex(0))
             }
         }
+    }
+
+    func testGetDateFormats() {
+        let formatter = calculator.getDateFormatter("MMMM-yyyy")
+
+        XCTAssertNotNil( formatter )
+
+        let dt1 = calculator.today
+        let s = formatter.stringFromDate( dt1 )
+        print( "formatted date: \( s ) from date: \( dt1 )")
+
+        guard let dt2 = formatter.dateFromString( s ) else {
+            return XCTFail("could not parse date")
+        }
+
+        XCTAssertEqual(s, formatter.stringFromDate( dt2 ))
     }
 }

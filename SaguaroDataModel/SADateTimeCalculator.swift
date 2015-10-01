@@ -58,7 +58,7 @@ public extension NSDate {
 /// some date helper methods; all date format time zones are zulu
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
     public let ISO8601DateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    public let dateFormats = [ "MMMM", "MMM", "dd-MMM-yyyy", "yyyy-MM-dd", "HH:mm:ss" ]
+    public let dateFormats = [ "MMMM", "MMM", "dd-MMM-yyyy", "dd MMM yyyy","yyyy-MM-dd", "HH:mm:ss" ]
 
     public let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     public let isoFormatter = NSDateFormatter()
