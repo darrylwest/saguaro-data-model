@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SaguaroJSON
 
 public protocol SADateTimeCalculatorType {
     var ISO8601DateTimeFormat:String { get }
@@ -31,34 +32,50 @@ public protocol SADateTimeCalculatorType {
 
 /// this makes nsdate not suck so much...
 public extension NSDate {
+
+    /// return true if the supplied date is before the reference
     public func isBeforeDate(date:NSDate) -> Bool {
         return self.timeIntervalSinceDate( date ) < 0
     }
-    
+
+    /// return true if the supplied date is after the reference
     public func isAfterDate(date:NSDate) -> Bool {
         return self.timeIntervalSinceDate( date ) > 0
     }
-    
+
+    /// return true if the two dates match (OrderedSame)
+    public func equals(date:NSDate) -> Bool {
+        return self.compare( date ) == NSComparisonResult.OrderedSame
+    }
+
+    /// return a new date by adding the number of days to the reference
     public func plusDays(days:Int) -> NSDate {
         let dayInterval = NSTimeInterval( days * 24 * 60 * 60 )
         return NSDate(timeInterval: dayInterval, sinceDate: self)
     }
-    
+
+    /// return a new date by adding the number of minutes to the reference
     public func plusMinutes(minutes:Int) -> NSDate {
         let minuteInterval = NSTimeInterval( minutes * 60 )
         return NSDate( timeInterval: minuteInterval, sinceDate: self )
     }
-    
+
+    /// return a new date by adding the hours to reference
     public func plusHours(hours: Int) -> NSDate {
         let hourInterval = NSTimeInterval( hours * 60 * 60 )
         return NSDate( timeInterval: hourInterval, sinceDate: self )
+    }
+
+    /// return the standard JSON date string compatible with javascript / node and safe for over-the-wire
+    public func toJSONString() -> String {
+        return JSON.jnparser.stringFromDate( self )
     }
 }
 
 /// some date helper methods; all date format time zones are zulu
 public struct SADateTimeCalculator: SADateTimeCalculatorType {
-    public let ISO8601DateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     public let dateFormats = [ "MMMM", "MMM", "dd-MMM-yyyy", "dd MMM yyyy","yyyy-MM-dd", "HH:mm:ss" ]
+    public let ISO8601DateTimeFormat = JSON.DateFormatString
 
     public let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
     public let isoFormatter = NSDateFormatter()
@@ -85,6 +102,11 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     /// parse the ISO8601 date/time string and return a date or nil if the parse fails
     public func dateFromISO8601String(dateString:String) -> NSDate? {
         return isoFormatter.dateFromString( dateString )
+    }
+
+    /// parse a json date string and return the date or nil
+    public func dateFromJSONDateString(jsonDateString:String) -> NSDate? {
+        return JSON.jnparser.dateFromString( jsonDateString )
     }
 
     /// calculate and return the new date by adding the days
@@ -200,6 +222,8 @@ public struct SADateTimeCalculator: SADateTimeCalculatorType {
     /// return the formatter from cache, or create new and return
     public func getDateFormatter(dateFormat:String) -> NSDateFormatter {
         if let fmt = formatters[ dateFormat ] {
+            // insure that this is the correct format and hasn't been externally modified
+            fmt.dateFormat = dateFormat
             return fmt
         } else {
             let fmt = NSDateFormatter()

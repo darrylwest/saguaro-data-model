@@ -86,7 +86,7 @@ class SADateTimeCalculatorTests: XCTestCase {
 
         let dtstr = calculator.formatISO8601Date( dt )
         print("iso date format: \( dtstr )")
-        XCTAssertEqual(dtstr, "2015-05-06T09:30:59.999+0000", "string test")
+        XCTAssertEqual(dtstr, "2015-05-06T09:30:59.999Z", "string test")
 
         // parse tests...
         let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dt)
@@ -317,7 +317,7 @@ class SADateTimeCalculatorTests: XCTestCase {
 
     func testMonthNamesBetweenDateRange() {
         var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        let dt1 = calculator.dateFromISO8601String("2015-01-01T00:00:00.000Z")!
+        let dt1 = calculator.dateFromJSONDateString("2015-01-01T00:00:00.000+0000")!
         let dt2 = calculator.dateFromISO8601String("2015-12-31T00:00:00.000Z")!
         let range = SADateRange(startDate: dt1, endDate: dt2)
 
@@ -353,5 +353,37 @@ class SADateTimeCalculatorTests: XCTestCase {
         }
 
         XCTAssertEqual(s, formatter.stringFromDate( dt2 ))
+    }
+
+    func testToJSONString() {
+        let dt = NSDate()
+
+        let dts = dt.toJSONString()
+
+        print("json date string: \( dts )")
+
+        XCTAssertNotNil( dts )
+
+        guard let dt1 = calculator.dateFromJSONDateString( dts ) else {
+            return XCTFail("could not parse the json date: \( dts )")
+        }
+
+        XCTAssertEqual(dt.description, dt1.description)
+
+        guard let dt2 = calculator.dateFromISO8601String( dts ) else {
+            return XCTFail("could not parse the json date: \( dts )")
+        }
+
+        XCTAssertEqual(dt.description, dt2.description)
+    }
+
+    func testDateEquals() {
+        let dt1 = NSDate()
+        var dt2 = dt1.dateByAddingTimeInterval( 60 * 2.0 )
+
+        XCTAssert( dt1.equals( dt2 ) == false )
+        dt2 = dt1.dateByAddingTimeInterval( 0.0 )
+
+        XCTAssert( dt1.equals( dt2 ) == true )
     }
 }
