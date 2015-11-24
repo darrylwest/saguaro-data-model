@@ -43,7 +43,7 @@ public struct SAUndoRedo<T> {
 
         redoStack.push( value )
 
-        return undoStack.peek()
+        return value
     }
 
     /// pull the last redo; if non-nil, save and return it

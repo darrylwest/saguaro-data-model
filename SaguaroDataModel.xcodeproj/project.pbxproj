@@ -29,14 +29,14 @@
 		BA491FDF1B6433EC00239C36 /* SAUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD51B6433EC00239C36 /* SAUserTests.swift */; };
 		BA491FE01B6433EC00239C36 /* SAValidationDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */; };
 		BA491FE11B6433EC00239C36 /* TestDataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD71B6433EC00239C36 /* TestDataset.swift */; };
-		BA4BB3DB1BAF31D9005BD770 /* SAUpdateQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BB3DA1BAF31D9005BD770 /* SAUpdateQueue.swift */; settings = {ASSET_TAGS = (); }; };
-		BA4BB3DD1BAF3200005BD770 /* SAUpdateQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BB3DC1BAF3200005BD770 /* SAUpdateQueueTests.swift */; settings = {ASSET_TAGS = (); }; };
+		BA4BB3DB1BAF31D9005BD770 /* SAUpdateQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BB3DA1BAF31D9005BD770 /* SAUpdateQueue.swift */; };
+		BA4BB3DD1BAF3200005BD770 /* SAUpdateQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BB3DC1BAF3200005BD770 /* SAUpdateQueueTests.swift */; };
 		BAF6C6E51B810AF500C1B4BE /* SAStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E41B810AF500C1B4BE /* SAStack.swift */; };
 		BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */; };
 		BAF6C6E91B81195E00C1B4BE /* SAUndoRedoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */; };
 		BAF6C6EB1B8119C700C1B4BE /* SAUndoRedo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */; };
-		BAFD32DC1BAF363E003ACF8F /* SATimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD32DB1BAF363E003ACF8F /* SATimerTests.swift */; settings = {ASSET_TAGS = (); }; };
-		BAFD32DE1BAF369A003ACF8F /* SATimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD32DD1BAF369A003ACF8F /* SATimer.swift */; settings = {ASSET_TAGS = (); }; };
+		BAFD32DC1BAF363E003ACF8F /* SATimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD32DB1BAF363E003ACF8F /* SATimerTests.swift */; };
+		BAFD32DE1BAF369A003ACF8F /* SATimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD32DD1BAF369A003ACF8F /* SATimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
