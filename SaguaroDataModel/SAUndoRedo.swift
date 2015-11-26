@@ -52,6 +52,6 @@ public struct SAUndoRedo<T> {
             return nil
         }
 
-        return save( value )
+        return value
     }
 }

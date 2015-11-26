@@ -59,7 +59,7 @@ class SAUndoRedoTests: XCTestCase {
         XCTAssertEqual(org3.url, org2.url, "http://new.org.com")
 
         let org4 = undo.redo()!
-        XCTAssertEqual(undo.undoCount, 2, "two undos'")
+        XCTAssertEqual(undo.undoCount, 1, "two undos'")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
         XCTAssertEqual(org4.name, org2.name, "name test")
         XCTAssertEqual(org4.url, org2.url, "url test")
