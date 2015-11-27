@@ -69,6 +69,24 @@ class SAStackTests: XCTestCase {
         XCTAssertEqual(stack.count, 3, "should still have 3 elements")
     }
 
+    func testRemoveAll() {
+
+        var stack = SAStack<Int>()
+
+        if let item = stack.peek() {
+            XCTFail("should return nil but returned \( item )")
+        }
+
+        stack.push( 1 )
+        stack.push( 2 )
+        stack.push( 3 )
+
+        XCTAssertEqual(stack.count, 3, "should have 3 elements")
+        stack.removeAll()
+
+        XCTAssertEqual(stack.count, 0, "should have zero elements")
+    }
+
     func testObjectStack() {
         var stack = SAStack<SAOrg>()
 
