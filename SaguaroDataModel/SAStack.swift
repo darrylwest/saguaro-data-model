@@ -56,4 +56,9 @@ public struct SAStack<T> {
     public var isEmpty:Bool {
         return items.count == 0
     }
+
+    /// remove all items from the stack
+    public mutating func removeAll() {
+        items.removeAll()
+    }
 }

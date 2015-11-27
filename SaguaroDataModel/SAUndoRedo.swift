@@ -54,4 +54,10 @@ public struct SAUndoRedo<T> {
 
         return value
     }
+
+    /// clear both the undo and redo stacks
+    public mutating func clearAll() {
+        undoStack.removeAll()
+        redoStack.removeAll()
+    }
 }
