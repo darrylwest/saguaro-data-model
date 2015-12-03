@@ -35,12 +35,12 @@ public extension NSDate {
 
     /// return true if the supplied date is before the reference
     public func isBeforeDate(date:NSDate) -> Bool {
-        return self.timeIntervalSinceDate( date ) < 0
+        return self.compare( date ) == NSComparisonResult.OrderedAscending
     }
 
     /// return true if the supplied date is after the reference
     public func isAfterDate(date:NSDate) -> Bool {
-        return self.timeIntervalSinceDate( date ) > 0
+        return self.compare( date ) == NSComparisonResult.OrderedDescending
     }
 
     /// return true if the two dates match (OrderedSame)
