@@ -21,6 +21,18 @@ class SADateRangeTests: XCTestCase {
         XCTAssertEqual(dateRange.days, 0, "should have zero days")
     }
 
+    func testInstancdFromDay() {
+        let dateRange = SADateRange(days: 90)
+
+        let comps = calculator.calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dateRange.startDate )
+
+        print("comps: \( comps )")
+
+        XCTAssertEqual(comps.hour, 0)
+        XCTAssertEqual(comps.minute, 0)
+        XCTAssertEqual(comps.second, 0)
+    }
+
     func testStartDateInstance() {
         let startDate = NSDate()
         let days = 2
@@ -133,5 +145,29 @@ class SADateRangeTests: XCTestCase {
         XCTAssertEqual(dateRange.startDate, range.startDate, "start match")
         XCTAssertEqual(dateRange.endDate, range.endDate, "end match")
         XCTAssertEqual(dateRange.days, range.days, "day count match")
+    }
+
+    func testDefaultDateRangeScrub() {
+
+        let calculator = SADateTimeCalculator.sharedInstance
+
+        var dateRange = calculator.createMutableDateRange()
+
+        dateRange.startDate = NSDate()
+        dateRange.days = 181
+
+        let dtRange = SADateRange.scrubDateRange( dateRange )
+
+        print("input: \( dateRange ) scrubbed range: \( dtRange )")
+
+        XCTAssertEqual(dtRange.days, 181)
+
+        let comps = calculator.calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dtRange.startDate )
+
+        // print("comps: \( comps )")
+
+        XCTAssertEqual(comps.hour, 0)
+        XCTAssertEqual(comps.minute, 0)
+        XCTAssertEqual(comps.second, 0)
     }
 }

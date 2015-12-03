@@ -21,7 +21,7 @@ class SAUndoRedoTests: XCTestCase {
     }
 
     func testSave() {
-        var undo = SAUndoRedo<SAOrg>()
+        var undo = SAUndoRedo<SAOrgModel>()
         var org = dataset.createOrg()
 
         undo.save( org )

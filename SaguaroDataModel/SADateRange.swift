@@ -27,7 +27,8 @@ public struct SADateRange: SADateRangeModel {
     public let days: Int
     
     public init(days:Int) {
-        self.startDate = NSDate()
+        let calculator = SADateTimeCalculator.sharedInstance
+        self.startDate = calculator.today
         self.endDate = self.startDate.dateByAddingTimeInterval( NSTimeInterval( 60 * 60 * 24 * days ))
         self.days = days
     }
@@ -122,5 +123,15 @@ public extension SADateRangeModel {
         }
 
         return SADateRange(startDate: startDate, endDate: endDate, days: days)
+    }
+
+    /// scrub the date range to insure only year/month/day with zero times
+    public static func scrubDateRange(dateRange:SADateRangeModel) -> SADateRangeModel {
+        let calculator = SADateTimeCalculator.sharedInstance
+
+        let sdt = calculator.stripTime( dateRange.startDate )
+        let edt = calculator.datePlusDays( sdt, days: dateRange.days )
+
+        return SADateRange( startDate:sdt, endDate:edt, days: dateRange.days )
     }
 }
