@@ -30,7 +30,7 @@ public class SATimer {
 
         self.oneShot = true
         self.interval = interval
-        self.timer = NSTimer(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
+        self.timer = NSTimer(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: false)
     }
 
     public init(every interval: NSTimeInterval, action block: () -> Void) {
@@ -38,7 +38,7 @@ public class SATimer {
 
         self.oneShot = false
         self.interval = interval
-        self.timer = NSTimer(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: true)
+        self.timer = NSTimer(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: true)
     }
 
     public func start(runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), modes: String...) {

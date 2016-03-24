@@ -131,7 +131,7 @@ class SAValidationDelegateTests: XCTestCase {
         var count = 0
         let matches = value =~ pattern
         for _ in matches {
-            count++
+            count += 1
         }
         XCTAssertEqual(count, 2, "count of range matches")
         XCTAssertEqual(matches[0], "火", "match (1/2)")

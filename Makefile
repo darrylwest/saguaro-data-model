@@ -1,6 +1,6 @@
 
 PROJECT = SaguaroDataModel
-PLATFORM = 'platform=iOS Simulator,name=iPad 2,OS=9.1'
+PLATFORM = 'platform=iOS Simulator,name=iPad 2,OS=9.3'
 
 all:
 	@make test

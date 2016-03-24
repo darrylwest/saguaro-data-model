@@ -46,7 +46,7 @@ class SATimerTests: XCTestCase {
         var count = 5
 
         func callback() -> Void {
-            --count
+            count -= 1
             if count == 0 {
                 expectation.fulfill()
 

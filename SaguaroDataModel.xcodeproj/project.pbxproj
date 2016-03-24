@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BC1A69F880B1153683C51EE /* Pods_SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8E8CAC8E1BAB4644FF64A /* Pods_SaguaroDataModel.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		A84DC33B5694BAA5D0EEFD6C /* Pods_SaguaroDataModelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209353184FCCDF7F1BA82818 /* Pods_SaguaroDataModelTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4BC1A69F880B1153683C51EE /* Pods_SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8E8CAC8E1BAB4644FF64A /* Pods_SaguaroDataModel.framework */; };
+		A84DC33B5694BAA5D0EEFD6C /* Pods_SaguaroDataModelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209353184FCCDF7F1BA82818 /* Pods_SaguaroDataModelTests.framework */; };
 		BA491FA31B64333000239C36 /* SaguaroDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BA491FA21B64333000239C36 /* SaguaroDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA491FAA1B64333000239C36 /* SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA491F9F1B64333000239C36 /* SaguaroDataModel.framework */; };
 		BA491FC41B6433D100239C36 /* SAContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBA1B6433D100239C36 /* SAContactInfo.swift */; };

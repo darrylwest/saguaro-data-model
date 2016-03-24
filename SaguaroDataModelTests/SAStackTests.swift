@@ -99,7 +99,7 @@ class SAStackTests: XCTestCase {
 
         var idx = list.count
         while (idx > 0) {
-            idx--
+            idx -= 1
             let org = stack.pop()!
             print( org.doi.id )
             XCTAssertEqual(org.doi, list[ idx ].doi, "doi check" )
@@ -110,7 +110,7 @@ class SAStackTests: XCTestCase {
     func testCappedStack() {
         var stack = SAStack<Int>( capLimit: 3 )
 
-        for (var i = 0; i < 10; i++) {
+        for i in 0 ..< 10 {
             stack.push( i )
             XCTAssert( stack.count <= 3 )
             XCTAssertEqual( stack.peek()!, i, "verify value")
