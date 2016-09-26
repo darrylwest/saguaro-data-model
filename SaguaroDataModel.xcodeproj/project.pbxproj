@@ -1,624 +1,1615 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		4BC1A69F880B1153683C51EE /* Pods_SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8E8CAC8E1BAB4644FF64A /* Pods_SaguaroDataModel.framework */; };
-		A84DC33B5694BAA5D0EEFD6C /* Pods_SaguaroDataModelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209353184FCCDF7F1BA82818 /* Pods_SaguaroDataModelTests.framework */; };
-		BA491FA31B64333000239C36 /* SaguaroDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BA491FA21B64333000239C36 /* SaguaroDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA491FAA1B64333000239C36 /* SaguaroDataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA491F9F1B64333000239C36 /* SaguaroDataModel.framework */; };
-		BA491FC41B6433D100239C36 /* SAContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBA1B6433D100239C36 /* SAContactInfo.swift */; };
-		BA491FC61B6433D100239C36 /* SADateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBC1B6433D100239C36 /* SADateRange.swift */; };
-		BA491FC71B6433D100239C36 /* SADateTimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */; };
-		BA491FC81B6433D100239C36 /* SADocumentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */; };
-		BA491FC91B6433D100239C36 /* SAOrg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FBF1B6433D100239C36 /* SAOrg.swift */; };
-		BA491FCA1B6433D100239C36 /* SAUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FC01B6433D100239C36 /* SAUnique.swift */; };
-		BA491FCB1B6433D100239C36 /* SAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FC11B6433D100239C36 /* SAUser.swift */; };
-		BA491FCC1B6433D100239C36 /* SAValidationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FC21B6433D100239C36 /* SAValidationDelegate.swift */; };
-		BA491FD81B6433EC00239C36 /* RandomFixtureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FCE1B6433EC00239C36 /* RandomFixtureData.swift */; };
-		BA491FD91B6433EC00239C36 /* SAContactInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FCF1B6433EC00239C36 /* SAContactInfoTests.swift */; };
-		BA491FDA1B6433EC00239C36 /* SADateRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD01B6433EC00239C36 /* SADateRangeTests.swift */; };
-		BA491FDB1B6433EC00239C36 /* SADateTimeCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD11B6433EC00239C36 /* SADateTimeCalculatorTests.swift */; };
-		BA491FDC1B6433EC00239C36 /* SADocumentIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD21B6433EC00239C36 /* SADocumentIdentifierTests.swift */; };
-		BA491FDD1B6433EC00239C36 /* SAOrgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD31B6433EC00239C36 /* SAOrgTests.swift */; };
-		BA491FDE1B6433EC00239C36 /* SAUniqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD41B6433EC00239C36 /* SAUniqueTests.swift */; };
-		BA491FDF1B6433EC00239C36 /* SAUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD51B6433EC00239C36 /* SAUserTests.swift */; };
-		BA491FE01B6433EC00239C36 /* SAValidationDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */; };
-		BA491FE11B6433EC00239C36 /* TestDataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA491FD71B6433EC00239C36 /* TestDataset.swift */; };
-		BA4BB3DB1BAF31D9005BD770 /* SAUpdateQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BB3DA1BAF31D9005BD770 /* SAUpdateQueue.swift */; };
-		BA4BB3DD1BAF3200005BD770 /* SAUpdateQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BB3DC1BAF3200005BD770 /* SAUpdateQueueTests.swift */; };
-		BAF6C6E51B810AF500C1B4BE /* SAStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E41B810AF500C1B4BE /* SAStack.swift */; };
-		BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */; };
-		BAF6C6E91B81195E00C1B4BE /* SAUndoRedoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */; };
-		BAF6C6EB1B8119C700C1B4BE /* SAUndoRedo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */; };
-		BAFD32DC1BAF363E003ACF8F /* SATimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD32DB1BAF363E003ACF8F /* SATimerTests.swift */; };
-		BAFD32DE1BAF369A003ACF8F /* SATimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD32DD1BAF369A003ACF8F /* SATimer.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BA491FAB1B64333000239C36 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BA491F961B64333000239C36 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BA491F9E1B64333000239C36;
-			remoteInfo = SaguaroDataModel;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		209353184FCCDF7F1BA82818 /* Pods_SaguaroDataModelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaguaroDataModelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F3715D467C95BC1F3C2EC14 /* Pods-SaguaroDataModelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests.release.xcconfig"; sourceTree = "<group>"; };
-		6B29B39F79D25AAA93AA05F8 /* Pods-SaguaroDataModelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AFD8E8CAC8E1BAB4644FF64A /* Pods_SaguaroDataModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaguaroDataModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA491F9F1B64333000239C36 /* SaguaroDataModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SaguaroDataModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA491FA21B64333000239C36 /* SaguaroDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaguaroDataModel.h; sourceTree = "<group>"; };
-		BA491FA41B64333000239C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA491FA91B64333000239C36 /* SaguaroDataModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaguaroDataModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA491FB01B64333000239C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA491FBA1B6433D100239C36 /* SAContactInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAContactInfo.swift; sourceTree = "<group>"; };
-		BA491FBC1B6433D100239C36 /* SADateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateRange.swift; sourceTree = "<group>"; };
-		BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateTimeCalculator.swift; sourceTree = "<group>"; };
-		BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADocumentIdentifier.swift; sourceTree = "<group>"; };
-		BA491FBF1B6433D100239C36 /* SAOrg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAOrg.swift; sourceTree = "<group>"; };
-		BA491FC01B6433D100239C36 /* SAUnique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUnique.swift; sourceTree = "<group>"; };
-		BA491FC11B6433D100239C36 /* SAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUser.swift; sourceTree = "<group>"; };
-		BA491FC21B6433D100239C36 /* SAValidationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAValidationDelegate.swift; sourceTree = "<group>"; };
-		BA491FCD1B6433EB00239C36 /* SaguaroDataModelTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SaguaroDataModelTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		BA491FCE1B6433EC00239C36 /* RandomFixtureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomFixtureData.swift; sourceTree = "<group>"; };
-		BA491FCF1B6433EC00239C36 /* SAContactInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAContactInfoTests.swift; sourceTree = "<group>"; };
-		BA491FD01B6433EC00239C36 /* SADateRangeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateRangeTests.swift; sourceTree = "<group>"; };
-		BA491FD11B6433EC00239C36 /* SADateTimeCalculatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADateTimeCalculatorTests.swift; sourceTree = "<group>"; };
-		BA491FD21B6433EC00239C36 /* SADocumentIdentifierTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SADocumentIdentifierTests.swift; sourceTree = "<group>"; };
-		BA491FD31B6433EC00239C36 /* SAOrgTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAOrgTests.swift; sourceTree = "<group>"; };
-		BA491FD41B6433EC00239C36 /* SAUniqueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUniqueTests.swift; sourceTree = "<group>"; };
-		BA491FD51B6433EC00239C36 /* SAUserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUserTests.swift; sourceTree = "<group>"; };
-		BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAValidationDelegateTests.swift; sourceTree = "<group>"; };
-		BA491FD71B6433EC00239C36 /* TestDataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDataset.swift; sourceTree = "<group>"; };
-		BA4BB3DA1BAF31D9005BD770 /* SAUpdateQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUpdateQueue.swift; sourceTree = "<group>"; };
-		BA4BB3DC1BAF3200005BD770 /* SAUpdateQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUpdateQueueTests.swift; sourceTree = "<group>"; };
-		BAF6C6E41B810AF500C1B4BE /* SAStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAStack.swift; sourceTree = "<group>"; };
-		BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAStackTests.swift; sourceTree = "<group>"; };
-		BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUndoRedoTests.swift; sourceTree = "<group>"; };
-		BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAUndoRedo.swift; sourceTree = "<group>"; };
-		BAFD32DB1BAF363E003ACF8F /* SATimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SATimerTests.swift; sourceTree = "<group>"; };
-		BAFD32DD1BAF369A003ACF8F /* SATimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SATimer.swift; sourceTree = "<group>"; };
-		E2A171EA6E64CA872A0A5CCC /* Pods-SaguaroDataModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.debug.xcconfig"; sourceTree = "<group>"; };
-		FE7AEF8938F3509ED6F4C7FD /* Pods-SaguaroDataModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaguaroDataModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.release.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		BA491F9B1B64333000239C36 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BC1A69F880B1153683C51EE /* Pods_SaguaroDataModel.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA491FA61B64333000239C36 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA491FAA1B64333000239C36 /* SaguaroDataModel.framework in Frameworks */,
-				A84DC33B5694BAA5D0EEFD6C /* Pods_SaguaroDataModelTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		0BD1D18EDB1694AF2DAABA8D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AFD8E8CAC8E1BAB4644FF64A /* Pods_SaguaroDataModel.framework */,
-				209353184FCCDF7F1BA82818 /* Pods_SaguaroDataModelTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6EB6F9C50509E04ABD793F5F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E2A171EA6E64CA872A0A5CCC /* Pods-SaguaroDataModel.debug.xcconfig */,
-				FE7AEF8938F3509ED6F4C7FD /* Pods-SaguaroDataModel.release.xcconfig */,
-				6B29B39F79D25AAA93AA05F8 /* Pods-SaguaroDataModelTests.debug.xcconfig */,
-				2F3715D467C95BC1F3C2EC14 /* Pods-SaguaroDataModelTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		BA491F951B64333000239C36 = {
-			isa = PBXGroup;
-			children = (
-				BA491FA11B64333000239C36 /* SaguaroDataModel */,
-				BA491FAD1B64333000239C36 /* SaguaroDataModelTests */,
-				BA491FA01B64333000239C36 /* Products */,
-				6EB6F9C50509E04ABD793F5F /* Pods */,
-				0BD1D18EDB1694AF2DAABA8D /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		BA491FA01B64333000239C36 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BA491F9F1B64333000239C36 /* SaguaroDataModel.framework */,
-				BA491FA91B64333000239C36 /* SaguaroDataModelTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BA491FA11B64333000239C36 /* SaguaroDataModel */ = {
-			isa = PBXGroup;
-			children = (
-				BA491FBA1B6433D100239C36 /* SAContactInfo.swift */,
-				BA491FBC1B6433D100239C36 /* SADateRange.swift */,
-				BA491FBD1B6433D100239C36 /* SADateTimeCalculator.swift */,
-				BA491FBE1B6433D100239C36 /* SADocumentIdentifier.swift */,
-				BA491FBF1B6433D100239C36 /* SAOrg.swift */,
-				BAF6C6E41B810AF500C1B4BE /* SAStack.swift */,
-				BAFD32DD1BAF369A003ACF8F /* SATimer.swift */,
-				BA491FC01B6433D100239C36 /* SAUnique.swift */,
-				BA491FC11B6433D100239C36 /* SAUser.swift */,
-				BAF6C6EA1B8119C700C1B4BE /* SAUndoRedo.swift */,
-				BA4BB3DA1BAF31D9005BD770 /* SAUpdateQueue.swift */,
-				BA491FC21B6433D100239C36 /* SAValidationDelegate.swift */,
-				BA491FA21B64333000239C36 /* SaguaroDataModel.h */,
-				BA491FA41B64333000239C36 /* Info.plist */,
-			);
-			path = SaguaroDataModel;
-			sourceTree = "<group>";
-		};
-		BA491FAD1B64333000239C36 /* SaguaroDataModelTests */ = {
-			isa = PBXGroup;
-			children = (
-				BA491FCE1B6433EC00239C36 /* RandomFixtureData.swift */,
-				BA491FCF1B6433EC00239C36 /* SAContactInfoTests.swift */,
-				BA491FD01B6433EC00239C36 /* SADateRangeTests.swift */,
-				BA491FD11B6433EC00239C36 /* SADateTimeCalculatorTests.swift */,
-				BA491FD21B6433EC00239C36 /* SADocumentIdentifierTests.swift */,
-				BA491FD31B6433EC00239C36 /* SAOrgTests.swift */,
-				BAF6C6E61B810B0D00C1B4BE /* SAStackTests.swift */,
-				BAFD32DB1BAF363E003ACF8F /* SATimerTests.swift */,
-				BAF6C6E81B81195E00C1B4BE /* SAUndoRedoTests.swift */,
-				BA491FD41B6433EC00239C36 /* SAUniqueTests.swift */,
-				BA491FD51B6433EC00239C36 /* SAUserTests.swift */,
-				BA4BB3DC1BAF3200005BD770 /* SAUpdateQueueTests.swift */,
-				BA491FD61B6433EC00239C36 /* SAValidationDelegateTests.swift */,
-				BA491FD71B6433EC00239C36 /* TestDataset.swift */,
-				BA491FB01B64333000239C36 /* Info.plist */,
-				BA491FCD1B6433EB00239C36 /* SaguaroDataModelTests-Bridging-Header.h */,
-			);
-			path = SaguaroDataModelTests;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		BA491F9C1B64333000239C36 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA491FA31B64333000239C36 /* SaguaroDataModel.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		BA491F9E1B64333000239C36 /* SaguaroDataModel */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BA491FB31B64333000239C36 /* Build configuration list for PBXNativeTarget "SaguaroDataModel" */;
-			buildPhases = (
-				7E50899A639A3CA1B5867C38 /* Check Pods Manifest.lock */,
-				BA491F9A1B64333000239C36 /* Sources */,
-				BA491F9B1B64333000239C36 /* Frameworks */,
-				BA491F9C1B64333000239C36 /* Headers */,
-				BA491F9D1B64333000239C36 /* Resources */,
-				87D3EAC707BBAEF0CA219598 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SaguaroDataModel;
-			productName = SaguaroDataModel;
-			productReference = BA491F9F1B64333000239C36 /* SaguaroDataModel.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BA491FA81B64333000239C36 /* SaguaroDataModelTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BA491FB61B64333000239C36 /* Build configuration list for PBXNativeTarget "SaguaroDataModelTests" */;
-			buildPhases = (
-				D83B9628FB7187F385BC4EA1 /* Check Pods Manifest.lock */,
-				BA491FA51B64333000239C36 /* Sources */,
-				BA491FA61B64333000239C36 /* Frameworks */,
-				BA491FA71B64333000239C36 /* Resources */,
-				92EB68EC438F4C525D7F522F /* Embed Pods Frameworks */,
-				DA93D0522DC66FE36FC7EBE2 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BA491FAC1B64333000239C36 /* PBXTargetDependency */,
-			);
-			name = SaguaroDataModelTests;
-			productName = SaguaroDataModelTests;
-			productReference = BA491FA91B64333000239C36 /* SaguaroDataModelTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		BA491F961B64333000239C36 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "darryl west";
-				TargetAttributes = {
-					BA491F9E1B64333000239C36 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					BA491FA81B64333000239C36 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-				};
-			};
-			buildConfigurationList = BA491F991B64333000239C36 /* Build configuration list for PBXProject "SaguaroDataModel" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = BA491F951B64333000239C36;
-			productRefGroup = BA491FA01B64333000239C36 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				BA491F9E1B64333000239C36 /* SaguaroDataModel */,
-				BA491FA81B64333000239C36 /* SaguaroDataModelTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		BA491F9D1B64333000239C36 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA491FA71B64333000239C36 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7E50899A639A3CA1B5867C38 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		87D3EAC707BBAEF0CA219598 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92EB68EC438F4C525D7F522F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D83B9628FB7187F385BC4EA1 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DA93D0522DC66FE36FC7EBE2 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		BA491F9A1B64333000239C36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA491FC91B6433D100239C36 /* SAOrg.swift in Sources */,
-				BAF6C6EB1B8119C700C1B4BE /* SAUndoRedo.swift in Sources */,
-				BA491FC41B6433D100239C36 /* SAContactInfo.swift in Sources */,
-				BA491FC81B6433D100239C36 /* SADocumentIdentifier.swift in Sources */,
-				BA491FC71B6433D100239C36 /* SADateTimeCalculator.swift in Sources */,
-				BA491FCA1B6433D100239C36 /* SAUnique.swift in Sources */,
-				BA491FCC1B6433D100239C36 /* SAValidationDelegate.swift in Sources */,
-				BA491FCB1B6433D100239C36 /* SAUser.swift in Sources */,
-				BAF6C6E51B810AF500C1B4BE /* SAStack.swift in Sources */,
-				BAFD32DE1BAF369A003ACF8F /* SATimer.swift in Sources */,
-				BA491FC61B6433D100239C36 /* SADateRange.swift in Sources */,
-				BA4BB3DB1BAF31D9005BD770 /* SAUpdateQueue.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA491FA51B64333000239C36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA491FE11B6433EC00239C36 /* TestDataset.swift in Sources */,
-				BA4BB3DD1BAF3200005BD770 /* SAUpdateQueueTests.swift in Sources */,
-				BA491FE01B6433EC00239C36 /* SAValidationDelegateTests.swift in Sources */,
-				BA491FDB1B6433EC00239C36 /* SADateTimeCalculatorTests.swift in Sources */,
-				BA491FD91B6433EC00239C36 /* SAContactInfoTests.swift in Sources */,
-				BA491FDF1B6433EC00239C36 /* SAUserTests.swift in Sources */,
-				BA491FDD1B6433EC00239C36 /* SAOrgTests.swift in Sources */,
-				BA491FDA1B6433EC00239C36 /* SADateRangeTests.swift in Sources */,
-				BA491FDC1B6433EC00239C36 /* SADocumentIdentifierTests.swift in Sources */,
-				BA491FDE1B6433EC00239C36 /* SAUniqueTests.swift in Sources */,
-				BAF6C6E71B810B0D00C1B4BE /* SAStackTests.swift in Sources */,
-				BA491FD81B6433EC00239C36 /* RandomFixtureData.swift in Sources */,
-				BAF6C6E91B81195E00C1B4BE /* SAUndoRedoTests.swift in Sources */,
-				BAFD32DC1BAF363E003ACF8F /* SATimerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BA491FAC1B64333000239C36 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BA491F9E1B64333000239C36 /* SaguaroDataModel */;
-			targetProxy = BA491FAB1B64333000239C36 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		BA491FB11B64333000239C36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BA491FB21B64333000239C36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		BA491FB41B64333000239C36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2A171EA6E64CA872A0A5CCC /* Pods-SaguaroDataModel.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SaguaroDataModel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raincitysoftware.SaguaroDataModel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		BA491FB51B64333000239C36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE7AEF8938F3509ED6F4C7FD /* Pods-SaguaroDataModel.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SaguaroDataModel/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raincitysoftware.SaguaroDataModel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		BA491FB71B64333000239C36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B29B39F79D25AAA93AA05F8 /* Pods-SaguaroDataModelTests.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = SaguaroDataModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raincitysoftware.SaguaroDataModelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SaguaroDataModelTests/SaguaroDataModelTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		BA491FB81B64333000239C36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F3715D467C95BC1F3C2EC14 /* Pods-SaguaroDataModelTests.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = SaguaroDataModelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.raincitysoftware.SaguaroDataModelTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SaguaroDataModelTests/SaguaroDataModelTests-Bridging-Header.h";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		BA491F991B64333000239C36 /* Build configuration list for PBXProject "SaguaroDataModel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BA491FB11B64333000239C36 /* Debug */,
-				BA491FB21B64333000239C36 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BA491FB31B64333000239C36 /* Build configuration list for PBXNativeTarget "SaguaroDataModel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BA491FB41B64333000239C36 /* Debug */,
-				BA491FB51B64333000239C36 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BA491FB61B64333000239C36 /* Build configuration list for PBXNativeTarget "SaguaroDataModelTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BA491FB71B64333000239C36 /* Debug */,
-				BA491FB81B64333000239C36 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = BA491F961B64333000239C36 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>15401A52267809B6569D8176</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-SaguaroDataModel.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2D2507D404292FA6FD8C4231</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>3295D373FA30E0F8757334CC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-SaguaroDataModelTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4FE71AA6BFF46301C76D716C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-SaguaroDataModel.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>58E6245F08227245CEA77359</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_SaguaroDataModelTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>630AFCFE248E9D97C1D830FD</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>7131E4D8B9B5D9619E2D5FBF</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>7F2A1942BD41CE28C3C6024F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_SaguaroDataModel.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>9E0031909B536C2D68D58E76</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7F2A1942BD41CE28C3C6024F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AEF2B5212D64385D42D771F5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModel/Pods-SaguaroDataModel-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B6E9297C56C23A521C17145F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BA491F951B64333000239C36</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA491FA11B64333000239C36</string>
+				<string>BA491FAD1B64333000239C36</string>
+				<string>BA491FA01B64333000239C36</string>
+				<string>ED41BDAEAD601829172B9728</string>
+				<string>F0BC8F00FB07943BE42BAA7C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491F961B64333000239C36</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0700</string>
+				<key>LastUpgradeCheck</key>
+				<string>0800</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>darryl west</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>BA491F9E1B64333000239C36</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.0</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+					</dict>
+					<key>BA491FA81B64333000239C36</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.0</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>BA491F991B64333000239C36</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>BA491F951B64333000239C36</string>
+			<key>productRefGroup</key>
+			<string>BA491FA01B64333000239C36</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>BA491F9E1B64333000239C36</string>
+				<string>BA491FA81B64333000239C36</string>
+			</array>
+		</dict>
+		<key>BA491F991B64333000239C36</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BA491FB11B64333000239C36</string>
+				<string>BA491FB21B64333000239C36</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BA491F9A1B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BA491FC91B6433D100239C36</string>
+				<string>BAF6C6EB1B8119C700C1B4BE</string>
+				<string>BA491FC41B6433D100239C36</string>
+				<string>BA491FC81B6433D100239C36</string>
+				<string>BA491FC71B6433D100239C36</string>
+				<string>BA491FCA1B6433D100239C36</string>
+				<string>BA491FCC1B6433D100239C36</string>
+				<string>BA491FCB1B6433D100239C36</string>
+				<string>BAF6C6E51B810AF500C1B4BE</string>
+				<string>BAFD32DE1BAF369A003ACF8F</string>
+				<string>BA491FC61B6433D100239C36</string>
+				<string>BA4BB3DB1BAF31D9005BD770</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491F9B1B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>9E0031909B536C2D68D58E76</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491F9C1B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BA491FA31B64333000239C36</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491F9D1B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491F9E1B64333000239C36</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>BA491FB31B64333000239C36</string>
+			<key>buildPhases</key>
+			<array>
+				<string>D129B8007CF207D8A9B8CA30</string>
+				<string>BA491F9A1B64333000239C36</string>
+				<string>BA491F9B1B64333000239C36</string>
+				<string>BA491F9C1B64333000239C36</string>
+				<string>BA491F9D1B64333000239C36</string>
+				<string>AEF2B5212D64385D42D771F5</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SaguaroDataModel</string>
+			<key>productName</key>
+			<string>SaguaroDataModel</string>
+			<key>productReference</key>
+			<string>BA491F9F1B64333000239C36</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>BA491F9F1B64333000239C36</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SaguaroDataModel.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>BA491FA01B64333000239C36</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA491F9F1B64333000239C36</string>
+				<string>BA491FA91B64333000239C36</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FA11B64333000239C36</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA491FBA1B6433D100239C36</string>
+				<string>BA491FBC1B6433D100239C36</string>
+				<string>BA491FBD1B6433D100239C36</string>
+				<string>BA491FBE1B6433D100239C36</string>
+				<string>BA491FBF1B6433D100239C36</string>
+				<string>BAF6C6E41B810AF500C1B4BE</string>
+				<string>BAFD32DD1BAF369A003ACF8F</string>
+				<string>BA491FC01B6433D100239C36</string>
+				<string>BA491FC11B6433D100239C36</string>
+				<string>BAF6C6EA1B8119C700C1B4BE</string>
+				<string>BA4BB3DA1BAF31D9005BD770</string>
+				<string>BA491FC21B6433D100239C36</string>
+				<string>BA491FA21B64333000239C36</string>
+				<string>BA491FA41B64333000239C36</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SaguaroDataModel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FA21B64333000239C36</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SaguaroDataModel.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FA31B64333000239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FA21B64333000239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>BA491FA41B64333000239C36</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FA51B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BA491FE11B6433EC00239C36</string>
+				<string>BA4BB3DD1BAF3200005BD770</string>
+				<string>BA491FE01B6433EC00239C36</string>
+				<string>BA491FDB1B6433EC00239C36</string>
+				<string>BA491FD91B6433EC00239C36</string>
+				<string>BA491FDF1B6433EC00239C36</string>
+				<string>BA491FDD1B6433EC00239C36</string>
+				<string>BA491FDA1B6433EC00239C36</string>
+				<string>BA491FDC1B6433EC00239C36</string>
+				<string>BA491FDE1B6433EC00239C36</string>
+				<string>BAF6C6E71B810B0D00C1B4BE</string>
+				<string>BA491FD81B6433EC00239C36</string>
+				<string>BAF6C6E91B81195E00C1B4BE</string>
+				<string>BAFD32DC1BAF363E003ACF8F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491FA61B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BA491FAA1B64333000239C36</string>
+				<string>D3907AB6F9213B9017F5EBCF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491FA71B64333000239C36</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA491FA81B64333000239C36</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>BA491FB61B64333000239C36</string>
+			<key>buildPhases</key>
+			<array>
+				<string>2D2507D404292FA6FD8C4231</string>
+				<string>BA491FA51B64333000239C36</string>
+				<string>BA491FA61B64333000239C36</string>
+				<string>BA491FA71B64333000239C36</string>
+				<string>630AFCFE248E9D97C1D830FD</string>
+				<string>7131E4D8B9B5D9619E2D5FBF</string>
+				<string>B6E9297C56C23A521C17145F</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>BA491FAC1B64333000239C36</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SaguaroDataModelTests</string>
+			<key>productName</key>
+			<string>SaguaroDataModelTests</string>
+			<key>productReference</key>
+			<string>BA491FA91B64333000239C36</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>BA491FA91B64333000239C36</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SaguaroDataModelTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>BA491FAA1B64333000239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491F9F1B64333000239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FAB1B64333000239C36</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>BA491F961B64333000239C36</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>BA491F9E1B64333000239C36</string>
+			<key>remoteInfo</key>
+			<string>SaguaroDataModel</string>
+		</dict>
+		<key>BA491FAC1B64333000239C36</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>BA491F9E1B64333000239C36</string>
+			<key>targetProxy</key>
+			<string>BA491FAB1B64333000239C36</string>
+		</dict>
+		<key>BA491FAD1B64333000239C36</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA491FCE1B6433EC00239C36</string>
+				<string>BA491FCF1B6433EC00239C36</string>
+				<string>BA491FD01B6433EC00239C36</string>
+				<string>BA491FD11B6433EC00239C36</string>
+				<string>BA491FD21B6433EC00239C36</string>
+				<string>BA491FD31B6433EC00239C36</string>
+				<string>BAF6C6E61B810B0D00C1B4BE</string>
+				<string>BAFD32DB1BAF363E003ACF8F</string>
+				<string>BAF6C6E81B81195E00C1B4BE</string>
+				<string>BA491FD41B6433EC00239C36</string>
+				<string>BA491FD51B6433EC00239C36</string>
+				<string>BA4BB3DC1BAF3200005BD770</string>
+				<string>BA491FD61B6433EC00239C36</string>
+				<string>BA491FD71B6433EC00239C36</string>
+				<string>BA491FB01B64333000239C36</string>
+				<string>BA491FCD1B6433EB00239C36</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SaguaroDataModelTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FB01B64333000239C36</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FB11B64333000239C36</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INFINITE_RECURSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_SUSPICIOUS_MOVE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BA491FB21B64333000239C36</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INFINITE_RECURSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_SUSPICIOUS_MOVE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Owholemodule</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BA491FB31B64333000239C36</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BA491FB41B64333000239C36</string>
+				<string>BA491FB51B64333000239C36</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BA491FB41B64333000239C36</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4FE71AA6BFF46301C76D716C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string></string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SaguaroDataModel/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.raincitysoftware.SaguaroDataModel</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BA491FB51B64333000239C36</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>15401A52267809B6569D8176</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string></string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SaguaroDataModel/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.raincitysoftware.SaguaroDataModel</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BA491FB61B64333000239C36</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BA491FB71B64333000239C36</string>
+				<string>BA491FB81B64333000239C36</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BA491FB71B64333000239C36</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3295D373FA30E0F8757334CC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SaguaroDataModelTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.raincitysoftware.SaguaroDataModelTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>SaguaroDataModelTests/SaguaroDataModelTests-Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BA491FB81B64333000239C36</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F6B6079C2C4EC7452113E443</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SaguaroDataModelTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.raincitysoftware.SaguaroDataModelTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>SaguaroDataModelTests/SaguaroDataModelTests-Bridging-Header.h</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BA491FBA1B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAContactInfo.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FBC1B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SADateRange.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FBD1B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SADateTimeCalculator.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FBE1B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SADocumentIdentifier.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FBF1B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAOrg.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FC01B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUnique.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FC11B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUser.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FC21B6433D100239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAValidationDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FC41B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FBA1B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FC61B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FBC1B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FC71B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FBD1B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FC81B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FBE1B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FC91B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FBF1B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FCA1B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FC01B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FCB1B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FC11B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FCC1B6433D100239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FC21B6433D100239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FCD1B6433EB00239C36</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SaguaroDataModelTests-Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FCE1B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>RandomFixtureData.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FCF1B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAContactInfoTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD01B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SADateRangeTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD11B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SADateTimeCalculatorTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD21B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SADocumentIdentifierTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD31B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAOrgTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD41B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUniqueTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD51B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUserTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD61B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAValidationDelegateTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD71B6433EC00239C36</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>TestDataset.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA491FD81B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FCE1B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FD91B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FCF1B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FDA1B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD01B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FDB1B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD11B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FDC1B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD21B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FDD1B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD31B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FDE1B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD41B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FDF1B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD51B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FE01B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD61B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA491FE11B6433EC00239C36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA491FD71B6433EC00239C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA4BB3DA1BAF31D9005BD770</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUpdateQueue.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA4BB3DB1BAF31D9005BD770</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA4BB3DA1BAF31D9005BD770</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA4BB3DC1BAF3200005BD770</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUpdateQueueTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA4BB3DD1BAF3200005BD770</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA4BB3DC1BAF3200005BD770</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAF6C6E41B810AF500C1B4BE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAStack.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAF6C6E51B810AF500C1B4BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BAF6C6E41B810AF500C1B4BE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAF6C6E61B810B0D00C1B4BE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAStackTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAF6C6E71B810B0D00C1B4BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BAF6C6E61B810B0D00C1B4BE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAF6C6E81B81195E00C1B4BE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUndoRedoTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAF6C6E91B81195E00C1B4BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BAF6C6E81B81195E00C1B4BE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAF6C6EA1B8119C700C1B4BE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SAUndoRedo.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAF6C6EB1B8119C700C1B4BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BAF6C6EA1B8119C700C1B4BE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAFD32DB1BAF363E003ACF8F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SATimerTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAFD32DC1BAF363E003ACF8F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BAFD32DB1BAF363E003ACF8F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAFD32DD1BAF369A003ACF8F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SATimer.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BAFD32DE1BAF369A003ACF8F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BAFD32DD1BAF369A003ACF8F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D129B8007CF207D8A9B8CA30</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D3907AB6F9213B9017F5EBCF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>58E6245F08227245CEA77359</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>ED41BDAEAD601829172B9728</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4FE71AA6BFF46301C76D716C</string>
+				<string>15401A52267809B6569D8176</string>
+				<string>3295D373FA30E0F8757334CC</string>
+				<string>F6B6079C2C4EC7452113E443</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F0BC8F00FB07943BE42BAA7C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7F2A1942BD41CE28C3C6024F</string>
+				<string>58E6245F08227245CEA77359</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F6B6079C2C4EC7452113E443</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-SaguaroDataModelTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-SaguaroDataModelTests/Pods-SaguaroDataModelTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>BA491F961B64333000239C36</string>
+</dict>
+</plist>

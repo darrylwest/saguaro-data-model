@@ -47,12 +47,12 @@ public struct SAOrg: SAOrgModel {
     public func toMap() -> [String:AnyObject] {
         var map = doi.toMap()
 
-        map[ "name" ] = name
-        map[ "url" ] = url
-        map[ "assets" ] = assets
-        map[ "contactInfo" ] = contactInfo.toMap()
-        map[ "contactList" ] = contactList.map { $0.toMap() }
-        map[ "status" ] = status.rawValue
+        map[ "name" ] = name as AnyObject
+        map[ "url" ] = url as AnyObject
+        map[ "assets" ] = assets as AnyObject
+        map[ "contactInfo" ] = contactInfo.toMap() as AnyObject
+        map[ "contactList" ] = contactList.map { $0.toMap() } as AnyObject
+        map[ "status" ] = status.rawValue as AnyObject
 
         return map
     }

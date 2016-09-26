@@ -31,7 +31,7 @@ public struct SAUndoRedo<T> {
     }
 
     /// push a value change to enable undo'ing
-    public mutating func save(value:T) -> T {
+    public mutating func save(_ value:T) -> T {
         return undoStack.push( value )
     }
 

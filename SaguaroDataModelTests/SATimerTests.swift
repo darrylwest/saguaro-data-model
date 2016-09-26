@@ -10,7 +10,7 @@ import XCTest
 @testable import SaguaroDataModel
 
 class SATimerTests: XCTestCase {
-    let timeout = NSTimeInterval( 8.0 )
+    let timeout = TimeInterval( 8.0 )
     let expectationName = "timerComplete"
     
     func testAfterInstance() {
@@ -18,7 +18,7 @@ class SATimerTests: XCTestCase {
             XCTFail("should not fire if not started")
         }
 
-        let interval = NSTimeInterval( 0.1 )
+        let interval = TimeInterval( 0.1 )
         let timer = SATimer(after: interval, action:action)
 
         XCTAssertEqual(timer.valid, true, "valid")
@@ -31,7 +31,7 @@ class SATimerTests: XCTestCase {
             XCTFail("should not fire if not started")
         }
 
-        let interval = NSTimeInterval( 0.1 )
+        let interval = TimeInterval( 0.1 )
         let timer = SATimer(every: interval, action:action)
 
         XCTAssertEqual(timer.valid, true, "valid")
@@ -40,7 +40,7 @@ class SATimerTests: XCTestCase {
     }
 
     func testIntervalTimer() {
-        let expectation = expectationWithDescription( expectationName )
+        let expectation = self.expectation( description: expectationName )
 
         var timer:SATimer?
         var count = 5
@@ -58,11 +58,11 @@ class SATimerTests: XCTestCase {
 
                 print("testIntervalTimer() done")
             } else {
-                print("count: \( count ) \( NSDate().timeIntervalSince1970 )")
+                print("count: \( count ) \( Date().timeIntervalSince1970 )")
             }
         }
 
-        let interval = NSTimeInterval( 0.25 )
+        let interval = TimeInterval( 0.25 )
         timer = SATimer(every: interval, action: callback )
 
         if let t = timer {
@@ -72,13 +72,13 @@ class SATimerTests: XCTestCase {
             XCTFail("timer is not valid")
         }
 
-        waitForExpectationsWithTimeout(timeout, handler: { error in
+        waitForExpectations(timeout: timeout, handler: { error in
             XCTAssertNil(error, "async error: \( error )")
         })
     }
 
     func testOneShotTimer() {
-        let expectation = expectationWithDescription( expectationName )
+        let expectation = self.expectation( description: expectationName )
 
         func callback() -> Void {
             expectation.fulfill()
@@ -86,10 +86,10 @@ class SATimerTests: XCTestCase {
             print("testWithNew() done")
         }
 
-        let timer = SATimer(after: NSTimeInterval( 0.25 ), action: callback )
+        let timer = SATimer(after: TimeInterval( 0.25 ), action: callback )
         timer.start()
 
-        waitForExpectationsWithTimeout(timeout, handler: { error in
+        waitForExpectations(timeout: timeout, handler: { error in
             XCTAssertNil(error, "async error: \( error )")
         })
     }

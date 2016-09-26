@@ -19,11 +19,11 @@ public struct SAStack<T> {
     }
 
     /// push a new item onto the stack; return the item to enable chaining
-    public mutating func push(item: T) -> T {
+    public mutating func push(_ item: T) -> T {
         items.append(item)
 
         if (capLimit > 0 && items.count > capLimit) {
-            items.removeAtIndex( 0 )
+            items.remove( at: 0 )
         }
 
         return item

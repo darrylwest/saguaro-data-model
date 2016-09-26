@@ -44,7 +44,7 @@ public struct SALabeledValue: SAMappable {
     }
 
     public func toMap() -> [String : AnyObject] {
-        return [ label.rawValue : value ]
+        return [ label.rawValue : value as AnyObject ]
     }
 }
 
@@ -76,10 +76,10 @@ public struct SALocation: SALocationModel {
             "longitude":self.longitude
         ]
 
-        return map
+        return map as [String : AnyObject]
     }
 
-    public static func fromMap(map:[String:AnyObject]) -> SALocation? {
+    public static func fromMap(_ map:[String:AnyObject]) -> SALocation? {
         guard let latitude = map["latitude"] as? SALocationDegrees,
             let longitude = map["longitude"] as? SALocationDegrees else {
                 
@@ -107,10 +107,10 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         }
     }
 
-    public private(set) var emails = [ SALabeledValue ]()
-    public private(set) var phones = [ SALabeledValue ]()
-    public private(set) var mailing = [ SALabeledValue ]()
-    public private(set) var locations = [ SALocation ]()
+    public fileprivate(set) var emails = [ SALabeledValue ]()
+    public fileprivate(set) var phones = [ SALabeledValue ]()
+    public fileprivate(set) var mailing = [ SALabeledValue ]()
+    public fileprivate(set) var locations = [ SALocation ]()
 
     public var status:SADataModelStatus
 
@@ -120,16 +120,16 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         self.status = status!
     }
 
-    public mutating func addEmail(email:SALabeledValue) {
+    public mutating func addEmail(_ email:SALabeledValue) {
         if emails.contains( email ) == false {
             emails.append( email )
         }
     }
 
-    public mutating func removeEmail(email:SALabeledValue) -> SALabeledValue? {
-        for (idx, obj) in emails.enumerate() {
+    public mutating func removeEmail(_ email:SALabeledValue) -> SALabeledValue? {
+        for (idx, obj) in emails.enumerated() {
             if obj == email {
-                emails.removeAtIndex( idx )
+                emails.remove( at: idx )
                 return obj
             }
         }
@@ -137,7 +137,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         return nil
     }
 
-    public func findEmail(email:SALabeledValue) -> SALabeledValue? {
+    public func findEmail(_ email:SALabeledValue) -> SALabeledValue? {
         for obj in emails {
             if obj == email {
                 return obj
@@ -147,44 +147,44 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         return nil
     }
 
-    public mutating func addPhone(phone:SALabeledValue) {
+    public mutating func addPhone(_ phone:SALabeledValue) {
         if phones.contains( phone ) == false {
             phones.append( phone )
         }
     }
 
-    public mutating func addMailing(mail:SALabeledValue) {
+    public mutating func addMailing(_ mail:SALabeledValue) {
         if mailing.contains( mail ) == false {
             mailing.append( mail )
         }
     }
 
-    public mutating func addLocation(location:SALocation) {
+    public mutating func addLocation(_ location:SALocation) {
         locations.append( location )
     }
 
     public func toMap() -> [String:AnyObject] {
         var map = doi.toMap()
 
-        map[ "givenName" ] = givenName
+        map[ "givenName" ] = givenName as AnyObject?
         if let familyName = self.familyName {
-            map[ "familyName" ] = familyName
+            map[ "familyName" ] = familyName as AnyObject?
         }
 
-        map[ "emails" ] = self.emails.map { [ $0.label.rawValue : $0.value ] }
-        map[ "phones" ] = self.phones.map { [ $0.label.rawValue : $0.value ] }
-        map[ "mailing"] = self.mailing.map { [ $0.label.rawValue : $0.value ] }
-        map[ "locations" ] = self.locations.map { $0.toMap() }
+        map[ "emails" ] = self.emails.map { [ $0.label.rawValue : $0.value ] } as AnyObject
+        map[ "phones" ] = self.phones.map { [ $0.label.rawValue : $0.value ] } as AnyObject
+        map[ "mailing"] = self.mailing.map { [ $0.label.rawValue : $0.value ] } as AnyObject
+        map[ "locations" ] = self.locations.map { $0.toMap() } as AnyObject
 
-        map[ "status" ] = self.status.rawValue
+        map[ "status" ] = self.status.rawValue as AnyObject?
         
         return map
     }
 
-    public static func fromMap(map:[String:AnyObject]) -> SAContactInfo? {
+    public static func fromMap(_ map:[String:AnyObject]) -> SAContactInfo? {
         guard let doi = SADocumentIdentifier.fromMap( map ),
-            givenName = map["givenName"] as? String,
-            rawStatus = map["status"] as? String else {
+            let givenName = map["givenName"] as? String,
+            let rawStatus = map["status"] as? String else {
 
             return nil
         }

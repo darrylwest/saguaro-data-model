@@ -13,7 +13,7 @@ class SADateRangeTests: XCTestCase {
     let calculator = SADateTimeCalculator()
 
     func testInstance() {
-        let today = NSDate()
+        let today = Date()
         let dateRange = SADateRange(startDate: today, endDate: today, days: 0)
 
         XCTAssertNotNil(dateRange.startDate, "start should not be nil")
@@ -24,7 +24,7 @@ class SADateRangeTests: XCTestCase {
     func testInstancdFromDay() {
         let dateRange = SADateRange(days: 90)
 
-        let comps = calculator.calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dateRange.startDate )
+        let comps = calculator.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dateRange.startDate)
 
         print("comps: \( comps )")
 
@@ -34,7 +34,7 @@ class SADateRangeTests: XCTestCase {
     }
 
     func testStartDateInstance() {
-        let startDate = NSDate()
+        let startDate = Date()
         let days = 2
         let endDate = calculator.datePlusDays(startDate, days: days)
 
@@ -52,7 +52,7 @@ class SADateRangeTests: XCTestCase {
 
         dateRange.days = 5
 
-        print("distance: \( dateRange.endDate.timeIntervalSinceDate( dateRange.startDate ) ) seconds in \( dateRange.days ) days...")
+        print("distance: \( dateRange.endDate.timeIntervalSince(dateRange.startDate) ) seconds in \( dateRange.days ) days...")
 
         XCTAssertNotNil(dateRange.startDate, "start should not be nil")
         XCTAssertNotNil(dateRange.endDate, "end should not be nil")
@@ -72,7 +72,7 @@ class SADateRangeTests: XCTestCase {
     }
 
     func testEndDateChange() {
-        let start = calculator.datePlusDays(NSDate(), days: 7)
+        let start = calculator.datePlusDays(Date(), days: 7)
         let days = 10
         var stop = calculator.datePlusDays(start, days: days)
 
@@ -96,7 +96,7 @@ class SADateRangeTests: XCTestCase {
     }
 
     func testStartDateChange() {
-        var start = calculator.datePlusDays(NSDate(), days: 7)
+        var start = calculator.datePlusDays(Date(), days: 7)
         let days = 10
         var stop = calculator.datePlusDays(start, days: days)
 
@@ -126,8 +126,8 @@ class SADateRangeTests: XCTestCase {
 
         let map = dateRange.toMap()
 
-        XCTAssertEqual(dateRange.startDate, map["startDate"] as? NSDate, "start match")
-        XCTAssertEqual(dateRange.endDate, map["endDate"] as? NSDate, "end match")
+        XCTAssertEqual(dateRange.startDate, map["startDate"] as? Date, "start match")
+        XCTAssertEqual(dateRange.endDate, map["endDate"] as? Date, "end match")
         XCTAssertEqual(dateRange.days, map["days"] as? Int, "day count match")
     }
 
@@ -135,7 +135,7 @@ class SADateRangeTests: XCTestCase {
         var range = SAMutableDateRange(dateTimeCalculator:calculator)
         range.days = 25
 
-        let map = [ "startDate": range.startDate, "endDate": range.endDate, "days":range.days ]
+		let map: [String : AnyObject] = [ "startDate": range.startDate as AnyObject, "endDate": range.endDate as AnyObject, "days":range.days as AnyObject]
 
         guard let dateRange = SADateRange.fromMap( map ) else {
             XCTFail("should create the date range from map: \( map )")
@@ -153,7 +153,7 @@ class SADateRangeTests: XCTestCase {
 
         var dateRange = calculator.createMutableDateRange()
 
-        dateRange.startDate = NSDate()
+        dateRange.startDate = Date()
         dateRange.days = 181
 
         let dtRange = SADateRange.scrubDateRange( dateRange )
@@ -162,7 +162,7 @@ class SADateRangeTests: XCTestCase {
 
         XCTAssertEqual(dtRange.days, 181)
 
-        let comps = calculator.calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dtRange.startDate )
+        let comps = calculator.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dtRange.startDate)
 
         // print("comps: \( comps )")
 
