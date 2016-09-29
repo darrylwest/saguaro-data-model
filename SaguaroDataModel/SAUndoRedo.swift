@@ -41,7 +41,7 @@ public struct SAUndoRedo<T> {
             return nil
         }
 
-        redoStack.push( value )
+        _ = redoStack.push( value )
 
         return value
     }

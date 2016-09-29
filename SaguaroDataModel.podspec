@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "SaguaroDataModel"
-  s.version     = "0.95"
+  s.version     = "0.95.0"
   s.summary     = "A swift 3.0 set of data model protocols and implementations for iOS/OSX applications"
   s.homepage    = "https://github.com/darrylwest/saguaro-data-model"
   s.license     = { :type => "MIT" }
