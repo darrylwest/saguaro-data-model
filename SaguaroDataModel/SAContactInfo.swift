@@ -166,9 +166,9 @@ public struct SAContactInfo: SADataModelType, SAMappable {
     public func toMap() -> [String:AnyObject] {
         var map = doi.toMap()
 
-        map[ "givenName" ] = givenName as AnyObject?
+        map[ "givenName" ] = givenName as AnyObject
         if let familyName = self.familyName {
-            map[ "familyName" ] = familyName as AnyObject?
+            map[ "familyName" ] = familyName as AnyObject
         }
 
         map[ "emails" ] = self.emails.map { [ $0.label.rawValue : $0.value ] } as AnyObject
@@ -176,7 +176,7 @@ public struct SAContactInfo: SADataModelType, SAMappable {
         map[ "mailing"] = self.mailing.map { [ $0.label.rawValue : $0.value ] } as AnyObject
         map[ "locations" ] = self.locations.map { $0.toMap() } as AnyObject
 
-        map[ "status" ] = self.status.rawValue as AnyObject?
+        map[ "status" ] = self.status.rawValue as AnyObject
         
         return map
     }
