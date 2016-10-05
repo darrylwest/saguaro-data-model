@@ -24,14 +24,14 @@ class SAUndoRedoTests: XCTestCase {
         var undo = SAUndoRedo<SAOrgModel>()
         var org = dataset.createOrg()
 
-        undo.save( org )
+        _ = undo.save( org )
 
         XCTAssertEqual(undo.undoCount, 1, "one undo's")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
 
         org = SAOrg(doi: org.doi, name:"My New Name", url:"http://new.org.com", assets:"new set of assets", contactInfo: org.contactInfo, contactList: org.contactList, status: org.status)
 
-        undo.save( org )
+        _ = undo.save( org )
         XCTAssertEqual(undo.undoCount, 2, "two undo's")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
 
@@ -41,14 +41,14 @@ class SAUndoRedoTests: XCTestCase {
         var undo = SAUndoRedo<SAOrg>()
         let org1 = dataset.createOrg()
 
-        undo.save( org1 )
+        _ = undo.save( org1 )
 
         XCTAssertEqual(undo.undoCount, 1, "one undos'")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
 
         let org2 = SAOrg(doi: org1.doi, name:"My New Name", url:"http://new.org.com", assets:"new set of assets", contactInfo: org1.contactInfo, contactList: org1.contactList, status: org1.status)
 
-        undo.save( org2 )
+        _ = undo.save( org2 )
         XCTAssertEqual(undo.undoCount, 2, "two undos'")
         XCTAssertEqual(undo.redoCount, 0, "zero redo's")
 
