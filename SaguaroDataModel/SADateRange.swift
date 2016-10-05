@@ -10,8 +10,8 @@ import Foundation
 import SaguaroJSON
 
 public protocol SADateRangeModel: SAMappable, CustomStringConvertible {
-    var startDate:NSDate { get }
-    var endDate:NSDate { get }
+    var startDate:Date { get }
+    var endDate:Date { get }
     var days: Int { get }
 }
 
@@ -22,18 +22,18 @@ extension SADateRangeModel {
 }
 
 public struct SADateRange: SADateRangeModel {
-    public let startDate: NSDate
-    public let endDate: NSDate
+    public let startDate: Date
+    public let endDate: Date
     public let days: Int
     
     public init(days:Int) {
         let calculator = SADateTimeCalculator.sharedInstance
-        self.startDate = calculator.today
-        self.endDate = self.startDate.dateByAddingTimeInterval( NSTimeInterval( 60 * 60 * 24 * days ))
+        self.startDate = calculator.today as Date
+        self.endDate = self.startDate.addingTimeInterval( TimeInterval( 60 * 60 * 24 * days ))
         self.days = days
     }
 
-    public init(startDate:NSDate, endDate:NSDate, days:Int = 0) {
+    public init(startDate:Date, endDate:Date, days:Int = 0) {
         self.startDate = startDate
         self.endDate = endDate
         self.days = days
@@ -49,7 +49,7 @@ public struct SADateRange: SADateRangeModel {
 public struct SAMutableDateRange: SADateRangeModel {
     public let calculator:SADateTimeCalculator
 
-    public var startDate: NSDate {
+    public var startDate: Date {
         didSet {
             let dt = calculator.datePlusDays(startDate, days: days)
             if dt != endDate {
@@ -58,7 +58,7 @@ public struct SAMutableDateRange: SADateRangeModel {
         }
     }
 
-    public var endDate: NSDate {
+    public var endDate: Date {
         didSet {
             let n = calculator.calcDaysFromDates(startDate, toDate: endDate)
             if n != days {
@@ -79,9 +79,9 @@ public struct SAMutableDateRange: SADateRangeModel {
     public init(dateTimeCalculator:SADateTimeCalculator) {
         self.calculator = dateTimeCalculator
 
-        self.startDate = calculator.today
+        self.startDate = calculator.today as Date
         self.days = 0
-        self.endDate = calculator.today
+        self.endDate = calculator.today as Date
     }
 
     public init(dateTimeCalculator:SADateTimeCalculator, dateRange: SADateRangeModel) {
@@ -92,7 +92,7 @@ public struct SAMutableDateRange: SADateRangeModel {
         self.days = dateRange.days
     }
 
-    public init(dateTimeCalculator:SADateTimeCalculator, startDate:NSDate, endDate:NSDate, days:Int) {
+    public init(dateTimeCalculator:SADateTimeCalculator, startDate:Date, endDate:Date, days:Int) {
         self.calculator = dateTimeCalculator
 
         self.startDate = startDate
@@ -108,13 +108,13 @@ public extension SADateRangeModel {
             "startDate": self.startDate,
             "endDate": self.endDate,
             "days":self.days
-        ]
+        ] as [String : Any]
 
-        return map
+        return map as [String : AnyObject]
     }
 
     /// convert this map to a date range or return nil
-    static func fromMap(map: [String:AnyObject]) -> SADateRange? {
+    static func fromMap(_ map: [String:AnyObject]) -> SADateRange? {
         let parser = JNParser()
         guard let startDate = parser.parseDate( map[ "startDate" ] ),
             let endDate = parser.parseDate( map[ "endDate" ] ),
@@ -126,7 +126,7 @@ public extension SADateRangeModel {
     }
 
     /// scrub the date range to insure only year/month/day with zero times
-    public static func scrubDateRange(dateRange:SADateRangeModel) -> SADateRangeModel {
+    public static func scrubDateRange(_ dateRange:SADateRangeModel) -> SADateRangeModel {
         let calculator = SADateTimeCalculator.sharedInstance
 
         let sdt = calculator.stripTime( dateRange.startDate )

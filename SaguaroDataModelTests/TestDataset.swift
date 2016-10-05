@@ -14,7 +14,7 @@ class TestDataset {
     let randomData = RandomFixtureData()
     let jnparser = JNParser()
 
-    func createSimpleContactInfo(name:String? = "Sammy") -> SAContactInfo {
+    func createSimpleContactInfo(_ name:String? = "Sammy") -> SAContactInfo {
         let doi = SADocumentIdentifier()
         let info = SAContactInfo(doi: doi, givenName: name!)
 

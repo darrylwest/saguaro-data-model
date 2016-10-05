@@ -10,14 +10,14 @@ import Foundation
 
 public struct SAUnique {
     static public func createUUID() -> String {
-        let uuid = NSUUID()
+        let uuid = UUID()
 
-        return uuid.UUIDString.lowercaseString
+        return uuid.uuidString.lowercased()
     }
 
     static public func createModelId() -> String {
-        let uuid = NSUUID().UUIDString.lowercaseString
-        let mid = uuid.stringByReplacingOccurrencesOfString("-", withString:"")
+        let uuid = NSUUID().uuidString.lowercased()
+        let mid = uuid.replacingOccurrences(of: "-", with:"")
 
         return mid
     }

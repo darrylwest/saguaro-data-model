@@ -11,7 +11,7 @@ import Foundation
 private class NSTimerActor {
     let block: () -> Void
 
-    init(_ block: () -> Void) {
+    init(_ block: @escaping () -> Void) {
         self.block = block
     }
 
@@ -20,40 +20,40 @@ private class NSTimerActor {
     }
 }
 
-public class SATimer {
-    var timer:NSTimer
-    public let interval:NSTimeInterval
-    public let oneShot:Bool
+open class SATimer {
+    var timer:Timer
+    open let interval:TimeInterval
+    open let oneShot:Bool
 
-    public init(after interval: NSTimeInterval, action block: () -> Void) {
+    public init(after interval: TimeInterval, action block: @escaping () -> Void) {
         let actor = NSTimerActor( block )
 
         self.oneShot = true
         self.interval = interval
-        self.timer = NSTimer(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: false)
+        self.timer = Timer(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: false)
     }
 
-    public init(every interval: NSTimeInterval, action block: () -> Void) {
+    public init(every interval: TimeInterval, action block: @escaping () -> Void) {
         let actor = NSTimerActor( block )
 
         self.oneShot = false
         self.interval = interval
-        self.timer = NSTimer(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: true)
+        self.timer = Timer(timeInterval: interval, target: actor, selector: #selector(NSTimerActor.fire), userInfo: nil, repeats: true)
     }
 
-    public func start(runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), modes: String...) {
-        let modes = modes.isEmpty ? [NSDefaultRunLoopMode] : modes
+    open func start(_ runLoop: RunLoop = RunLoop.current, modes: String...) {
+		let modes = modes.isEmpty ? [RunLoopMode.defaultRunLoopMode] : modes.map { RunLoopMode(rawValue: $0) }
 
         for mode in modes {
-            runLoop.addTimer(timer, forMode: mode)
+            runLoop.add(timer, forMode: mode)
         }
     }
 
-    public var valid:Bool {
-        return timer.valid
+    open var valid:Bool {
+        return timer.isValid
     }
 
-    public func stop() {
+    open func stop() {
         timer.invalidate()
     }
 }

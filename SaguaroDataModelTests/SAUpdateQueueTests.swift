@@ -12,7 +12,7 @@ import XCTest
 class SAUpdateQueueTests: XCTestCase {
     let dataset = TestDataset()
 
-    func noopAction(user:SAUserModel) {
+    func noopAction(_ user:SAUserModel) {
         print("user: \( user.doi )")
     }
 
@@ -23,7 +23,7 @@ class SAUpdateQueueTests: XCTestCase {
     }
 
     func testQueue() {
-        let queue = SAUpdateQueue<SAUserModel>(updateAction: noopAction, quietTimeout: NSTimeInterval( 0.5 ))
+        let queue = SAUpdateQueue<SAUserModel>(updateAction: noopAction, quietTimeout: TimeInterval( 0.5 ))
 
         for n in 1...5 {
             let user = dataset.createUser()
@@ -31,7 +31,7 @@ class SAUpdateQueueTests: XCTestCase {
             queue.queue(user.doi.id, item: user)
 
             XCTAssertEqual(queue.count, n, "should match iteration count")
-            XCTAssert( NSDate().isBeforeDate( queue.lastQueueTime ), "should always bump up the last time")
+            XCTAssert( Date().isBeforeDate( queue.lastQueueTime ), "should always bump up the last time")
             XCTAssertEqual(queue.checkUpdateQueue(), false, "should not be ready for updates")
         }
 
@@ -41,7 +41,7 @@ class SAUpdateQueueTests: XCTestCase {
     }
 
     func testDupQueue() {
-        let queue = SAUpdateQueue<SAUserModel>(updateAction: noopAction, quietTimeout: NSTimeInterval( 0.5 ))
+        let queue = SAUpdateQueue<SAUserModel>(updateAction: noopAction, quietTimeout: TimeInterval( 0.5 ))
 
         let user = dataset.createUser()
 
@@ -50,7 +50,7 @@ class SAUpdateQueueTests: XCTestCase {
             queue.queue(user.doi.id, item: user)
 
             XCTAssertEqual(queue.count, 1, "should match iteration count")
-            XCTAssert( NSDate().isBeforeDate( queue.lastQueueTime ), "should always bump up the last time")
+            XCTAssert( Date().isBeforeDate( queue.lastQueueTime ), "should always bump up the last time")
             XCTAssertEqual(queue.checkUpdateQueue(), false, "should not be ready for updates")
         }
 

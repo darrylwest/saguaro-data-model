@@ -10,40 +10,40 @@ import Foundation
 
 public protocol SAUpdateQueueable {
     func flushQueue() -> Void
-    func checkUpdateQueue(flush:Bool?) -> Bool
+    func checkUpdateQueue(_ flush:Bool?) -> Bool
 }
 
-public class SAUpdateQueue<T> : SAUpdateQueueable {
+open class SAUpdateQueue<T> : SAUpdateQueueable {
 
     let updateAction:(T) -> ()
-    public private(set) var updateQueue:[String:T]
+    open fileprivate(set) var updateQueue:[String:T]
     
-    public private(set) var lastQueueTime:NSDate = NSDate()
-    public let quietTimeout:NSTimeInterval
+    open fileprivate(set) var lastQueueTime:Date = Date()
+    open let quietTimeout:TimeInterval
 
     /// construct with an action and the amount of time to wait before invoking the action
-    public init(updateAction:(T) -> (), quietTimeout:NSTimeInterval? = 3.0) {
+    public init(updateAction:@escaping (T) -> (), quietTimeout:TimeInterval? = 3.0) {
         self.updateAction = updateAction
         self.updateQueue = [String:T]()
         self.quietTimeout = quietTimeout!
     }
 
     /// invoking the action and each item as it's removed from the queue
-    public func flushQueue() {
+    open func flushQueue() {
         // insure a new quiet time...
-        lastQueueTime = NSDate(timeIntervalSinceNow: quietTimeout)
+        lastQueueTime = Date(timeIntervalSinceNow: quietTimeout)
 
         let keys = updateQueue.keys
         for key in keys {
-            if let value = updateQueue.removeValueForKey( key ) {
+            if let value = updateQueue.removeValue( forKey: key ) {
                 updateAction( value )
             }
         }
     }
 
     /// check for the update timeout and queue size; if flush is true, then call flush
-    public func checkUpdateQueue(flush:Bool? = true) -> Bool {
-        if updateQueue.count > 0 && lastQueueTime.isBeforeDate( NSDate() ) {
+    open func checkUpdateQueue(_ flush:Bool? = true) -> Bool {
+        if updateQueue.count > 0 && lastQueueTime.isBeforeDate( Date() ) {
             if flush == true {
                 flushQueue()
             }
@@ -55,15 +55,15 @@ public class SAUpdateQueue<T> : SAUpdateQueueable {
     }
 
     /// queue a save of the project
-    public func queue(id:String, item: T) {
+    open func queue(_ id:String, item: T) {
         updateQueue[ id ] = item
 
         // set the timeout for n seconds
-        lastQueueTime = NSDate(timeIntervalSinceNow: quietTimeout)
+        lastQueueTime = Date(timeIntervalSinceNow: quietTimeout)
     }
 
     /// return the count of items in the queue
-    public var count:Int {
+    open var count:Int {
         return updateQueue.count
     }
 }

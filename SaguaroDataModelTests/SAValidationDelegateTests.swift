@@ -129,7 +129,7 @@ class SAValidationDelegateTests: XCTestCase {
         let pattern = "[\\u6620-\\U0001F500]"
         let pattern2 = "[\\U0001F550-\\U0001FFFF]"
         var count = 0
-        let matches = value =~ pattern
+		let matches: SARegexMatchResult = value =~ pattern
         for _ in matches {
             count += 1
         }

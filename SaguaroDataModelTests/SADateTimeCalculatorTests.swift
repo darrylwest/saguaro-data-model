@@ -31,15 +31,15 @@ class SADateTimeCalculatorTests: XCTestCase {
     func testToday() {
         let calendar = calculator.calendar
         let today = calculator.today
-        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: today)
-        let date = calendar.dateFromComponents( comps )!
+		let comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: today)
+		let date = calendar.date(from: comps)!
 
         XCTAssertNotNil(today)
 
         XCTAssertEqual(today, date, "should match")
-        XCTAssertTrue(comps.year >= 2015, "should be greater than epoch")
-        XCTAssertTrue(comps.month > 0 && comps.month < 13, "between 1..12")
-        XCTAssertTrue(comps.day > 0 && comps.day < 32, "between 1..31 days")
+        XCTAssertTrue(comps.year! >= 2015, "should be greater than epoch")
+        XCTAssertTrue(comps.month! > 0 && comps.month! < 13, "between 1..12")
+        XCTAssertTrue(comps.day! > 0 && comps.day! < 32, "between 1..31 days")
         XCTAssertEqual(comps.hour, 0, "should be zero hours")
         XCTAssertEqual(comps.minute, 0, "should be zero minutes")
         XCTAssertEqual(comps.second, 0, "should be zero seconds")
@@ -47,15 +47,15 @@ class SADateTimeCalculatorTests: XCTestCase {
 
     func testStripTime() {
         let calendar = calculator.calendar
-        let now = NSDate()
+        let now = Date()
 
         let today = calculator.stripTime( now )
 
-        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: today)
+        let comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: today)
 
-        XCTAssertTrue(comps.year >= 2015, "should be greater than epoch")
-        XCTAssertTrue(comps.month > 0 && comps.month < 13, "between 1..12")
-        XCTAssertTrue(comps.day > 0 && comps.day < 32, "between 1..31 days")
+        XCTAssertTrue(comps.year! >= 2015, "should be greater than epoch")
+        XCTAssertTrue(comps.month! > 0 && comps.month! < 13, "between 1..12")
+        XCTAssertTrue(comps.day! > 0 && comps.day! < 32, "between 1..31 days")
         XCTAssertEqual(comps.hour, 0, "should be zero hours")
         XCTAssertEqual(comps.minute, 0, "should be zero minutes")
         XCTAssertEqual(comps.second, 0, "should be zero seconds")
@@ -68,7 +68,7 @@ class SADateTimeCalculatorTests: XCTestCase {
 
         XCTAssertNotNil(date, "should not be nil")
 
-        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        let comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         XCTAssertEqual(comps.year, 2015, "year")
         XCTAssertEqual(comps.month, 1, "month")
         XCTAssertEqual(comps.day, 1, "day")
@@ -79,7 +79,7 @@ class SADateTimeCalculatorTests: XCTestCase {
 
     func testFormatISO8601Date() {
         let calendar = calculator.calendar
-        guard let dt = calculator.isoFormatter.dateFromString("2015-05-06T09:30:59.999Z") else {
+		guard let dt = calculator.isoFormatter.date(from: "2015-05-06T09:30:59.999Z") else {
             XCTFail("date broken")
             return
         }
@@ -89,7 +89,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(dtstr, "2015-05-06T09:30:59.999Z", "string test")
 
         // parse tests...
-        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: dt)
+        let comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: dt)
 
         XCTAssertNotNil(dtstr, "date string should not be nil")
         XCTAssertEqual(comps.year, 2015, "year")
@@ -108,7 +108,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         }
 
         var date = calculator.datePlusMonths(ref, months: 6)
-        var comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        var comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
         XCTAssertEqual(comps.year, 2015, "year")
         XCTAssertEqual(comps.month, 12, "month")
@@ -118,7 +118,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(comps.second, 0, "second")
 
         date = calculator.datePlusMonths(ref, months: 12)
-        comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
         XCTAssertEqual(comps.year, 2016, "year")
         XCTAssertEqual(comps.month, 6, "month")
@@ -140,21 +140,21 @@ class SADateTimeCalculatorTests: XCTestCase {
         }
 
         var date = calculator.datePlusDays(ref, days: 7)
-        var comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        var comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
         XCTAssertEqual(comps.year, 2015, "year")
         XCTAssertEqual(comps.month, 1, "month")
         XCTAssertEqual(comps.day, 8, "day calc")
 
         date = calculator.datePlusDays(ref, days: 45)
-        comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        comps = calculator.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
         XCTAssertEqual(comps.year, 2015, "year")
         XCTAssertEqual(comps.month, 2, "month")
         XCTAssertEqual(comps.day, 15, "day calc")
 
         date = calculator.datePlusDays(ref, days: -7)
-        comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+		comps = calculator.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
         XCTAssertEqual(comps.year, 2014, "year")
         XCTAssertEqual(comps.month, 12, "month")
@@ -178,7 +178,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         let date = calculator.firstDayOfMonth( refDate )
         
         XCTAssertNotNil(date, "should not be nil")
-        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        let comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         XCTAssertEqual(comps.day, 1, "first day")
         XCTAssertEqual(comps.year, 2015, "year")
         XCTAssertEqual(comps.month, 8, "month check")
@@ -191,7 +191,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         
         XCTAssertNotNil(date, "should not be nil")
         
-        let comps = calendar.components([ .Year, .Month, .Day, .Hour, .Minute, .Second ], fromDate: date)
+        let comps = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         XCTAssertEqual(comps.day, 1, "first day")
         XCTAssertEqual(comps.year, 2015, "year")
         XCTAssertEqual(comps.month, 9, "month check")
@@ -224,7 +224,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2 ), true, "dt1 < dt2")
         XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt3 ), false, "dt1 > dt3")
         XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt4 ), true, "dt1 > dt4")
-        XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2, order:NSComparisonResult.OrderedDescending ), false, "dt1 < dt2")
+        XCTAssertEqual(calculator.sortDates( dt1, compareTo: dt2, order: .orderedDescending ), false, "dt1 < dt2")
     }
     
     
@@ -250,7 +250,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         let dt2 = dt1.plusMinutes(10)
         
         XCTAssert(dt1.isBeforeDate( dt2 ))
-        XCTAssertEqual( dt2.timeIntervalSinceDate(dt1), 10 * 60, "10 minutes")
+		XCTAssertEqual( dt2.timeIntervalSince(dt1), 10 * 60, "10 minutes")
     }
     
     func testPlusHours() {
@@ -258,7 +258,7 @@ class SADateTimeCalculatorTests: XCTestCase {
         let dt2 = dt1.plusHours( 5 )
         
         XCTAssert( dt1.isBeforeDate( dt2 ))
-        XCTAssertEqual(dt2.timeIntervalSinceDate( dt1 ), 5 * 60 * 60, "hours")
+		XCTAssertEqual(dt2.timeIntervalSince(dt1), 5 * 60 * 60, "hours")
     }
     
     func testCalcMonthsFromDates() {
@@ -295,7 +295,7 @@ class SADateTimeCalculatorTests: XCTestCase {
             if months.isEmpty {
                 XCTFail("months are empty for \( name )")
             } else {
-                XCTAssertEqual(name, months.removeAtIndex(0))
+                XCTAssertEqual(name, months.remove(at: 0))
             }
         }
         
@@ -307,7 +307,7 @@ class SADateTimeCalculatorTests: XCTestCase {
             if months.isEmpty {
                 XCTFail("months are empty for \( name )")
             } else {
-                XCTAssertEqual(name, months.removeAtIndex(0))
+                XCTAssertEqual(name, months.remove(at: 0))
             }
         }
         
@@ -334,7 +334,7 @@ class SADateTimeCalculatorTests: XCTestCase {
             if months.isEmpty {
                 XCTFail("months are empty for \( name )")
             } else {
-                XCTAssertEqual(name, months.removeAtIndex(0))
+                XCTAssertEqual(name, months.remove(at: 0))
             }
         }
     }
@@ -345,18 +345,18 @@ class SADateTimeCalculatorTests: XCTestCase {
         XCTAssertNotNil( formatter )
 
         let dt1 = calculator.today
-        let s = formatter.stringFromDate( dt1 )
+        let s = formatter.string( from: dt1 )
         print( "formatted date: \( s ) from date: \( dt1 )")
 
-        guard let dt2 = formatter.dateFromString( s ) else {
+        guard let dt2 = formatter.date( from: s ) else {
             return XCTFail("could not parse date")
         }
 
-        XCTAssertEqual(s, formatter.stringFromDate( dt2 ))
+        XCTAssertEqual(s, formatter.string( from: dt2 ))
     }
 
     func testToJSONString() {
-        let dt = NSDate()
+        let dt = Date()
 
         let dts = dt.toJSONString()
 
@@ -378,11 +378,11 @@ class SADateTimeCalculatorTests: XCTestCase {
     }
 
     func testDateEquals() {
-        let dt1 = NSDate()
-        var dt2 = dt1.dateByAddingTimeInterval( 60 * 2.0 )
+        let dt1 = Date()
+        var dt2 = dt1.addingTimeInterval( 60 * 2.0 )
 
         XCTAssert( dt1.equals( dt2 ) == false )
-        dt2 = dt1.dateByAddingTimeInterval( 0.0 )
+        dt2 = dt1.addingTimeInterval( 0.0 )
 
         XCTAssert( dt1.equals( dt2 ) == true )
     }
