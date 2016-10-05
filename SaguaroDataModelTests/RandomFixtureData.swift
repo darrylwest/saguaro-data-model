@@ -26,7 +26,7 @@ struct RandomFixtureData {
     let domains:[String] = [ "com", "org", "net", "co.uk", "us", "ca", "biz", "info", "name", "io", "tv", "me" ]
     let companies:[String] = [ "IBM", "Apple", "Oracle", "Coca Cola", "Pepsi", "Best Buy", "Microsoft", "Benjamin Parker", "Google", "Amazon", "Wiki", "Photo Shape", "Molly Stone" ]
 
-    func stripWhiteSpace(str:String) -> String {
+    func stripWhiteSpace(_ str:String) -> String {
         let chars = str.characters.filter { return $0 != " " }
 
         return String( chars )
@@ -53,11 +53,11 @@ struct RandomFixtureData {
     }
 
     var url: String {
-        return "http://\( stripWhiteSpace( companyName.lowercaseString )).\( domain )"
+        return "http://\( stripWhiteSpace( companyName.lowercased() )).\( domain )"
     }
 
     var email: String {
-        return "\( firstName.lowercaseString )@\( stripWhiteSpace( companyName.lowercaseString )).\( domain )"
+        return "\( firstName.lowercased() )@\( stripWhiteSpace( companyName.lowercased() )).\( domain )"
     }
 
     var username: String {

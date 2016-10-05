@@ -47,11 +47,11 @@ public struct SAUser: SAUserModel {
     public func toMap() -> [String:AnyObject] {
         var map = doi.toMap()
 
-        map["username"] = username
-        map["session"] = session
-        map["orgId"] = org.doi.id
-        map["contactInfo"] = contactInfo.toMap()
-        map["status"] = status.rawValue
+        map["username"] = username as AnyObject
+        map["session"] = session as AnyObject
+        map["orgId"] = org.doi.id as AnyObject
+        map["contactInfo"] = contactInfo.toMap() as AnyObject
+        map["status"] = status.rawValue as AnyObject
 
         return map
     }

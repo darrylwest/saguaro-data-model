@@ -15,9 +15,9 @@ class SAStackTests: XCTestCase {
     func testInstance() {
         var stack = SAStack<String>()
 
-        stack.push("this string")
-        stack.push("that string thing")
-        stack.push("my third string")
+        _ = stack.push("this string")
+        _ = stack.push("that string thing")
+        _ = stack.push("my third string")
 
         XCTAssertEqual(stack.count, 3, "stack now has three elements")
 
@@ -34,9 +34,9 @@ class SAStackTests: XCTestCase {
     func testIntStack() {
         var stack = SAStack<Int>()
 
-        stack.push( 545 )
-        stack.push( 443 )
-        stack.push( 222 )
+        _ = stack.push( 545 )
+        _ = stack.push( 443 )
+        _ = stack.push( 222 )
 
         XCTAssertEqual(stack.count, 3, "should have 3 elements")
 
@@ -60,9 +60,9 @@ class SAStackTests: XCTestCase {
             XCTFail("should return nil but returned \( item )")
         }
 
-        stack.push( 1 )
-        stack.push( 2 )
-        stack.push( 3 ) /// 3 should be on top of stack
+        _ = stack.push( 1 )
+        _ = stack.push( 2 )
+        _ = stack.push( 3 ) /// 3 should be on top of stack
 
         XCTAssertEqual(stack.count, 3, "should have 3 elements")
         XCTAssertEqual(stack.peek()!, 3, "should return top of stack")
@@ -77,9 +77,9 @@ class SAStackTests: XCTestCase {
             XCTFail("should return nil but returned \( item )")
         }
 
-        stack.push( 1 )
-        stack.push( 2 )
-        stack.push( 3 )
+        _ = stack.push( 1 )
+        _ = stack.push( 2 )
+        _ = stack.push( 3 )
 
         XCTAssertEqual(stack.count, 3, "should have 3 elements")
         stack.removeAll()
@@ -92,7 +92,7 @@ class SAStackTests: XCTestCase {
 
         let list = [ dataset.createOrg(), dataset.createOrg(), dataset.createOrg(), dataset.createOrg() ]
         for org in list {
-            stack.push( org )
+            _ = stack.push( org )
         }
 
         XCTAssertEqual(stack.count, list.count, "should match")
@@ -111,7 +111,7 @@ class SAStackTests: XCTestCase {
         var stack = SAStack<Int>( capLimit: 3 )
 
         for i in 0 ..< 10 {
-            stack.push( i )
+            _ = stack.push( i )
             XCTAssert( stack.count <= 3 )
             XCTAssertEqual( stack.peek()!, i, "verify value")
         }

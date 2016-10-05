@@ -8,3 +8,4 @@ build/
 *.pbxuser
 Pods
 Podfile.lock
+SaguaroDataModel.xcodeproj/xcuserdata

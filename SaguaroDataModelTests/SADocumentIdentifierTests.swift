@@ -13,7 +13,7 @@ class SADocumentIdentifierTests: XCTestCase {
     // let jnparser = JNParser()
 
     func createModelId() -> String {
-        return NSUUID().UUIDString.lowercaseString.stringByReplacingOccurrencesOfString("-", withString:"")
+        return NSUUID().uuidString.lowercased().replacingOccurrences(of: "-", with:"")
     }
 
     func testInstance() {
@@ -46,8 +46,8 @@ class SADocumentIdentifierTests: XCTestCase {
 
     func testInstanceWithInputs() {
         let id = createModelId()
-        let created = NSDate().dateByAddingTimeInterval( -120.5 )
-        let updated = NSDate().dateByAddingTimeInterval( -60.0 )
+        let created = Date().addingTimeInterval( -120.5 )
+        let updated = Date().addingTimeInterval( -60.0 )
         let version = 5
 
         let doi = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
@@ -61,8 +61,8 @@ class SADocumentIdentifierTests: XCTestCase {
 
     func testUpdateVersion() {
         let id = createModelId()
-        let created = NSDate().dateByAddingTimeInterval( -120.5 )
-        let updated = NSDate().dateByAddingTimeInterval( -60.0 )
+        let created = Date().addingTimeInterval( -120.5 )
+        let updated = Date().addingTimeInterval( -60.0 )
         let version = 10
 
         let ref = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
@@ -86,8 +86,8 @@ class SADocumentIdentifierTests: XCTestCase {
 
     func testToMap() {
         let id = SAUnique.createModelId()
-        let created = NSDate() // jnparser.dateFromString( "2015-01-01T00:00:00.000Z" )!
-        let updated = NSDate() // jnparser.dateFromString( "2015-02-20T00:00:00.000Z" )!
+        let created = Date() // jnparser.dateFromString( "2015-01-01T00:00:00.000Z" )!
+        let updated = Date() // jnparser.dateFromString( "2015-02-20T00:00:00.000Z" )!
         let version = 99
 
         let doi = SADocumentIdentifier(id: id, dateCreated: created, lastUpdated: updated, version: version)
@@ -95,17 +95,17 @@ class SADocumentIdentifierTests: XCTestCase {
         let map = doi.toMap()
 
         XCTAssertEqual(map["id"] as? String, id, "id match")
-        XCTAssertEqual(map["dateCreated"] as? NSDate, created, "created")
-        XCTAssertEqual(map["lastUpdated"] as? NSDate, updated, "updated")
+        XCTAssertEqual(map["dateCreated"] as? Date, created, "created")
+        XCTAssertEqual(map["lastUpdated"] as? Date, updated, "updated")
         XCTAssertEqual(map["version"] as? Int, version, "version")
     }
 
     func testFromMap() {
-        let map = [
-            "id":SAUnique.createModelId(),
-            "dateCreated":NSDate().dateByAddingTimeInterval( -10.5 ),
-            "lastUpdated":NSDate().dateByAddingTimeInterval( -6.0 ),
-            "version":2
+		let map: [String : AnyObject] = [
+            "id": SAUnique.createModelId() as AnyObject,
+            "dateCreated": Date().addingTimeInterval(-10.5) as AnyObject,
+            "lastUpdated": Date().addingTimeInterval(-6.0) as AnyObject,
+            "version": 2 as AnyObject
         ]
 
         guard let doi = SADocumentIdentifier.fromMap( map ) else {
@@ -114,8 +114,8 @@ class SADocumentIdentifierTests: XCTestCase {
         }
 
         XCTAssertEqual(doi.id, map["id"] as? String, "id")
-        XCTAssertEqual(doi.dateCreated, map["dateCreated"] as? NSDate, "created")
-        XCTAssertEqual(doi.lastUpdated, map["lastUpdated"] as? NSDate, "updated")
+        XCTAssertEqual(doi.dateCreated, map["dateCreated"] as? Date, "created")
+        XCTAssertEqual(doi.lastUpdated, map["lastUpdated"] as? Date, "updated")
         XCTAssertEqual(doi.version, map["version"] as? Int, "version")
     }
     
