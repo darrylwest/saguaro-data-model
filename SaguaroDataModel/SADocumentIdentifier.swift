@@ -15,7 +15,7 @@ public protocol SAMappable {
 }
 
 /// all sa data models should contain a doi
-public protocol SADataModelType {
+public protocol SADataModelType  {
     var doi:SADocumentIdentifier { get }
 }
 
@@ -25,19 +25,44 @@ public protocol SADataModelListType {
 }
 
 /// define the identifier type
-public protocol SADocumentIdentifierType: Equatable, SAMappable {
+public protocol SADocumentIdentifierType: Equatable, SAMappable, Comparable {
     var id:String { get }
     var dateCreated:Date { get }
     var lastUpdated:Date { get }
     var version:Int { get }
 }
 
-/// equals operator
-public func == (lhs:SADocumentIdentifier, rhs:SADocumentIdentifier) -> Bool {
-    return lhs.id == rhs.id &&
-        lhs.dateCreated == rhs.dateCreated &&
-        lhs.lastUpdated == rhs.lastUpdated &&
-        lhs.version == rhs.version
+/// Equatable
+public func == (lhs: SADocumentIdentifier, rhs: SADocumentIdentifier) -> Bool {
+	return lhs.id == rhs.id &&
+		lhs.dateCreated == rhs.dateCreated &&
+		lhs.lastUpdated == rhs.lastUpdated &&
+		lhs.version == rhs.version
+}
+
+/// Comparable
+public func <(lhs: SADocumentIdentifier, rhs: SADocumentIdentifier) -> Bool {
+	return
+		lhs.version < rhs.version || (
+			lhs.version == rhs.version &&
+			lhs.lastUpdated < rhs.lastUpdated
+		)
+}
+
+public func >(lhs: SADocumentIdentifier, rhs: SADocumentIdentifier) -> Bool {
+	return
+		lhs.version > rhs.version || (
+			lhs.version == rhs.version &&
+			lhs.lastUpdated > rhs.lastUpdated
+		)
+}
+
+public func <=(lhs: SADocumentIdentifier, rhs: SADocumentIdentifier) -> Bool {
+	return lhs < rhs || lhs == rhs
+}
+
+public func >=(lhs: SADocumentIdentifier, rhs: SADocumentIdentifier) -> Bool {
+	return lhs > rhs || lhs == rhs
 }
 
 /// concrete implementation of document identifier
